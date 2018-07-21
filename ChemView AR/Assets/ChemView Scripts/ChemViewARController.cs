@@ -13,10 +13,13 @@ using Input = GoogleARCore.InstantPreviewInput;
 /// </summary>
 public class ChemViewARController : MonoBehaviour
 {
+
     /// <summary>
     /// The first-person camera being used to render the passthrough camera image (i.e. AR background).
     /// </summary>
     public Camera FirstPersonCamera;
+
+    private bool prevDoubleTap = false;
 
     /// <summary>
     /// A prefab for tracking and visualizing detected planes.
@@ -72,50 +75,45 @@ public class ChemViewARController : MonoBehaviour
 
         SearchingForPlaneUI.SetActive(showSearchingUI);
 
-        // If the player has not touched the screen, we are done with this update.
         Touch touch;
+
+        // If the player has not touched the screen, we are done with this update.
         if (Input.touchCount < 1 || (touch = Input.GetTouch(0)).phase != TouchPhase.Began)
         {
             return;
         }
 
-        // Raycast against the location the player touched to search for planes.
-        TrackableHit hit;
-        TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon |
-            TrackableHitFlags.FeaturePointWithSurfaceNormal;
-
-        if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
+        if (touch.tapCount == 1)
         {
-            // Use hit pose and camera pose to check if hittest is from the
-            // back of the plane, if it is, no need to create the anchor.
-            if ((hit.Trackable is DetectedPlane) &&
-                Vector3.Dot(FirstPersonCamera.transform.position - hit.Pose.position,
-                    hit.Pose.rotation * Vector3.up) < 0)
+            Ray raycast = FirstPersonCamera.ScreenPointToRay(touch.position);
+            RaycastHit raycastHit;
+
+            if (Physics.Raycast(raycast, out raycastHit))
             {
-                Debug.Log("Hit at back of the current DetectedPlane");
+                _ShowAndroidToastMessage("Hit something...");
+
+                if (raycastHit.collider.tag == "Acetone")
+                {
+                    _ShowAndroidToastMessage("Detected Acetone CLick");
+                    
+                }
             }
             else
             {
-                // Instantiate chemical model at the hit pose.
-                var molObj = Instantiate(loadedChemModel, hit.Pose.position, hit.Pose.rotation);
-                molObj.transform.localScale = new Vector3(0.2F, 0.2F, 0.2F);
-                molObj.transform.Translate(0, 0.5f, 0, Space.World);
-
-                // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
-                molObj.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
-
-                //rotate the loaded molecule
-
-                // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
-                // world evolves.
-                var anchor = hit.Trackable.CreateAnchor(hit.Pose);
-
-                // Make Andy model a child of the anchor.
-                molObj.transform.parent = anchor.transform;
-
-                allMols.Add(molObj);
+                _ShowAndroidToastMessage("No mol hit detected");
             }
+
+            return;
+          
         }
+
+        if (touch.tapCount == 2)
+        {
+            _ShowAndroidToastMessage("mol Spawned");
+            SpawnMolecule();
+            return;
+        }
+
     }
 
     /// <summary>
@@ -166,6 +164,46 @@ public class ChemViewARController : MonoBehaviour
     private void _DoQuit()
     {
         Application.Quit();
+    }
+
+    private void SpawnMolecule()
+    {
+        Touch touch = Input.GetTouch(0);
+        TrackableHit hit;
+        TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon |
+            TrackableHitFlags.FeaturePointWithSurfaceNormal;
+
+        if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
+        {
+            // Use hit pose and camera pose to check if hittest is from the
+            // back of the plane, if it is, no need to create the anchor.
+            if ((hit.Trackable is DetectedPlane) &&
+                Vector3.Dot(FirstPersonCamera.transform.position - hit.Pose.position,
+                    hit.Pose.rotation * Vector3.up) < 0)
+            {
+                Debug.Log("Hit at back of the current DetectedPlane");
+            }
+            else
+            {
+                // Instantiate chemical model at the hit pose.
+                var molObj = Instantiate(loadedChemModel, hit.Pose.position, hit.Pose.rotation);
+                molObj.transform.Translate(0, 0.5f, 0, Space.World);
+
+                // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
+                molObj.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
+
+                //rotate the loaded molecule
+
+                // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
+                // world evolves.
+                var anchor = hit.Trackable.CreateAnchor(hit.Pose);
+
+                // Make Andy model a child of the anchor.
+                molObj.transform.parent = anchor.transform;
+
+                allMols.Add(molObj);
+            }
+        }
     }
 
     /// <summary>

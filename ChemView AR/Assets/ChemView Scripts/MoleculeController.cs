@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoleculeController : MonoBehaviour {
 
+    float speed = 100;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +12,11 @@ public class MoleculeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(Vector3.up, 30f * Time.deltaTime);
+        transform.Rotate(Vector3.up, speed * Time.deltaTime);
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 }
