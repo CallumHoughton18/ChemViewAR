@@ -296,6 +296,54 @@ ModelImporter:
     4300090: Sphere7
     4300092: Sphere8
     4300094: Sphere9
+    6400000: C1_Atom
+    6400002: C2_Atom
+    6400004: C3_Atom
+    6400006: Cylinder1
+    6400008: Cylinder10
+    6400010: Cylinder11
+    6400012: Cylinder12
+    6400014: Cylinder13
+    6400016: Cylinder14
+    6400018: Cylinder15
+    6400020: Cylinder16
+    6400022: Cylinder17
+    6400024: Cylinder18
+    6400026: Cylinder2
+    6400028: Cylinder3
+    6400030: Cylinder4
+    6400032: Cylinder5
+    6400034: Cylinder6
+    6400036: Cylinder7
+    6400038: Cylinder8
+    6400040: Cylinder9
+    6400042: H1_Atom
+    6400044: H3_Atom
+    6400046: H4_Atom
+    6400048: H5_Atom
+    6400050: H6_Atom
+    6400052: H7_Atom
+    6400054: O1_Atom
+    6400056: Sphere1
+    6400058: Sphere10
+    6400060: Sphere11
+    6400062: Sphere12
+    6400064: Sphere13
+    6400066: Sphere14
+    6400068: Sphere15
+    6400070: Sphere16
+    6400072: Sphere17
+    6400074: Sphere18
+    6400076: Sphere19
+    6400078: Sphere2
+    6400080: Sphere20
+    6400082: Sphere3
+    6400084: Sphere4
+    6400086: Sphere5
+    6400088: Sphere6
+    6400090: Sphere7
+    6400092: Sphere8
+    6400094: Sphere9
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -328,7 +376,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

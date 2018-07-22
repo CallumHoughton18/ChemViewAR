@@ -15,8 +15,15 @@ public class MoleculeController : MonoBehaviour {
         transform.Rotate(Vector3.up, speed * Time.deltaTime);
     }
 
-    public void Kill()
+    public void Highlight()
     {
-        Destroy(gameObject);
+        Behaviour highlighted = (Behaviour)GetComponent("Halo");
+        highlighted.enabled = true;
+    }
+
+    public void Dehighlight()
+    {
+        Behaviour highlighted = (Behaviour)GetComponent("Halo");
+        highlighted.enabled = false;
     }
 }

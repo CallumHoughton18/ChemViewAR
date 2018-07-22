@@ -19,6 +19,8 @@ public class ChemViewARController : MonoBehaviour
     /// </summary>
     public Camera FirstPersonCamera;
 
+    MoleculeController selectedMol;
+
     private bool prevDoubleTap = false;
 
     /// <summary>
@@ -90,12 +92,21 @@ public class ChemViewARController : MonoBehaviour
 
             if (Physics.Raycast(raycast, out raycastHit))
             {
-                _ShowAndroidToastMessage("Hit something...");
 
                 if (raycastHit.collider.tag == "Acetone")
                 {
-                    _ShowAndroidToastMessage("Detected Acetone CLick");
-                    
+                    if (selectedMol == null)
+                    {
+                        selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                    }
+
+                    else
+                    {
+                        selectedMol.Dehighlight();
+                        _ShowAndroidToastMessage("Detected Acetone CLick");
+                        selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                        selectedMol.Highlight();
+                    }
                 }
             }
             else
