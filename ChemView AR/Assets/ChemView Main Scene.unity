@@ -267,7 +267,7 @@ MonoBehaviour:
   FirstPersonCamera: {fileID: 896679035}
   DetectedPlanePrefab: {fileID: 1654175882956584, guid: 6a35c744e5010405c847fad90282d2be,
     type: 2}
-  loadedChemModel: {fileID: 1077477230299870, guid: 4aa07b89c2ab3a545a410fbb7e2808c5,
+  loadedChemModel: {fileID: 1213842144063174, guid: dc5c08ea9cb89f0418311b21142ea6cb,
     type: 2}
   SearchingForPlaneUI: {fileID: 1133631540}
 --- !u!20 &896679035 stripped

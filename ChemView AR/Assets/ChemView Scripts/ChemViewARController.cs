@@ -57,8 +57,8 @@ public class ChemViewARController : MonoBehaviour
     /// <summary>
     /// The Unity Update() method.
     /// </summary>
-    /// 
-    private List<GameObject> allMols = new List<GameObject>();
+    ///
+
     public void Update()
     {
         _UpdateApplicationLifecycle();
@@ -85,6 +85,7 @@ public class ChemViewARController : MonoBehaviour
             return;
         }
 
+
         if (touch.tapCount == 1)
         {
             Ray raycast = FirstPersonCamera.ScreenPointToRay(touch.position);
@@ -93,17 +94,17 @@ public class ChemViewARController : MonoBehaviour
             if (Physics.Raycast(raycast, out raycastHit))
             {
 
-                if (raycastHit.collider.tag == "Acetone")
+                if (raycastHit.collider.tag == "Molecule")
                 {
                     if (selectedMol == null)
                     {
                         selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                        selectedMol.Highlight();
                     }
 
                     else
                     {
                         selectedMol.Dehighlight();
-                        _ShowAndroidToastMessage("Detected Acetone CLick");
                         selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
                         selectedMol.Highlight();
                     }
@@ -112,8 +113,12 @@ public class ChemViewARController : MonoBehaviour
             else
             {
                 _ShowAndroidToastMessage("No mol hit detected");
+                if (selectedMol != null)
+                {
+                    selectedMol.Dehighlight();
+                    selectedMol = null;
+                }
             }
-
             return;
           
         }
@@ -209,10 +214,9 @@ public class ChemViewARController : MonoBehaviour
                 // world evolves.
                 var anchor = hit.Trackable.CreateAnchor(hit.Pose);
 
-                // Make Andy model a child of the anchor.
+                // Make molecule model a child of the anchor.
                 molObj.transform.parent = anchor.transform;
 
-                allMols.Add(molObj);
             }
         }
     }
