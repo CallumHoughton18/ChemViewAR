@@ -2,6 +2,7 @@
 using GoogleARCore;
 using GoogleARCore.Examples.Common;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 #if UNITY_EDITOR
 // Set up touch input propagation while using Instant Preview in the editor.
@@ -54,10 +55,21 @@ public class ChemViewARController : MonoBehaviour
     /// </summary>
     private bool m_IsQuitting = false;
 
+    public bool rotateSelectedMolecule;
+
     /// <summary>
     /// The Unity Update() method.
     /// </summary>
     ///
+    public void MoleculeRotationToggle(bool newValue)
+    {
+        if (selectedMol != null)
+        {
+            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+            selectedMolScript.rotateMolecule = newValue;
+        }
+
+    }
 
     public void Update()
     {
@@ -88,6 +100,8 @@ public class ChemViewARController : MonoBehaviour
 
         if (touch.tapCount == 1)
         {
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            { 
             Ray raycast = FirstPersonCamera.ScreenPointToRay(touch.position);
             RaycastHit raycastHit;
 
@@ -99,6 +113,8 @@ public class ChemViewARController : MonoBehaviour
                     if (selectedMol == null)
                     {
                         selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                        MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                        selectedMolScript.isSelected = true;
                         selectedMol.Highlight();
                     }
 
@@ -106,6 +122,8 @@ public class ChemViewARController : MonoBehaviour
                     {
                         selectedMol.Dehighlight();
                         selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                        MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                        selectedMolScript.isSelected = true;
                         selectedMol.Highlight();
                     }
                 }
@@ -116,18 +134,23 @@ public class ChemViewARController : MonoBehaviour
                 if (selectedMol != null)
                 {
                     selectedMol.Dehighlight();
+                    MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                    selectedMolScript.isSelected = false;
                     selectedMol = null;
                 }
             }
             return;
-          
+        }
         }
 
         if (touch.tapCount == 2)
         {
-            _ShowAndroidToastMessage("mol Spawned");
-            SpawnMolecule();
-            return;
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            {
+                _ShowAndroidToastMessage("mol Spawned");
+                SpawnMolecule();
+                return;
+            }
         }
 
     }
@@ -216,6 +239,9 @@ public class ChemViewARController : MonoBehaviour
 
                 // Make molecule model a child of the anchor.
                 molObj.transform.parent = anchor.transform;
+
+                MoleculeController selectedMolScript = molObj.GetComponent<MoleculeController>();
+                selectedMolScript.Highlight();
 
             }
         }
