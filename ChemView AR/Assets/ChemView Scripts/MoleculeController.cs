@@ -16,8 +16,17 @@ public class MoleculeController : MonoBehaviour {
     public Vector3 initialHaloScale;
     public static Transform ScaleTransform;
 
+    float f_lastX = 0.0f;
+    float f_difX = 0.5f;
+    float f_steps = 0.0f;
+    int i_direction = 1;
+
+    float f_lastY = 0.0f;
+    float f_difY = 0.5f;
+
     public bool isSelected = false;
     public bool rotateMolecule = false;
+    public bool userRotatingMolecule = false;
 
     // Use this for initialization
     void Start () {
@@ -33,6 +42,11 @@ public class MoleculeController : MonoBehaviour {
         if (rotateMolecule == true)
         {
             RotateMolecule();
+        }
+
+        if (userRotatingMolecule == true)
+        {
+            UserRotation();
         }
 
         int fingersOnScreen = 0;
@@ -83,33 +97,94 @@ public class MoleculeController : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Highlight();
-        distance = Camera.main.WorldToScreenPoint(transform.position);
-        xPos = Input.mousePosition.x - distance.x;
-        yPos = Input.mousePosition.y - distance.y;
+        if (userRotatingMolecule == false)
+        {
+            Highlight();
+            distance = Camera.main.WorldToScreenPoint(transform.position);
+            xPos = Input.mousePosition.x - distance.x;
+            yPos = Input.mousePosition.y - distance.y;
 
-        ScaleTransform = transform;
+            ScaleTransform = transform;
+        }
 
     }
 
     void OnMouseDrag()
     {
-        Highlight();
-        if(yPos < 0)
+        if (userRotatingMolecule == false)
         {
-            yPos = 0;
-        }
-        Vector3 curPos =
-         new Vector3(Input.mousePosition.x - xPos,
-                     Input.mousePosition.y - yPos, distance.z);
+            Highlight();
+            if (yPos < 0)
+            {
+                yPos = 0;
+            }
+            Vector3 curPos =
+             new Vector3(Input.mousePosition.x - xPos,
+                         Input.mousePosition.y - yPos, distance.z);
 
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
-        transform.position = worldPos;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
+            transform.position = worldPos;
+        }
+
     }
 
     public void RotateMolecule()
     {
         transform.Rotate(Vector3.up, speed * Time.deltaTime);  
+    }
+
+    public void UserRotation()
+    {
+        Highlight();
+        if (Input.GetMouseButtonDown(0))
+        {
+            f_difX = 0.0f;
+            f_difY = 0.0f;
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            f_difX = Mathf.Abs(f_lastX - Input.GetAxis("Mouse X"));
+            f_difY = Mathf.Abs(f_lastY - Input.GetAxis("Mouse Y"));
+
+            if (f_lastX < Input.GetAxis("Mouse X"))
+            {
+                i_direction = -1;
+                transform.Rotate(Vector3.up, -f_difX);
+            }
+
+            if (f_lastX > Input.GetAxis("Mouse X"))
+            {
+                i_direction = 1;
+                transform.Rotate(Vector3.up, f_difX);
+            }
+
+            if (f_lastY < Input.GetAxis("Mouse Y"))
+            {
+                i_direction = -1;
+                transform.Rotate(Vector3.left);
+            }
+
+            if (f_lastY > Input.GetAxis("Mouse Y"))
+            {
+                i_direction = 1;
+                transform.Rotate(Vector3.left);
+            }
+
+            f_lastX = -Input.GetAxis("Mouse X");
+            f_lastY = -Input.GetAxis("Mouse Y");
+        }
+        else
+        {
+            if (f_difX > 0.5f) f_difX -= 0.05f;
+            if (f_difX < 0.5f) f_difX += 0.05f;
+
+            transform.Rotate(Vector3.up, f_difX * i_direction);
+
+            if (f_difY > 0.5f) f_difY -= 0.05f;
+            if (f_difY < 0.5f) f_difY += 0.05f;
+
+            transform.Rotate(Vector3.left, f_difY * i_direction);
+        }
     }
 
 }

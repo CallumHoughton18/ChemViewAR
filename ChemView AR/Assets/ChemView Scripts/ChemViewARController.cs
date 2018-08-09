@@ -61,12 +61,22 @@ public class ChemViewARController : MonoBehaviour
     /// The Unity Update() method.
     /// </summary>
     ///
-    public void MoleculeRotationToggle(bool newValue)
+    public void MoleculeSpinToggle(bool newValue)
     {
         if (selectedMol != null)
         {
             MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
             selectedMolScript.rotateMolecule = newValue;
+        }
+
+    }
+
+    public void MoleculeUserRotationToggle(bool newValue)
+    {
+        if (selectedMol != null)
+        {
+            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+            selectedMolScript.userRotatingMolecule = newValue;
         }
 
     }
