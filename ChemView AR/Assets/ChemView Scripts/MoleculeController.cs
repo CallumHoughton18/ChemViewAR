@@ -16,13 +16,7 @@ public class MoleculeController : MonoBehaviour {
     public Vector3 initialHaloScale;
     public static Transform ScaleTransform;
 
-    float f_lastX = 0.0f;
-    float f_difX = 0.5f;
-    float f_steps = 0.0f;
-    int i_direction = 1;
-
-    float f_lastY = 0.0f;
-    float f_difY = 0.5f;
+    float rotationSpeed = 100;
 
     public bool isSelected = false;
     public bool rotateMolecule = false;
@@ -42,11 +36,6 @@ public class MoleculeController : MonoBehaviour {
         if (rotateMolecule == true)
         {
             RotateMolecule();
-        }
-
-        if (userRotatingMolecule == true)
-        {
-            UserRotation();
         }
 
         int fingersOnScreen = 0;
@@ -94,6 +83,11 @@ public class MoleculeController : MonoBehaviour {
         isSelected = false;
     }
 
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
 
     void OnMouseDown()
     {
@@ -126,65 +120,21 @@ public class MoleculeController : MonoBehaviour {
             transform.position = worldPos;
         }
 
+        else if (userRotatingMolecule == true)
+        {
+            Highlight();
+            float rotX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
+            float rotY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
+
+            transform.Rotate(Vector3.up, rotX);
+            transform.Rotate(Vector3.right, -rotY);
+        }
+
     }
 
     public void RotateMolecule()
     {
         transform.Rotate(Vector3.up, speed * Time.deltaTime);  
-    }
-
-    public void UserRotation()
-    {
-        Highlight();
-        if (Input.GetMouseButtonDown(0))
-        {
-            f_difX = 0.0f;
-            f_difY = 0.0f;
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            f_difX = Mathf.Abs(f_lastX - Input.GetAxis("Mouse X"));
-            f_difY = Mathf.Abs(f_lastY - Input.GetAxis("Mouse Y"));
-
-            if (f_lastX < Input.GetAxis("Mouse X"))
-            {
-                i_direction = -1;
-                transform.Rotate(Vector3.up, -f_difX);
-            }
-
-            if (f_lastX > Input.GetAxis("Mouse X"))
-            {
-                i_direction = 1;
-                transform.Rotate(Vector3.up, f_difX);
-            }
-
-            if (f_lastY < Input.GetAxis("Mouse Y"))
-            {
-                i_direction = -1;
-                transform.Rotate(Vector3.left);
-            }
-
-            if (f_lastY > Input.GetAxis("Mouse Y"))
-            {
-                i_direction = 1;
-                transform.Rotate(Vector3.left);
-            }
-
-            f_lastX = -Input.GetAxis("Mouse X");
-            f_lastY = -Input.GetAxis("Mouse Y");
-        }
-        else
-        {
-            if (f_difX > 0.5f) f_difX -= 0.05f;
-            if (f_difX < 0.5f) f_difX += 0.05f;
-
-            transform.Rotate(Vector3.up, f_difX * i_direction);
-
-            if (f_difY > 0.5f) f_difY -= 0.05f;
-            if (f_difY < 0.5f) f_difY += 0.05f;
-
-            transform.Rotate(Vector3.left, f_difY * i_direction);
-        }
     }
 
 }

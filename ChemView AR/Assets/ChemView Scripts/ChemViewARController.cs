@@ -57,6 +57,8 @@ public class ChemViewARController : MonoBehaviour
 
     public bool rotateSelectedMolecule;
 
+    public bool UserRotating = false;
+
     /// <summary>
     /// The Unity Update() method.
     /// </summary>
@@ -77,6 +79,7 @@ public class ChemViewARController : MonoBehaviour
         {
             MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
             selectedMolScript.userRotatingMolecule = newValue;
+            UserRotating = newValue;
         }
 
     }
@@ -118,7 +121,7 @@ public class ChemViewARController : MonoBehaviour
             if (Physics.Raycast(raycast, out raycastHit))
             {
 
-                if (raycastHit.collider.tag == "Molecule")
+                if (raycastHit.collider.tag == "Molecule" && UserRotating == false)
                 {
                     if (selectedMol == null)
                     {
@@ -140,8 +143,7 @@ public class ChemViewARController : MonoBehaviour
             }
             else
             {
-                _ShowAndroidToastMessage("No mol hit detected");
-                if (selectedMol != null)
+                if (selectedMol != null && UserRotating == false)
                 {
                     selectedMol.Dehighlight();
                     MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
@@ -155,7 +157,7 @@ public class ChemViewARController : MonoBehaviour
 
         if (touch.tapCount == 2)
         {
-            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && UserRotating == false)
             {
                 _ShowAndroidToastMessage("mol Spawned");
                 SpawnMolecule();
@@ -215,6 +217,15 @@ public class ChemViewARController : MonoBehaviour
         Application.Quit();
     }
 
+    public void DeleteSelectedMolecule()
+    {
+        if (selectedMol != null)
+        {
+            selectedMol.Dehighlight();
+            selectedMol.Destroy();
+        }
+    }
+
     private void SpawnMolecule()
     {
         Touch touch = Input.GetTouch(0);
@@ -252,6 +263,7 @@ public class ChemViewARController : MonoBehaviour
 
                 MoleculeController selectedMolScript = molObj.GetComponent<MoleculeController>();
                 selectedMolScript.Highlight();
+                selectedMol = selectedMolScript;
 
             }
         }
