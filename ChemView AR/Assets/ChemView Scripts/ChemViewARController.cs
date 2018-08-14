@@ -262,6 +262,7 @@ public class ChemViewARController : MonoBehaviour
                 molObj.transform.parent = anchor.transform;
 
                 MoleculeController selectedMolScript = molObj.GetComponent<MoleculeController>();
+                selectedMolScript.planePosition = anchor.transform.position;
                 selectedMolScript.Highlight();
                 selectedMol = selectedMolScript;
 

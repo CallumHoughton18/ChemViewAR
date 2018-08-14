@@ -8,6 +8,7 @@ public class MoleculeController : MonoBehaviour {
     float speed = 100;
 
     Vector3 distance;
+    public Vector3 planePosition;
     float xPos;
     float yPos;
 
@@ -23,8 +24,7 @@ public class MoleculeController : MonoBehaviour {
     public bool userRotatingMolecule = false;
 
     // Use this for initialization
-    void Start () {
-		
+    void Start () { 
 	}
 	
 	// Update is called once per frame
@@ -36,6 +36,11 @@ public class MoleculeController : MonoBehaviour {
         if (rotateMolecule == true)
         {
             RotateMolecule();
+        }
+
+        if (this.transform.position.y <= planePosition.y)
+        {
+            this.transform.position = new Vector3(transform.position.x, planePosition.y, transform.position.z);
         }
 
         int fingersOnScreen = 0;
@@ -126,8 +131,8 @@ public class MoleculeController : MonoBehaviour {
             float rotX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
             float rotY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
 
-            transform.Rotate(Vector3.up, rotX);
-            transform.Rotate(Vector3.right, -rotY);
+            transform.Rotate(Vector3.up, -rotX, Space.World);
+            transform.Rotate(Vector3.right, rotY, Space.World);
         }
 
     }
