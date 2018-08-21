@@ -12941,11 +12941,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
   initialHaloScale: {x: 0, y: 0, z: 0}
   isSelected: 0
   rotateMolecule: 0
+  userRotatingMolecule: 0
+  molInfoSheet: {fileID: 1695247016224322, guid: f2472d3b321780d43a44e6977855497d,
+    type: 2}
 --- !u!122 &122777953444983590
 Halo:
   m_ObjectHideFlags: 1

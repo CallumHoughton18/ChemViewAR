@@ -84,6 +84,15 @@ public class ChemViewARController : MonoBehaviour
 
     }
 
+    public void DisplayMolInfoSheet(bool newValue)
+    {
+        if (selectedMol != null)
+        {
+            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+            selectedMolScript.DisplayInfoSheet(FirstPersonCamera);
+        }
+    }
+
     public void Update()
     {
         _UpdateApplicationLifecycle();

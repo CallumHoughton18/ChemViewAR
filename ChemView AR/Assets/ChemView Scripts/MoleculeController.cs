@@ -23,6 +23,8 @@ public class MoleculeController : MonoBehaviour {
     public bool rotateMolecule = false;
     public bool userRotatingMolecule = false;
 
+    public GameObject molInfoSheet;
+
     // Use this for initialization
     void Start () { 
 	}
@@ -74,6 +76,19 @@ public class MoleculeController : MonoBehaviour {
 
     }
 
+    public void DisplayInfoSheet(Camera player)
+    {
+
+        Vector3 placement = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
+
+        sheet.transform.LookAt(player.transform);
+
+        sheet.transform.parent = transform;
+
+        _ShowAndroidToastMessage("Displaying Mol info...");
+
+    }
     public void Highlight()
     {
         Behaviour highlighted = (Behaviour)GetComponent("Halo");
@@ -140,6 +155,23 @@ public class MoleculeController : MonoBehaviour {
     public void RotateMolecule()
     {
         transform.Rotate(Vector3.up, speed * Time.deltaTime);  
+    }
+
+    private void _ShowAndroidToastMessage(string message)
+    {
+        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject unityActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+
+        if (unityActivity != null)
+        {
+            AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
+            unityActivity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
+            {
+                AndroidJavaObject toastObject = toastClass.CallStatic<AndroidJavaObject>("makeText", unityActivity,
+                    message, 0);
+                toastObject.Call("show");
+            }));
+        }
     }
 
 }
