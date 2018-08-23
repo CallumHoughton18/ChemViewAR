@@ -320,7 +320,7 @@ MonoBehaviour:
   isSelected: 0
   rotateMolecule: 0
   userRotatingMolecule: 0
-  molInfoSheet: {fileID: 1695247016224322, guid: f2472d3b321780d43a44e6977855497d,
+  molInfoSheet: {fileID: 1397741505496930, guid: 511fef694a39f394bb58baafb84e7d93,
     type: 2}
 --- !u!122 &122919814500600128
 Halo:

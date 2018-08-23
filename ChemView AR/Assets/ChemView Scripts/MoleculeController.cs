@@ -78,11 +78,12 @@ public class MoleculeController : MonoBehaviour {
 
     public void DisplayInfoSheet(Camera player)
     {
-
-        Vector3 placement = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Vector3 placement = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
         var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
 
+
         sheet.transform.LookAt(player.transform);
+        sheet.transform.Rotate(0, 180, 0);
 
         sheet.transform.parent = transform;
 
