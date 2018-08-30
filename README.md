@@ -9,7 +9,7 @@ A molecular viewer augmented reality android app. Designed using Unity and ARCor
 # To Do
 * ~~Implement Molecule Info Sheet with wikipedia RESTful API implementation~~ Added as of 23/08/2018.
 * ~~Unclutter UI by creating custom UI icons~~ Added as of 30/08/2018.
-* ~~ Improve molecule info sheet placement and increase RESTful API call efficiency so less calls are made.~~ Added as of 30/08/2018.
+* ~~Improve molecule info sheet placement and increase RESTful API call efficiency so less calls are made.~~ Added as of 30/08/2018.
 
 * Further improve rotation functionality.
 * Further improve molecule info sheet to account for space taken up by parent molecule.
