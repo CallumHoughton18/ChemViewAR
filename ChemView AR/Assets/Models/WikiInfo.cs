@@ -19,5 +19,13 @@ namespace Assets.Models
         public string description { get; set; }
         public string extract { get; set; }
         public string extract_html { get; set; }
+        public Thumbnail thumbnail { get; set; }
+    }
+
+    public class Thumbnail
+    {
+        public string source { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
     }
 }

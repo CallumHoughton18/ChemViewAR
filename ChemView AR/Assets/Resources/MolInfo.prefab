@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114342260129979984}
   m_Layer: 5
   m_Name: MolInfo
-  m_TagString: Untagged
+  m_TagString: infosheet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

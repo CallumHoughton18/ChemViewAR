@@ -10,19 +10,23 @@ public class UIController : MonoBehaviour {
     public GameObject ChemViewARControllerOBJ;
     public GameObject[] molsArray;
 
-	// Use this for initialization
-	void Start () {
+    private void OnGUI()
+    {
+    }
+    // Use this for initialization
+    void Start () {
         molsArray = Resources.LoadAll<GameObject>("Prefabs");
         PopulateDropDown();
 
         dropdown = GetComponent<Dropdown>();
-        dropdown.onValueChanged.AddListener(delegate {
+        dropdown.onValueChanged.AddListener(delegate
+        {
             DropdownValueChanged(dropdown);
         });
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 

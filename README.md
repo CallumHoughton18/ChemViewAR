@@ -7,6 +7,12 @@ A molecular viewer augmented reality android app. Designed using Unity and ARCor
 * Molecule information sheet will only be populated if the spawned molecule name matches an existing wikipedia page, so for now only the Acetone test molecule has a populated information sheet.
 
 # To Do
-* Unclutter UI by creating custom UI icons.
-* ~~Implement Molecule Info Sheet with wikipedia RESTful API implementation~~ Added as of 23/08/2018
-* Improve molecule info sheet placement and increase RESTful API call efficiency so less calls are made.
+* ~~Implement Molecule Info Sheet with wikipedia RESTful API implementation~~ Added as of 23/08/2018.
+* ~~Unclutter UI by creating custom UI icons~~ Added as of 30/08/2018.
+* ~~ Improve molecule info sheet placement and increase RESTful API call efficiency so less calls are made.~~ Added as of 30/08/2018.
+
+* Further improve rotation functionality.
+* Further improve molecule info sheet to account for space taken up by parent molecule.
+* Add molecular diagram to molinfo sheet.
+* Further improve custom icon designs and make them more 'chemistry specific'. 
+* Begin implementation of 'image recognition' augmented reality to spawn in 3D molecules from their skeletal diagram (possibly as separate branch).

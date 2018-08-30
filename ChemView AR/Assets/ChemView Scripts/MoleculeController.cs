@@ -1,4 +1,7 @@
-﻿using GoogleARCore;
+﻿using Assets.Models;
+using GoogleARCore;
+using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,14 +26,40 @@ public class MoleculeController : MonoBehaviour {
     public bool rotateMolecule = false;
     public bool userRotatingMolecule = false;
 
+    public string moleculeName;
+    public string moleculeInfo;
+
+    string wikiAPITemplateQuery = "https://en.wikipedia.org/api/rest_v1/page/summary/MOLNAME";
+
     public GameObject molInfoSheet;
+    public Sprite molImage;
 
     // Use this for initialization
-    void Start () { 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    IEnumerator Start()
+    {
+        moleculeName = transform.name.Replace("(Clone)", string.Empty);
+        string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
+        using (WWW wikiReq = new WWW(query))
+        {
+            yield return wikiReq;
+            WikiInfo wikiObj = JsonConvert.DeserializeObject<WikiInfo>(wikiReq.text);
+            moleculeInfo = wikiObj.extract;
+
+            using (WWW www = new WWW(wikiObj.thumbnail.source))
+            {
+                // Wait for download to complete
+                yield return www;
+
+                // assign texture
+
+                molImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+            }
+
+        }
+    }
+
+        // Update is called once per frame
+        void Update () {
 
         Behaviour highlight = (Behaviour)GetComponent("Halo");
 
@@ -76,18 +105,39 @@ public class MoleculeController : MonoBehaviour {
 
     }
 
-    public void DisplayInfoSheet(Camera player)
+    public void DisplayInfoSheet(Camera player, bool display)
     {
-        Vector3 placement = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
-        var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
+        if (display == true)
+        {
+            try
+            {
+                Vector3 placement = new Vector3(player.transform.position.x + 1.5f, player.transform.position.y, player.transform.position.z + 1.5f);
+                var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
 
+                sheet.transform.LookAt(player.transform);
+                sheet.transform.Rotate(0, 180, 0);
 
-        sheet.transform.LookAt(player.transform);
-        sheet.transform.Rotate(0, 180, 0);
+                sheet.transform.parent = transform;
 
-        sheet.transform.parent = transform;
+                _ShowAndroidToastMessage("Displaying Mol info...");
+            }
+            catch (Exception ex)
+            {
+                _ShowAndroidToastMessage(ex.ToString());
+            }
+        }
 
-        _ShowAndroidToastMessage("Displaying Mol info...");
+        else
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.tag == "infosheet")
+                {
+                    Destroy(child.transform);
+                }
+            }
+        }
+
 
     }
     public void Highlight()
