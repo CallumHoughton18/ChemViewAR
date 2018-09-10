@@ -12948,8 +12948,11 @@ MonoBehaviour:
   isSelected: 0
   rotateMolecule: 0
   userRotatingMolecule: 0
-  molInfoSheet: {fileID: 1397741505496930, guid: 511fef694a39f394bb58baafb84e7d93,
+  moleculeName: 
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1569503643442968, guid: 3953d7445f09efa40a6208c67aba2086,
     type: 2}
+  molImage: {fileID: 0}
 --- !u!122 &122777953444983590
 Halo:
   m_ObjectHideFlags: 1

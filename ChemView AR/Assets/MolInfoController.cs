@@ -11,10 +11,12 @@ public class MolInfoController : MonoBehaviour
     public Text headerText;
     public Text bodyText;
     public Image molImage;
-    string wikiAPITemplateQuery = "https://en.wikipedia.org/api/rest_v1/page/summary/MOLNAME";
+
+    Quaternion initRotation;
     // Use this for initialization
     void Start()
     {
+        initRotation = transform.rotation;
         MoleculeController parentMol = transform.parent.GetComponent<MoleculeController>();
         headerText.text = parentMol.moleculeName;
         bodyText.text = parentMol.moleculeInfo;
@@ -26,6 +28,11 @@ public class MolInfoController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void LateUpdate()
+    {
+        transform.rotation = initRotation;
     }
 
 

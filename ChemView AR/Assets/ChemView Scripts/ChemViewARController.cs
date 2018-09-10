@@ -20,7 +20,7 @@ public class ChemViewARController : MonoBehaviour
     /// </summary>
     public Camera FirstPersonCamera;
 
-    MoleculeController selectedMol;
+    public MoleculeController selectedMol;
 
     private bool prevDoubleTap = false;
 

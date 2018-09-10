@@ -1,21 +1,33 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
     public Dropdown dropdown;
+    public Toggle rotateToggle;
+    public Toggle spinToggle;
+    public Toggle infoToggle;
     public GameObject ChemViewARControllerOBJ;
-    public GameObject[] molsArray;
+    public List<GameObject> molsArray;
+    public GameObject MoleculeContainer;
+    ChemViewARController ChemController;
 
     private void OnGUI()
     {
     }
     // Use this for initialization
     void Start () {
-        molsArray = Resources.LoadAll<GameObject>("Prefabs");
+
+        ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
+        foreach (Transform molecule in MoleculeContainer.transform)
+        {
+            molsArray.Add(molecule.gameObject);
+        }
+
         PopulateDropDown();
 
         dropdown = GetComponent<Dropdown>();
@@ -27,12 +39,17 @@ public class UIController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+        //if (ChemController.selectedMol == null)
+        //{
+        //    rotateToggle.isOn = false;
+        //    spinToggle.isOn = false;
+        //    infoToggle.isOn = false;
+        //}
 	}
 
     public void DropdownValueChanged(Dropdown change)
     {
-        GameObject newSelectedMol = Array.Find(molsArray, mol => mol.name.Equals(change.options[change.value].text));
+        GameObject newSelectedMol = molsArray.Where(mol => mol.name == (change.options[change.value].text)).FirstOrDefault();
         ChemViewARController ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
         ChemController.loadedChemModel = newSelectedMol;
         _ShowAndroidToastMessage("Molecule changed to: " + newSelectedMol.name);

@@ -111,7 +111,7 @@ public class MoleculeController : MonoBehaviour {
         {
             try
             {
-                Vector3 placement = new Vector3(player.transform.position.x + 1.5f, player.transform.position.y, player.transform.position.z + 1.5f);
+                Vector3 placement = new Vector3(player.transform.position.x + 0.8f, player.transform.position.y, player.transform.position.z + 1.5f);
                 var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
 
                 sheet.transform.LookAt(player.transform);
@@ -133,7 +133,8 @@ public class MoleculeController : MonoBehaviour {
             {
                 if (child.tag == "infosheet")
                 {
-                    Destroy(child.transform);
+                    _ShowAndroidToastMessage("Destroying Info Sheet");
+                    Destroy(child.gameObject);
                 }
             }
         }
