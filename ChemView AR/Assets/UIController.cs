@@ -5,7 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour {
+public class UIController : MonoBehaviour
+{
 
     public Dropdown dropdown;
     public Toggle rotateToggle;
@@ -20,7 +21,8 @@ public class UIController : MonoBehaviour {
     {
     }
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
         foreach (Transform molecule in MoleculeContainer.transform)
@@ -38,14 +40,9 @@ public class UIController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        //if (ChemController.selectedMol == null)
-        //{
-        //    rotateToggle.isOn = false;
-        //    spinToggle.isOn = false;
-        //    infoToggle.isOn = false;
-        //}
-	}
+    void Update()
+    {
+    }
 
     public void DropdownValueChanged(Dropdown change)
     {
@@ -56,9 +53,30 @@ public class UIController : MonoBehaviour {
 
     }
 
+    public void SetToggles(MoleculeController _selectedMol)
+    {
+        if (_selectedMol.rotateMolecule == true)
+        {
+            spinToggle.isOn = true;
+        }
+
+        if (_selectedMol.displayingInfoSheet == true)
+        {
+            infoToggle.isOn = true;
+        }
+    }
+
+    public void TurnOffToggles()
+    {
+        rotateToggle.isOn = false;
+        spinToggle.isOn = false;
+        infoToggle.isOn = false;
+
+    }
+
     void PopulateDropDown()
     {
-        
+
         List<string> mols = new List<string>();
 
         foreach (var mol in molsArray)

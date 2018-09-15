@@ -34,6 +34,8 @@ public class MoleculeController : MonoBehaviour {
     public GameObject molInfoSheet;
     public Sprite molImage;
 
+    public bool displayingInfoSheet = false;
+
     // Use this for initialization
     IEnumerator Start()
     {
@@ -107,8 +109,10 @@ public class MoleculeController : MonoBehaviour {
 
     public void DisplayInfoSheet(Camera player, bool display)
     {
-        if (display == true)
+        if (display == true && displayingInfoSheet == false)
         {
+            displayingInfoSheet = true;
+
             try
             {
                 Vector3 placement = new Vector3(player.transform.position.x + 0.8f, player.transform.position.y, player.transform.position.z + 1.5f);
@@ -127,8 +131,9 @@ public class MoleculeController : MonoBehaviour {
             }
         }
 
-        else
+        else if (display == false)
         {
+            displayingInfoSheet = false;
             foreach (Transform child in transform)
             {
                 if (child.tag == "infosheet")

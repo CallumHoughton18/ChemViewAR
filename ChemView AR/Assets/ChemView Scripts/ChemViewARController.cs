@@ -22,6 +22,9 @@ public class ChemViewARController : MonoBehaviour
 
     public MoleculeController selectedMol;
 
+    public GameObject UICanvas;
+    private UIController uIController;
+
     private bool prevDoubleTap = false;
 
     /// <summary>
@@ -59,10 +62,7 @@ public class ChemViewARController : MonoBehaviour
 
     public bool UserRotating = false;
 
-    /// <summary>
-    /// The Unity Update() method.
-    /// </summary>
-    ///
+
     public void MoleculeSpinToggle(bool newValue)
     {
         if (selectedMol != null)
@@ -89,8 +89,13 @@ public class ChemViewARController : MonoBehaviour
         if (selectedMol != null)
         {
             MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
-            selectedMolScript.DisplayInfoSheet(FirstPersonCamera,newValue);
+            selectedMolScript.DisplayInfoSheet(FirstPersonCamera, newValue);
         }
+    }
+
+    public void Start()
+    {
+        uIController = UICanvas.GetComponent<UIController>();
     }
 
     public void Update()
@@ -123,45 +128,53 @@ public class ChemViewARController : MonoBehaviour
         if (touch.tapCount == 1)
         {
             if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-            { 
-            Ray raycast = FirstPersonCamera.ScreenPointToRay(touch.position);
-            RaycastHit raycastHit;
-
-            if (Physics.Raycast(raycast, out raycastHit))
             {
+                Ray raycast = FirstPersonCamera.ScreenPointToRay(touch.position);
+                RaycastHit raycastHit;
 
-                if (raycastHit.collider.tag == "Molecule" && UserRotating == false)
+                if (Physics.Raycast(raycast, out raycastHit))
                 {
-                    if (selectedMol == null)
-                    {
-                        selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
-                        MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
-                        selectedMolScript.isSelected = true;
-                        selectedMol.Highlight();
-                    }
 
-                    else
+                    if (raycastHit.collider.tag == "Molecule" && UserRotating == false)
+                    {
+                        if (selectedMol == null)
+                        {
+                            selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                            selectedMolScript.isSelected = true;
+                            selectedMol.Highlight();
+                            uIController.SetToggles(selectedMol);
+                        }
+
+                        else
+                        {
+                            selectedMol.Dehighlight();
+                            UserRotating = false;
+                            uIController.TurnOffToggles();
+                            selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                            selectedMolScript.isSelected = true;
+                            selectedMol.Highlight();
+                            uIController.SetToggles(selectedMol);
+                        }
+                    }
+                }
+                else
+                {
+                    if (selectedMol != null && UserRotating == false)
                     {
                         selectedMol.Dehighlight();
-                        selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
                         MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
-                        selectedMolScript.isSelected = true;
-                        selectedMol.Highlight();
+                        selectedMolScript.isSelected = false;
+                        selectedMol = null;
+                        uIController.TurnOffToggles();
+                        UserRotating = false;
+
+
                     }
                 }
+                return;
             }
-            else
-            {
-                if (selectedMol != null && UserRotating == false)
-                {
-                    selectedMol.Dehighlight();
-                    MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
-                    selectedMolScript.isSelected = false;
-                    selectedMol = null;
-                }
-            }
-            return;
-        }
         }
 
         if (touch.tapCount == 2)
@@ -232,6 +245,7 @@ public class ChemViewARController : MonoBehaviour
         {
             selectedMol.Dehighlight();
             selectedMol.Destroy();
+            uIController.TurnOffToggles();
         }
     }
 

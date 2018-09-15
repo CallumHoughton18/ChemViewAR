@@ -994,6 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstPersonCamera: {fileID: 896679035}
   selectedMol: {fileID: 0}
+  UICanvas: {fileID: 1608144853}
   DetectedPlanePrefab: {fileID: 1654175882956584, guid: 6a35c744e5010405c847fad90282d2be,
     type: 2}
   loadedChemModel: {fileID: 1916360562543842, guid: 3c780e07486284e43b21438c23ae48a2,
