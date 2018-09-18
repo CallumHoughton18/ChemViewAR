@@ -184,17 +184,23 @@ public class MoleculeController : MonoBehaviour {
     {
         if (userRotatingMolecule == false)
         {
-            Highlight();
-            if (yPos < 0)
+            if (Input.touchCount == 1)
             {
-                yPos = 0;
-            }
-            Vector3 curPos =
-             new Vector3(Input.mousePosition.x - xPos,
-                         Input.mousePosition.y - yPos, distance.z);
+                Highlight();
+                Vector3 curPos =
+                 new Vector3(Input.mousePosition.x - xPos,
+                             Input.mousePosition.y - yPos, distance.z);
 
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
-            transform.position = worldPos;
+                Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
+                float newPosLen = Math.Abs(worldPos.sqrMagnitude);
+                float oldPosLen = transform.position.sqrMagnitude;
+                _ShowAndroidToastMessage((newPosLen - oldPosLen).ToString());
+                if (newPosLen - oldPosLen <= 0.05)
+                {
+                    transform.position = worldPos;
+                }
+
+            }
         }
 
         else if (userRotatingMolecule == true)

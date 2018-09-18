@@ -11,9 +11,9 @@ A molecular viewer augmented reality android app. Designed using Unity and ARCor
 * ~~Unclutter UI by creating custom UI icons~~ Added as of 30/08/2018.
 * ~~Improve molecule info sheet placement and increase RESTful API call efficiency so less calls are made.~~ Added as of 30/08/2018.
 * ~~Add molecular diagram to molinfo sheet.~~ Added as of 10/09/2018
+* ~~Improve scaling functionality so molecule doesn't 'rubber band' to the position of the finger on the screen.~~ Added as of 18/09/2018
 
 * Further improve rotation functionality.
-* Improve scaling functionality so molecule doesn't 'rubber band' to the position of the finger on the screen.
 * Further improve molecule info sheet to account for space taken up by parent molecule and to stay in place when molecule is spinning or being rotated.
 * Further improve custom icon designs and make them more 'chemistry specific'. 
 * Add functionality to turn on the camera flash to be used as a torch to light up low light environments. 
