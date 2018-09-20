@@ -6,7 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoleculeController : MonoBehaviour {
+public class MoleculeController : MonoBehaviour
+{
 
     float speed = 100;
 
@@ -22,7 +23,7 @@ public class MoleculeController : MonoBehaviour {
 
     float rotationSpeed = 100;
 
-    public bool isSelected = false;
+    public bool isSelected = true;
     public bool rotateMolecule = false;
     public bool userRotatingMolecule = false;
 
@@ -35,10 +36,12 @@ public class MoleculeController : MonoBehaviour {
     public Sprite molImage;
 
     public bool displayingInfoSheet = false;
+    public bool isScaling = false;
 
     // Use this for initialization
     IEnumerator Start()
     {
+
         moleculeName = transform.name.Replace("(Clone)", string.Empty);
         string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
         using (WWW wikiReq = new WWW(query))
@@ -60,8 +63,9 @@ public class MoleculeController : MonoBehaviour {
         }
     }
 
-        // Update is called once per frame
-        void Update () {
+    // Update is called once per frame
+    void Update()
+    {
 
         Behaviour highlight = (Behaviour)GetComponent("Halo");
 
@@ -83,9 +87,9 @@ public class MoleculeController : MonoBehaviour {
             fingersOnScreen++; //Counts num touches on screen
 
 
-            if (fingersOnScreen == 2) //enable 'pinch' motion
+            if (fingersOnScreen == 2 && isSelected == true) //enable 'pinch' motion
             {
-
+                isScaling = true;
                 if (touch.phase == TouchPhase.Began)
                 {
                     initialFingersDistance = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
@@ -109,7 +113,7 @@ public class MoleculeController : MonoBehaviour {
 
     public void DisplayInfoSheet(Camera player, bool display)
     {
-        if (display == true && displayingInfoSheet == false)
+        if (display == true && displayingInfoSheet == false && isSelected == true)
         {
             displayingInfoSheet = true;
 
@@ -131,7 +135,7 @@ public class MoleculeController : MonoBehaviour {
             }
         }
 
-        else if (display == false)
+        else if (display == false && isSelected == true)
         {
             displayingInfoSheet = false;
             foreach (Transform child in transform)
@@ -168,56 +172,56 @@ public class MoleculeController : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if (userRotatingMolecule == false)
+        if (isSelected == true)
         {
-            Highlight();
+            ScaleTransform = transform;
             distance = Camera.main.WorldToScreenPoint(transform.position);
             xPos = Input.mousePosition.x - distance.x;
             yPos = Input.mousePosition.y - distance.y;
-
-            ScaleTransform = transform;
         }
 
     }
 
     void OnMouseDrag()
     {
-        if (userRotatingMolecule == false)
+
+
+        if (Input.touchCount == 1 && isSelected == true) //factor in camera movement to molecule movement also
         {
-            if (Input.touchCount == 1)
-            {
-                Highlight();
-                Vector3 curPos =
-                 new Vector3(Input.mousePosition.x - xPos,
-                             Input.mousePosition.y - yPos, distance.z);
 
-                Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
-                float newPosLen = Math.Abs(worldPos.sqrMagnitude);
-                float oldPosLen = transform.position.sqrMagnitude;
-                _ShowAndroidToastMessage((newPosLen - oldPosLen).ToString());
-                if (newPosLen - oldPosLen <= 0.05)
-                {
-                    transform.position = worldPos;
-                }
+            distance = Camera.main.WorldToScreenPoint(transform.position);
+            Vector2 touchMovement = Input.GetTouch(0).deltaPosition;
 
-            }
+            Vector3 fingerPos = new Vector3(Input.mousePosition.x - xPos,
+                     Input.mousePosition.y - yPos, distance.z);
+
+            Vector3 fingerPosWorld = Camera.main.ScreenToWorldPoint(fingerPos);
+
+            Vector3 fingerPosDelta =
+                new Vector3(distance.x + touchMovement.x,
+                distance.y + touchMovement.y, distance.z);
+
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(fingerPosDelta);
+
+            if (Vector3.Distance(fingerPosWorld, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
+                transform.position = fingerPosWorld;
+
         }
 
-        else if (userRotatingMolecule == true)
-        {
-            Highlight();
-            float rotX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
-            float rotY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
 
-            transform.Rotate(Vector3.up, -rotX, Space.World);
-            transform.Rotate(Vector3.right, rotY, Space.World);
+        if (userRotatingMolecule == true && isSelected == true)
+        {
+            float hor = 5 * Input.GetAxis("Mouse X");
+            float ver = 5 * Input.GetAxis("Mouse Y");
+
+            transform.Rotate(ver, -hor, 0);
         }
 
     }
 
     public void RotateMolecule()
     {
-        transform.Rotate(Vector3.up, speed * Time.deltaTime);  
+        transform.Rotate(Vector3.up, speed * Time.deltaTime);
     }
 
     private void _ShowAndroidToastMessage(string message)

@@ -13,10 +13,13 @@ public class MolInfoController : MonoBehaviour
     public Image molImage;
 
     Quaternion initRotation;
+    Vector3 initPosition;
     // Use this for initialization
     void Start()
     {
         initRotation = transform.rotation;
+        initPosition = transform.position;
+
         MoleculeController parentMol = transform.parent.GetComponent<MoleculeController>();
         headerText.text = parentMol.moleculeName;
         bodyText.text = parentMol.moleculeInfo;
@@ -33,6 +36,7 @@ public class MolInfoController : MonoBehaviour
     private void LateUpdate()
     {
         transform.rotation = initRotation;
+        transform.position = initPosition;
     }
 
 

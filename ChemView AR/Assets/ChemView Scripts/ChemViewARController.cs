@@ -23,6 +23,7 @@ public class ChemViewARController : MonoBehaviour
     public MoleculeController selectedMol;
 
     public GameObject UICanvas;
+    public GameObject ControlsCanvas;
     private UIController uIController;
 
     private bool prevDoubleTap = false;
@@ -95,7 +96,7 @@ public class ChemViewARController : MonoBehaviour
 
     public void Start()
     {
-        uIController = UICanvas.GetComponent<UIController>();
+        uIController = ControlsCanvas.GetComponent<UIController>();
     }
 
     public void Update()
@@ -114,6 +115,17 @@ public class ChemViewARController : MonoBehaviour
             }
         }
 
+        if (!showSearchingUI)
+        {
+            //uIController.HideAllControls();
+            ControlsCanvas.gameObject.SetActive(true);
+        }
+
+        else
+        {
+            ControlsCanvas.gameObject.SetActive(false);
+
+        }
         SearchingForPlaneUI.SetActive(showSearchingUI);
 
         Touch touch;
@@ -148,14 +160,18 @@ public class ChemViewARController : MonoBehaviour
 
                         else
                         {
-                            selectedMol.Dehighlight();
-                            UserRotating = false;
-                            uIController.TurnOffToggles();
-                            selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
-                            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
-                            selectedMolScript.isSelected = true;
-                            selectedMol.Highlight();
-                            uIController.SetToggles(selectedMol);
+                            if (selectedMol != raycastHit.collider.GetComponent<MoleculeController>())
+                            {
+                                selectedMol.Dehighlight();
+                                UserRotating = false;
+                                uIController.TurnOffToggles();
+
+                                selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
+                                MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                                selectedMolScript.isSelected = true;
+                                selectedMol.Highlight();
+                                uIController.SetToggles(selectedMol);
+                            }
                         }
                     }
                 }
@@ -181,7 +197,6 @@ public class ChemViewARController : MonoBehaviour
         {
             if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && UserRotating == false)
             {
-                _ShowAndroidToastMessage("mol Spawned");
                 SpawnMolecule();
                 return;
             }
@@ -270,6 +285,9 @@ public class ChemViewARController : MonoBehaviour
             {
                 // Instantiate chemical model at the hit pose.
                 var molObj = Instantiate(loadedChemModel, hit.Pose.position, hit.Pose.rotation);
+
+                _ShowAndroidToastMessage("mol Spawned");
+
                 molObj.transform.Translate(0, 0.5f, 0, Space.World);
 
                 // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
@@ -291,6 +309,7 @@ public class ChemViewARController : MonoBehaviour
 
             }
         }
+
     }
 
     /// <summary>

@@ -55,6 +55,10 @@ public class UIController : MonoBehaviour
 
     public void SetToggles(MoleculeController _selectedMol)
     {
+        rotateToggle.enabled = true;
+        spinToggle.enabled = true;
+        infoToggle.enabled = true;
+
         if (_selectedMol.rotateMolecule == true)
         {
             spinToggle.isOn = true;
@@ -68,8 +72,11 @@ public class UIController : MonoBehaviour
 
     public void TurnOffToggles()
     {
+        rotateToggle.enabled = false;
         rotateToggle.isOn = false;
+        spinToggle.enabled = false;
         spinToggle.isOn = false;
+        infoToggle.enabled = false;
         infoToggle.isOn = false;
 
     }
