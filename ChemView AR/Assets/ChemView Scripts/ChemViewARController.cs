@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GoogleARCore;
 using GoogleARCore.Examples.Common;
 using UnityEngine;
@@ -97,6 +98,7 @@ public class ChemViewARController : MonoBehaviour
     public void Start()
     {
         uIController = ControlsCanvas.GetComponent<UIController>();
+
     }
 
     public void Update()
@@ -137,7 +139,7 @@ public class ChemViewARController : MonoBehaviour
         }
 
 
-        if (touch.tapCount == 1)
+        if (touch.tapCount == 1 && UserRotating == false)
         {
             if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
             {
@@ -256,12 +258,20 @@ public class ChemViewARController : MonoBehaviour
 
     public void DeleteSelectedMolecule()
     {
+
         if (selectedMol != null)
         {
+            uIController.TurnOffToggles();
             selectedMol.Dehighlight();
             selectedMol.Destroy();
-            uIController.TurnOffToggles();
+
         }
+
+        else
+        {
+            _ShowAndroidToastMessage("No mol selected");
+        }
+
     }
 
     private void SpawnMolecule()
@@ -306,6 +316,7 @@ public class ChemViewARController : MonoBehaviour
                 selectedMolScript.planePosition = anchor.transform.position;
                 selectedMolScript.Highlight();
                 selectedMol = selectedMolScript;
+                uIController.SetToggles(selectedMol);
 
             }
         }

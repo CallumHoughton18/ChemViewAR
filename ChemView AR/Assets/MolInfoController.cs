@@ -8,6 +8,8 @@ using Assets.Models;
 
 public class MolInfoController : MonoBehaviour
 {
+    MoleculeController parentMol;
+
     public Text headerText;
     public Text bodyText;
     public Image molImage;
@@ -20,7 +22,7 @@ public class MolInfoController : MonoBehaviour
         initRotation = transform.rotation;
         initPosition = transform.position;
 
-        MoleculeController parentMol = transform.parent.GetComponent<MoleculeController>();
+        parentMol = transform.parent.GetComponent<MoleculeController>();
         headerText.text = parentMol.moleculeName;
         bodyText.text = parentMol.moleculeInfo;
         molImage.sprite = parentMol.molImage;
@@ -30,13 +32,26 @@ public class MolInfoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (parentMol.rotateMolecule == false && parentMol.userRotatingMolecule == false)
+        {
+            initPosition = transform.position;
+        }
     }
 
     private void LateUpdate()
     {
         transform.rotation = initRotation;
-        transform.position = initPosition;
+        
+        if (parentMol.rotateMolecule)
+        {
+            transform.position = initPosition; //need to be allow user movement to change position.
+        }
+
+        else if (parentMol.userRotatingMolecule)
+        {
+            transform.position = initPosition;
+        }
+
     }
 
 

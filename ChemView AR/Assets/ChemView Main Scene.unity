@@ -2257,7 +2257,6 @@ GameObject:
   - component: {fileID: 1608144856}
   - component: {fileID: 1608144855}
   - component: {fileID: 1608144854}
-  - component: {fileID: 1608144858}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2341,24 +2340,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1608144858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1608144853}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e17270df655fe42aabccb31966a6a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropdown: {fileID: 0}
-  rotateToggle: {fileID: 0}
-  spinToggle: {fileID: 0}
-  infoToggle: {fileID: 0}
-  ChemViewARControllerOBJ: {fileID: 627916101}
-  molsArray: []
-  MoleculeContainer: {fileID: 209310123}
 --- !u!4 &1639805211 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4116829125181140, guid: 69e22a761acf77a46a56583b1151dabc,

@@ -16,6 +16,8 @@ public class MoleculeController : MonoBehaviour
     float xPos;
     float yPos;
 
+    Collider collider;
+
     public float initialFingersDistance;
     public Vector3 initialScale;
     public Vector3 initialHaloScale;
@@ -41,7 +43,7 @@ public class MoleculeController : MonoBehaviour
     // Use this for initialization
     IEnumerator Start()
     {
-
+        collider = GetComponent<Collider>();
         moleculeName = transform.name.Replace("(Clone)", string.Empty);
         string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
         using (WWW wikiReq = new WWW(query))
@@ -119,7 +121,8 @@ public class MoleculeController : MonoBehaviour
 
             try
             {
-                Vector3 placement = new Vector3(player.transform.position.x + 0.8f, player.transform.position.y, player.transform.position.z + 1.5f);
+                Vector3 colliderSize = collider.bounds.size;
+                Vector3 placement = new Vector3(transform.position.x + colliderSize.x, transform.position.y + colliderSize.y, transform.position.z + colliderSize.z);
                 var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
 
                 sheet.transform.LookAt(player.transform);
@@ -186,7 +189,7 @@ public class MoleculeController : MonoBehaviour
     {
 
 
-        if (Input.touchCount == 1 && isSelected == true) //factor in camera movement to molecule movement also
+        if (Input.touchCount == 1 && isSelected == true && userRotatingMolecule == false) //factor in camera movement to molecule movement also
         {
 
             distance = Camera.main.WorldToScreenPoint(transform.position);

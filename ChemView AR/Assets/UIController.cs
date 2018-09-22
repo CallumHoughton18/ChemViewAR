@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
 
     public void SetToggles(MoleculeController _selectedMol)
     {
+
         rotateToggle.enabled = true;
         spinToggle.enabled = true;
         infoToggle.enabled = true;
@@ -64,20 +65,38 @@ public class UIController : MonoBehaviour
             spinToggle.isOn = true;
         }
 
+        else
+        {
+            spinToggle.isOn = false;
+        }
+
         if (_selectedMol.displayingInfoSheet == true)
         {
             infoToggle.isOn = true;
         }
+        else
+        {
+            spinToggle.isOn = false;
+        }
+
     }
 
     public void TurnOffToggles()
     {
-        rotateToggle.enabled = false;
-        rotateToggle.isOn = false;
-        spinToggle.enabled = false;
-        spinToggle.isOn = false;
-        infoToggle.enabled = false;
-        infoToggle.isOn = false;
+        try
+        {
+            rotateToggle.enabled = false;
+            rotateToggle.isOn = false;
+            spinToggle.enabled = false;
+            spinToggle.isOn = false;
+            infoToggle.enabled = false;
+            infoToggle.isOn = false;
+        }
+
+        catch (Exception e)
+        {
+            _ShowAndroidToastMessage(e.ToString());
+        }
 
     }
 
