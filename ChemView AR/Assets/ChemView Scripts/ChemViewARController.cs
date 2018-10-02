@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GoogleARCore;
 using GoogleARCore.Examples.Common;
 using UnityEngine;
@@ -69,7 +70,7 @@ public class ChemViewARController : MonoBehaviour
     {
         if (selectedMol != null)
         {
-            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+            MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
             selectedMolScript.rotateMolecule = newValue;
         }
 
@@ -79,7 +80,7 @@ public class ChemViewARController : MonoBehaviour
     {
         if (selectedMol != null)
         {
-            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+            MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
             selectedMolScript.userRotatingMolecule = newValue;
             UserRotating = newValue;
         }
@@ -90,7 +91,7 @@ public class ChemViewARController : MonoBehaviour
     {
         if (selectedMol != null)
         {
-            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+            MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
             selectedMolScript.DisplayInfoSheet(FirstPersonCamera, newValue);
         }
     }
@@ -153,8 +154,8 @@ public class ChemViewARController : MonoBehaviour
                     {
                         if (selectedMol == null)
                         {
-                            selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
-                            MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                            selectedMol = raycastHit.collider.GetComponentInChildren<MoleculeController>();
+                            MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
                             selectedMolScript.isSelected = true;
                             selectedMol.Highlight();
                             uIController.SetToggles(selectedMol);
@@ -162,14 +163,14 @@ public class ChemViewARController : MonoBehaviour
 
                         else
                         {
-                            if (selectedMol != raycastHit.collider.GetComponent<MoleculeController>())
+                            if (selectedMol != raycastHit.collider.GetComponentInChildren<MoleculeController>())
                             {
                                 selectedMol.Dehighlight();
                                 UserRotating = false;
                                 uIController.TurnOffToggles();
 
-                                selectedMol = raycastHit.collider.GetComponent<MoleculeController>();
-                                MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                                selectedMol = raycastHit.collider.GetComponentInChildren<MoleculeController>();
+                                MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
                                 selectedMolScript.isSelected = true;
                                 selectedMol.Highlight();
                                 uIController.SetToggles(selectedMol);
@@ -182,7 +183,7 @@ public class ChemViewARController : MonoBehaviour
                     if (selectedMol != null && UserRotating == false)
                     {
                         selectedMol.Dehighlight();
-                        MoleculeController selectedMolScript = selectedMol.GetComponent<MoleculeController>();
+                        MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
                         selectedMolScript.isSelected = false;
                         selectedMol = null;
                         uIController.TurnOffToggles();
@@ -274,51 +275,75 @@ public class ChemViewARController : MonoBehaviour
 
     }
 
+    public void DeleteAllMolecules()
+    {
+        _ShowAndroidToastMessage("Destroying all molecules");
+        List<GameObject> mols = GameObject.FindGameObjectsWithTag("Molecule").Where(x => x.transform.parent.name.ToLower().Contains("anchor")).ToList();
+
+        _ShowAndroidToastMessage(mols.Count().ToString());
+
+        foreach (var mol in mols)
+        {
+            Destroy(mol);
+        }
+
+    }
+
     private void SpawnMolecule()
     {
-        Touch touch = Input.GetTouch(0);
-        TrackableHit hit;
-        TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon |
-            TrackableHitFlags.FeaturePointWithSurfaceNormal;
-
-        if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
+        try
         {
-            // Use hit pose and camera pose to check if hittest is from the
-            // back of the plane, if it is, no need to create the anchor.
-            if ((hit.Trackable is DetectedPlane) &&
-                Vector3.Dot(FirstPersonCamera.transform.position - hit.Pose.position,
-                    hit.Pose.rotation * Vector3.up) < 0)
+            Touch touch = Input.GetTouch(0);
+            TrackableHit hit;
+            TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon |
+                TrackableHitFlags.FeaturePointWithSurfaceNormal;
+
+            if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
             {
-                Debug.Log("Hit at back of the current DetectedPlane");
+                // Use hit pose and camera pose to check if hittest is from the
+                // back of the plane, if it is, no need to create the anchor.
+                if ((hit.Trackable is DetectedPlane) &&
+                    Vector3.Dot(FirstPersonCamera.transform.position - hit.Pose.position,
+                        hit.Pose.rotation * Vector3.up) < 0)
+                {
+                    Debug.Log("Hit at back of the current DetectedPlane");
+                }
+                else
+                {
+                    // Instantiate chemical model at the hit pose.
+                    var molObj = Instantiate(loadedChemModel, hit.Pose.position, hit.Pose.rotation);
+                    molObj.transform.GetChild(0).position = hit.Pose.position;
+                    _ShowAndroidToastMessage(molObj.transform.GetChild(0).name + " mol Spawned");
+                    _ShowAndroidToastMessage(molObj.transform.GetChild(0).parent.name);
+
+
+                    molObj.transform.Translate(0, 0.5f, 0, Space.World);
+
+                    // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
+                    molObj.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
+
+                    //rotate the loaded molecule
+
+                    // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
+                    // world evolves.
+                    var anchor = hit.Trackable.CreateAnchor(hit.Pose);
+
+                    // Make molecule model a child of the anchor.
+                    molObj.transform.parent = anchor.transform;
+
+                    MoleculeController selectedMolScript = molObj.GetComponentInChildren<MoleculeController>();
+                    selectedMolScript.planePosition = anchor.transform.position;
+                    selectedMolScript.Highlight();
+                    selectedMol = selectedMolScript;
+                    uIController.SetToggles(selectedMol);
+
+                }
             }
-            else
-            {
-                // Instantiate chemical model at the hit pose.
-                var molObj = Instantiate(loadedChemModel, hit.Pose.position, hit.Pose.rotation);
+        }
 
-                _ShowAndroidToastMessage("mol Spawned");
-
-                molObj.transform.Translate(0, 0.5f, 0, Space.World);
-
-                // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
-                molObj.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
-
-                //rotate the loaded molecule
-
-                // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
-                // world evolves.
-                var anchor = hit.Trackable.CreateAnchor(hit.Pose);
-
-                // Make molecule model a child of the anchor.
-                molObj.transform.parent = anchor.transform;
-
-                MoleculeController selectedMolScript = molObj.GetComponent<MoleculeController>();
-                selectedMolScript.planePosition = anchor.transform.position;
-                selectedMolScript.Highlight();
-                selectedMol = selectedMolScript;
-                uIController.SetToggles(selectedMol);
-
-            }
+        catch (Exception e)
+        {
+            _ShowAndroidToastMessage(e.ToString());
         }
 
     }

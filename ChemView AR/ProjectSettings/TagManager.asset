@@ -8,6 +8,7 @@ TagManager:
   - Molecule
   - MolInfoTxt
   - infosheet
+  - MoleculeContainer
   layers:
   - Default
   - TransparentFX

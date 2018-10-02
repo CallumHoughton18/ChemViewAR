@@ -19,10 +19,10 @@ public class MolInfoController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        initRotation = transform.rotation;
-        initPosition = transform.position;
+        initRotation = transform.localRotation;
+        initPosition = transform.localPosition;
 
-        parentMol = transform.parent.GetComponent<MoleculeController>();
+        parentMol = transform.parent.GetComponentInChildren<MoleculeController>();
         headerText.text = parentMol.moleculeName;
         bodyText.text = parentMol.moleculeInfo;
         molImage.sprite = parentMol.molImage;
@@ -32,24 +32,18 @@ public class MolInfoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (parentMol.rotateMolecule == false && parentMol.userRotatingMolecule == false)
+        if (parentMol.userRotatingMolecule == false && parentMol.rotateMolecule == false)
         {
-            initPosition = transform.position;
+            initPosition = transform.localPosition;
         }
     }
 
     private void LateUpdate()
     {
-        transform.rotation = initRotation;
-        
-        if (parentMol.rotateMolecule)
-        {
-            transform.position = initPosition; //need to be allow user movement to change position.
-        }
 
-        else if (parentMol.userRotatingMolecule)
+        if (parentMol.userRotatingMolecule || parentMol.rotateMolecule)
         {
-            transform.position = initPosition;
+            transform.localPosition = initPosition;
         }
 
     }

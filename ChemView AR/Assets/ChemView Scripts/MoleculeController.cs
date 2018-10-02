@@ -9,6 +9,7 @@ using UnityEngine;
 public class MoleculeController : MonoBehaviour
 {
 
+
     float speed = 100;
 
     Vector3 distance;
@@ -96,7 +97,6 @@ public class MoleculeController : MonoBehaviour
                 {
                     initialFingersDistance = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
                     initialScale = ScaleTransform.localScale;
-                    //initialHaloScale = highlight.transform.localScale; needs work
                 }
                 else
                 {
@@ -104,9 +104,9 @@ public class MoleculeController : MonoBehaviour
 
                     float scaleFactor = currentFingersDistance / initialFingersDistance;
 
-                    //highlight.transform.localScale = initialHaloScale * scaleFactor; needs work
-
-                    ScaleTransform.localScale = initialScale * scaleFactor;
+                    transform.localScale = initialScale * scaleFactor;
+                    //transform.parent.localScale = initialScale * scaleFactor;
+                    //transform.GetChild(0).localScale = initialScale * scaleFactor;
                 }
             }
         }
@@ -128,7 +128,7 @@ public class MoleculeController : MonoBehaviour
                 sheet.transform.LookAt(player.transform);
                 sheet.transform.Rotate(0, 180, 0);
 
-                sheet.transform.parent = transform;
+                sheet.transform.parent = transform.parent;
 
                 _ShowAndroidToastMessage("Displaying Mol info...");
             }
@@ -141,7 +141,7 @@ public class MoleculeController : MonoBehaviour
         else if (display == false && isSelected == true)
         {
             displayingInfoSheet = false;
-            foreach (Transform child in transform)
+            foreach (Transform child in transform.parent)
             {
                 if (child.tag == "infosheet")
                 {
@@ -191,24 +191,33 @@ public class MoleculeController : MonoBehaviour
 
         if (Input.touchCount == 1 && isSelected == true && userRotatingMolecule == false) //factor in camera movement to molecule movement also
         {
+            try
+            {
+                distance = Camera.main.WorldToScreenPoint(transform.position);
+                Vector2 touchMovement = Input.GetTouch(0).deltaPosition;
 
-            distance = Camera.main.WorldToScreenPoint(transform.position);
-            Vector2 touchMovement = Input.GetTouch(0).deltaPosition;
+                Vector3 fingerPos = new Vector3(Input.mousePosition.x - xPos,
+                         Input.mousePosition.y - yPos, distance.z);
 
-            Vector3 fingerPos = new Vector3(Input.mousePosition.x - xPos,
-                     Input.mousePosition.y - yPos, distance.z);
+                Vector3 fingerPosWorld = Camera.main.ScreenToWorldPoint(fingerPos);
 
-            Vector3 fingerPosWorld = Camera.main.ScreenToWorldPoint(fingerPos);
+                Vector3 fingerPosDelta =
+                    new Vector3(distance.x + touchMovement.x,
+                    distance.y + touchMovement.y, distance.z);
 
-            Vector3 fingerPosDelta =
-                new Vector3(distance.x + touchMovement.x,
-                distance.y + touchMovement.y, distance.z);
+                Vector3 worldPos = Camera.main.ScreenToWorldPoint(fingerPosDelta);
 
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(fingerPosDelta);
+                if (Vector3.Distance(fingerPosWorld, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
+                {
+                    transform.parent.position = fingerPosWorld;
+                    transform.position = fingerPosWorld;
+                }
+            }
 
-            if (Vector3.Distance(fingerPosWorld, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
-                transform.position = fingerPosWorld;
-
+            catch (Exception e)
+            {
+                _ShowAndroidToastMessage(e.ToString());
+            }
         }
 
 
@@ -225,6 +234,8 @@ public class MoleculeController : MonoBehaviour
     public void RotateMolecule()
     {
         transform.Rotate(Vector3.up, speed * Time.deltaTime);
+        
+
     }
 
     private void _ShowAndroidToastMessage(string message)
