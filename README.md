@@ -18,7 +18,7 @@ A molecular viewer augmented reality android app. Designed using Unity and ARCor
 * Further improve rotation functionality.
 * Further improve custom icon designs and make them more 'chemistry specific'. 
 * Expand molecule info list to pull spectrum from either an API or database.
-* ~~ Incorporate ARCoreUtils to provide collision detection to generated tracked planes. ~~ Custom collision detection added as of 11/10/2018
+* Incorporate ARCoreUtils to provide collision detection to generated tracked planes.
 
 #Possible Future Implementations
 * Add functionality to turn on the camera flash to be used as a torch to light up low light environments. Currently not supported in ARCore.
