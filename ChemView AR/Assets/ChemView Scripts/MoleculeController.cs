@@ -18,6 +18,7 @@ public class MoleculeController : MonoBehaviour
     float yPos;
 
     Collider collider;
+    Rigidbody molRigidBody;
 
     public float initialFingersDistance;
     public Vector3 initialScale;
@@ -44,6 +45,7 @@ public class MoleculeController : MonoBehaviour
     // Use this for initialization
     IEnumerator Start()
     {
+        molRigidBody = transform.GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         moleculeName = transform.name.Replace("(Clone)", string.Empty);
         string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
@@ -66,9 +68,15 @@ public class MoleculeController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+    }
+
     // Update is called once per frame
     void Update()
     {
+        molRigidBody.velocity = Vector3.zero;
+        molRigidBody.angularVelocity = Vector3.zero;
 
         Behaviour highlight = (Behaviour)GetComponent("Halo");
 
@@ -76,11 +84,6 @@ public class MoleculeController : MonoBehaviour
         if (rotateMolecule == true)
         {
             RotateMolecule();
-        }
-
-        if (this.transform.position.y <= planePosition.y)
-        {
-            this.transform.position = new Vector3(transform.position.x, planePosition.y, transform.position.z);
         }
 
         int fingersOnScreen = 0;
@@ -105,8 +108,7 @@ public class MoleculeController : MonoBehaviour
                     float scaleFactor = currentFingersDistance / initialFingersDistance;
 
                     transform.localScale = initialScale * scaleFactor;
-                    //transform.parent.localScale = initialScale * scaleFactor;
-                    //transform.GetChild(0).localScale = initialScale * scaleFactor;
+ 
                 }
             }
         }
@@ -223,13 +225,14 @@ public class MoleculeController : MonoBehaviour
 
         if (userRotatingMolecule == true && isSelected == true)
         {
-            float hor = 5 * Input.GetAxis("Mouse X");
-            float ver = 5 * Input.GetAxis("Mouse Y");
+            float rotX = Input.GetAxis("Mouse X") * 60 * Mathf.Deg2Rad;
+            float rotY = Input.GetAxis("Mouse Y") * 60 * Mathf.Deg2Rad;
 
-            transform.Rotate(ver, -hor, 0);
+            transform.Rotate(Vector3.up, -rotX);
+            transform.Rotate(Vector3.right, rotY);
         }
-
     }
+
 
     public void RotateMolecule()
     {

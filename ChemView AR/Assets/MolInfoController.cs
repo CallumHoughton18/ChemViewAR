@@ -26,7 +26,14 @@ public class MolInfoController : MonoBehaviour
         headerText.text = parentMol.moleculeName;
         bodyText.text = parentMol.moleculeInfo;
         molImage.sprite = parentMol.molImage;
-        _ShowAndroidToastMessage("test" + headerText.text);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Molecule")
+        {
+            _ShowAndroidToastMessage("Plane Collision Detected!");
+        }
     }
 
     // Update is called once per frame
