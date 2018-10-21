@@ -14,7 +14,7 @@ A molecular viewer augmented reality android app. Designed using Unity and ARCor
 * ~~Improve scaling functionality so molecule doesn't 'rubber band' to the position of the finger on the screen.~~ Added as of 18/09/2018
 * ~~Further improve molecule info sheet to account for space taken up by parent molecule~~ Added as of 22/09/2018
 * ~~Further improve molecule info sheet  to stay in place when molecule is spinning or being rotated, but still draggable.~~ Added as of 02/10/2018
-* ~~Incorporate ARCoreUtils to provide collision detection to generated tracked planes. ~~ Custom collision detection added as of 11/10/2018
+* ~~Incorporate ARCoreUtils to provide collision detection to generated tracked planes.~~ Custom collision detection added as of 11/10/2018
 
 * Further improve rotation functionality.
 * Further improve custom icon designs and make them more 'chemistry specific'. 
