@@ -24,17 +24,14 @@ public class MoleculeController : MonoBehaviour
     public Quaternion initRotation;
     public Vector3 initialHaloScale;
     public static Transform ScaleTransform;
-    private bool isUpsideDown = false;
+    private bool offsetY = false;
+    private bool offsetX = false;
 
     float rotationSpeed = 100;
 
     public bool isSelected = true;
     public bool rotateMolecule = false;
 
-    private float sensitivty = 0.5f;
-    private Vector3 fingerRef;
-    private Vector3 rotOffset;
-    private Vector3 rotation = Vector3.zero;
     public bool userRotatingMolecule = false;
 
     public string moleculeName;
@@ -138,12 +135,23 @@ public class MoleculeController : MonoBehaviour
 
             else
             {
-                float rotX = DetectRotationAndPinch.fingerDistance.x * 20 * Mathf.Deg2Rad;
-                float rotY = DetectRotationAndPinch.fingerDistance.y * 20 * Mathf.Deg2Rad;
+                float rotX = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
+                float rotY = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
 
+                //transform.Rotate(Vector3.up, rotX, Space.Self);
 
-                transform.Rotate(Vector3.up, rotX, Space.Self);
-                transform.Rotate(Vector3.right, rotY, Space.Self);
+                if (offsetY)
+                    transform.Rotate(Vector3.left, rotY, Space.Self);
+
+                else
+                    transform.Rotate(Vector3.right, rotY, Space.Self);
+
+                if (offsetX)
+                    transform.Rotate(Vector3.up, rotX, Space.Self);
+
+                else
+                    transform.Rotate(Vector3.down, rotX, Space.Self);
+
             }
         }
 
@@ -221,17 +229,42 @@ public class MoleculeController : MonoBehaviour
 
         if (userRotatingMolecule)
         {
-            fingerRef = Input.mousePosition;
 
             if (Vector3.Dot(transform.up, Vector3.down) > 0)
             {
                 _ShowAndroidToastMessage("mol upside down");
-                isUpsideDown = true;
+                offsetY = true;
             }
 
             else
-                isUpsideDown = false;
+                offsetY = false;
+
+            if (Vector3.Dot(transform.right, Vector3.left) > 0)
+            {
+                offsetX = true;
+            }
+
+            else
+                offsetX = false;
+
         }
+    }
+
+    private void OnMouseUp()
+    {
+        if (userRotatingMolecule)
+        {
+
+            if (Vector3.Dot(transform.up, Vector3.down) > 0)
+            {
+                _ShowAndroidToastMessage("mol upside down");
+                offsetY = true;
+            }
+
+            else
+                offsetY = false;
+        }
+
     }
 
     void OnMouseDrag()
@@ -268,22 +301,6 @@ public class MoleculeController : MonoBehaviour
                 _ShowAndroidToastMessage(e.ToString());
             }
         }
-
-
-        //if (userRotatingMolecule == true && isSelected == true)
-        //{
-        //    rotOffset = (Input.mousePosition - fingerRef);
-
-        //    float rotX = Input.GetAxis("Mouse X") * 85 * Mathf.Deg2Rad;
-        //    float rotY = Input.GetAxis("Mouse Y") * 85 * Mathf.Deg2Rad;
-
-
-        //    transform.Rotate(Vector3.up, rotX, Space.Self);
-        //    transform.Rotate(Vector3.right, -rotY, Space.Self);
-
-
-        //    fingerRef = Input.mousePosition;
-        //}
     }
 
 

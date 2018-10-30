@@ -27,11 +27,14 @@ public class DetectRotationAndPinch : MonoBehaviour {
     /// </summary>
     static public float pinchDistanceDelta;
     /// <summary>
-    ///   The distance between two touch points that were distancing from each other
+    ///   The distance between two touch points that were a distance from each other
     /// </summary>
     static public float distance;
 
-    static public Vector2 fingerDistance;
+    /// <summary>
+    /// The finger point on the screen
+    /// </summary>
+    static public Vector2 fingerPoint;
 
     /// <summary>
     ///   Calculates Pinch and Turn - This should be used inside LateUpdate
@@ -41,7 +44,6 @@ public class DetectRotationAndPinch : MonoBehaviour {
         distance = pinchDistanceDelta = 0;
         turnAngle = turnAngleDelta = 0;
 
-        // if two fingers are touching the screen at the same time ...
         if (Input.touchCount == 2)
         {
             Touch touch1 = Input.touches[0];
@@ -49,10 +51,11 @@ public class DetectRotationAndPinch : MonoBehaviour {
 
             if (touch1.phase == TouchPhase.Moved || touch2.phase == TouchPhase.Moved)
             {
-                // ... check the delta distance between them ...
                 distance = Vector2.Distance(touch1.position, touch2.position);
+
                 float prevDistance = Vector2.Distance(touch1.position - touch1.deltaPosition,
                                                       touch2.position - touch2.deltaPosition);
+
                 pinchDistanceDelta = distance - prevDistance;
 
                 if (Mathf.Abs(pinchDistanceDelta) > minPinchDistance)
@@ -64,13 +67,11 @@ public class DetectRotationAndPinch : MonoBehaviour {
                     distance = pinchDistanceDelta = 0;
                 }
 
-                // ... or check the delta angle between them ...
                 turnAngle = Angle(touch1.position, touch2.position);
                 float prevTurn = Angle(touch1.position - touch1.deltaPosition,
                                        touch2.position - touch2.deltaPosition);
                 turnAngleDelta = Mathf.DeltaAngle(prevTurn, turnAngle);
 
-                // ... if it's greater than a minimum threshold, it's a turn!
                 if (Mathf.Abs(turnAngleDelta) > minTurnAngle)
                 {
                     turnAngleDelta *= pinchTurnRatio;
@@ -88,14 +89,13 @@ public class DetectRotationAndPinch : MonoBehaviour {
 
             if (touch.phase == TouchPhase.Moved)
             {
-                // ... check the delta distance between them ...
-                fingerDistance = touch.deltaPosition;
+                fingerPoint = touch.deltaPosition;
             }
         }
 
         else
         {
-            fingerDistance = Vector2.zero;
+            fingerPoint = Vector2.zero;
         }
     }
 
