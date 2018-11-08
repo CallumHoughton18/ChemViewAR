@@ -128,7 +128,7 @@ public class MoleculeController : MonoBehaviour
             if (Mathf.Abs(DetectRotationAndPinch.turnAngleDelta) > 0)
             { // rotate
                 Vector3 rotationDeg = Vector3.zero;
-                rotationDeg.z = -DetectRotationAndPinch.turnAngleDelta;
+                rotationDeg.z = DetectRotationAndPinch.turnAngleDelta;
                 desiredRotation *= Quaternion.Euler(rotationDeg);
                 transform.rotation = desiredRotation;
             }
@@ -140,17 +140,10 @@ public class MoleculeController : MonoBehaviour
 
                 //transform.Rotate(Vector3.up, rotX, Space.Self);
 
-                if (offsetY)
-                    transform.Rotate(Vector3.left, rotY, Space.Self);
 
-                else
-                    transform.Rotate(Vector3.right, rotY, Space.Self);
 
-                if (offsetX)
-                    transform.Rotate(Vector3.up, rotX, Space.Self);
-
-                else
-                    transform.Rotate(Vector3.down, rotX, Space.Self);
+                transform.Rotate(Vector3.right, rotY, Space.Self);
+                transform.Rotate(Vector3.up, rotX, Space.Self);
 
             }
         }
@@ -226,51 +219,10 @@ public class MoleculeController : MonoBehaviour
             xPos = Input.mousePosition.x - distance.x;
             yPos = Input.mousePosition.y - distance.y;
         }
-
-        if (userRotatingMolecule)
-        {
-
-            if (Vector3.Dot(transform.up, Vector3.down) > 0)
-            {
-                _ShowAndroidToastMessage("mol upside down");
-                offsetY = true;
-            }
-
-            else
-                offsetY = false;
-
-            if (Vector3.Dot(transform.right, Vector3.left) > 0)
-            {
-                offsetX = true;
-            }
-
-            else
-                offsetX = false;
-
-        }
-    }
-
-    private void OnMouseUp()
-    {
-        if (userRotatingMolecule)
-        {
-
-            if (Vector3.Dot(transform.up, Vector3.down) > 0)
-            {
-                _ShowAndroidToastMessage("mol upside down");
-                offsetY = true;
-            }
-
-            else
-                offsetY = false;
-        }
-
     }
 
     void OnMouseDrag()
     {
-
-
         if (Input.touchCount == 1 && isSelected == true && userRotatingMolecule == false) //factor in camera movement to molecule movement also
         {
             try
