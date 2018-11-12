@@ -128,7 +128,7 @@ public class MoleculeController : MonoBehaviour
             if (Mathf.Abs(DetectRotationAndPinch.turnAngleDelta) > 0)
             { // rotate
                 Vector3 rotationDeg = Vector3.zero;
-                rotationDeg.z = DetectRotationAndPinch.turnAngleDelta;
+                rotationDeg.z = -DetectRotationAndPinch.turnAngleDelta;
                 desiredRotation *= Quaternion.Euler(rotationDeg);
                 transform.rotation = desiredRotation;
             }
@@ -137,10 +137,6 @@ public class MoleculeController : MonoBehaviour
             {
                 float rotX = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
                 float rotY = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
-
-                //transform.Rotate(Vector3.up, rotX, Space.Self);
-
-
 
                 transform.Rotate(Vector3.right, rotY, Space.Self);
                 transform.Rotate(Vector3.up, rotX, Space.Self);
@@ -192,15 +188,32 @@ public class MoleculeController : MonoBehaviour
     }
     public void Highlight()
     {
-        Behaviour highlighted = (Behaviour)GetComponent("Halo");
-        highlighted.enabled = true;
+        GameObject HighlightGameObj = GameObject.Find("HighlightShaderObj");
+        MeshRenderer hightlightRenderer = HighlightGameObj.GetComponent<MeshRenderer>();
+        Shader highlightShader = hightlightRenderer.materials[0].shader;
+
+        Shader.SetGlobalColor("_OutlineColor", Color.green);
+        Shader.SetGlobalFloat("_Outline", 0.005f);
+
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<MeshRenderer>().materials[0].shader = highlightShader;
+        }
+
         isSelected = true;
     }
 
     public void Dehighlight()
     {
-        Behaviour highlighted = (Behaviour)GetComponent("Halo");
-        highlighted.enabled = false;
+        GameObject HighlightGameObj = GameObject.Find("DehighlightShaderObj");
+        MeshRenderer hightlightRenderer = HighlightGameObj.GetComponent<MeshRenderer>();
+        Shader highlightShader = hightlightRenderer.materials[0].shader;
+
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<MeshRenderer>().materials[0].shader = highlightShader;
+        }
+
         isSelected = false;
     }
 
@@ -254,7 +267,6 @@ public class MoleculeController : MonoBehaviour
             }
         }
     }
-
 
     public void RotateMolecule()
     {
