@@ -100,6 +100,9 @@ public class ChemViewARController : MonoBehaviour
     {
         uIController = ControlsCanvas.GetComponent<UIController>();
 
+        Shader.SetGlobalColor("_OutlineColor", Color.green);
+        Shader.SetGlobalFloat("_Outline", 0.005f);
+
     }
 
     public void Update()

@@ -21,6 +21,7 @@ public class MoleculeController : MonoBehaviour
 
     public float initialFingersDistance;
     public Vector3 initialScale;
+    public Vector3 BeginningScale;
     public Quaternion initRotation;
     public Vector3 initialHaloScale;
     public static Transform ScaleTransform;
@@ -49,7 +50,7 @@ public class MoleculeController : MonoBehaviour
     IEnumerator Start()
     {
         initRotation = transform.rotation;
-
+        BeginningScale = transform.localScale;
         molRigidBody = transform.GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         moleculeName = transform.name.Replace("(Clone)", string.Empty);
@@ -110,6 +111,9 @@ public class MoleculeController : MonoBehaviour
                     float scaleFactor = currentFingersDistance / initialFingersDistance;
 
                     transform.localScale = initialScale * scaleFactor;
+
+                    float scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
+                    Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
 
                 }
             }
@@ -191,9 +195,6 @@ public class MoleculeController : MonoBehaviour
         GameObject HighlightGameObj = GameObject.Find("HighlightShaderObj");
         MeshRenderer hightlightRenderer = HighlightGameObj.GetComponent<MeshRenderer>();
         Shader highlightShader = hightlightRenderer.materials[0].shader;
-
-        Shader.SetGlobalColor("_OutlineColor", Color.green);
-        Shader.SetGlobalFloat("_Outline", 0.005f);
 
         foreach (Transform child in transform)
         {
