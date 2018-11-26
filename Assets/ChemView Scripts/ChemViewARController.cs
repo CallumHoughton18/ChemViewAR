@@ -99,6 +99,7 @@ public class ChemViewARController : MonoBehaviour
     public void Start()
     {
         uIController = ControlsCanvas.GetComponent<UIController>();
+        SearchingForPlaneUI.SetActive(true);
 
         Shader.SetGlobalColor("_OutlineColor", Color.green);
         Shader.SetGlobalFloat("_Outline", 0.005f);
@@ -121,16 +122,14 @@ public class ChemViewARController : MonoBehaviour
             }
         }
 
-        if (!showSearchingUI)
-        {
-            //uIController.HideAllControls();
-            ControlsCanvas.gameObject.SetActive(true);
-        }
 
-        else
+        if (showSearchingUI != SearchingForPlaneUI.activeInHierarchy)
         {
-            ControlsCanvas.gameObject.SetActive(false);
+            if (showSearchingUI)
+                uIController.FadeOut();
 
+            else
+                uIController.FadeIn();
         }
         SearchingForPlaneUI.SetActive(showSearchingUI);
 
