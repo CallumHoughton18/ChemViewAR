@@ -15,7 +15,7 @@ public class MoleculeController : MonoBehaviour
     public Vector3 planePosition;
     float xPos;
     float yPos;
-
+    float scaleForOutline = 1;
     Collider collider;
     Rigidbody molRigidBody;
 
@@ -24,6 +24,8 @@ public class MoleculeController : MonoBehaviour
     public Vector3 BeginningScale;
     public Quaternion initRotation;
     public Vector3 initialHaloScale;
+    Vector3 NewMolPos;
+    Vector3 prevPos;
     public static Transform ScaleTransform;
     private bool offsetY = false;
     private bool offsetX = false;
@@ -46,6 +48,10 @@ public class MoleculeController : MonoBehaviour
     public bool displayingInfoSheet = false;
     public bool isScaling = false;
 
+    public ChemViewARController MainController;
+    GameObject MainControllerObject;
+    bool noPhysics = true;
+
     // Use this for initialization
     IEnumerator Start()
     {
@@ -54,6 +60,7 @@ public class MoleculeController : MonoBehaviour
         molRigidBody = transform.GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         moleculeName = transform.name.Replace("(Clone)", string.Empty);
+        Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
 
         string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
         using (WWW wikiReq = new WWW(query))
@@ -73,13 +80,13 @@ public class MoleculeController : MonoBehaviour
             }
 
         }
+
+        MainController = MainControllerObject.GetComponent<ChemViewARController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        molRigidBody.velocity = Vector3.zero;
-        molRigidBody.angularVelocity = Vector3.zero;
 
         Behaviour highlight = (Behaviour)GetComponent("Halo");
 
@@ -112,11 +119,27 @@ public class MoleculeController : MonoBehaviour
 
                     transform.localScale = initialScale * scaleFactor;
 
-                    float scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
+                    /// issue here, two molecules using same _outline value looks bad
+                    scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
                     Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
-
                 }
             }
+
+            else
+                isScaling = false;
+        }
+
+        if (MainController.enableVelocity == false)
+        {
+            molRigidBody.velocity = Vector3.zero;
+            molRigidBody.angularVelocity = Vector3.zero;
+            molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+
+        else if (MainController.enableVelocity)
+        {
+            molRigidBody.constraints = RigidbodyConstraints.None;
+            //molRigidBody.useGravity = true;
         }
     }
 
@@ -144,6 +167,12 @@ public class MoleculeController : MonoBehaviour
 
                 transform.Rotate(Vector3.right, rotY, Space.Self);
                 transform.Rotate(Vector3.up, rotX, Space.Self);
+
+                if (MainController.enableVelocity)
+                {
+                    transform.Rotate(Vector3.right, rotY * Time.deltaTime);
+                    transform.Rotate(Vector3.up, rotX * Time.deltaTime);
+                }
 
             }
         }
@@ -192,6 +221,7 @@ public class MoleculeController : MonoBehaviour
     }
     public void Highlight()
     {
+        Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
         GameObject HighlightGameObj = GameObject.Find("HighlightShaderObj");
         MeshRenderer hightlightRenderer = HighlightGameObj.GetComponent<MeshRenderer>();
         Shader highlightShader = hightlightRenderer.materials[0].shader;
@@ -241,13 +271,20 @@ public class MoleculeController : MonoBehaviour
         {
             try
             {
+                prevPos = transform.position;
+                if (MainController.enableVelocity)
+                {
+                    molRigidBody.velocity = Vector3.zero;
+                    molRigidBody.angularVelocity = Vector3.zero;
+                }
+
                 distance = Camera.main.WorldToScreenPoint(transform.position);
                 Vector2 touchMovement = Input.GetTouch(0).deltaPosition;
 
                 Vector3 fingerPos = new Vector3(Input.mousePosition.x - xPos,
                          Input.mousePosition.y - yPos, distance.z);
 
-                Vector3 fingerPosWorld = Camera.main.ScreenToWorldPoint(fingerPos);
+                NewMolPos = Camera.main.ScreenToWorldPoint(fingerPos);
 
                 Vector3 fingerPosDelta =
                     new Vector3(distance.x + touchMovement.x,
@@ -255,10 +292,10 @@ public class MoleculeController : MonoBehaviour
 
                 Vector3 worldPos = Camera.main.ScreenToWorldPoint(fingerPosDelta);
 
-                if (Vector3.Distance(fingerPosWorld, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
+                if (Vector3.Distance(NewMolPos, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
                 {
-                    transform.parent.position = fingerPosWorld;
-                    transform.position = fingerPosWorld;
+                    transform.parent.position = NewMolPos;
+                    transform.position = NewMolPos;
                 }
             }
 
@@ -269,10 +306,20 @@ public class MoleculeController : MonoBehaviour
         }
     }
 
+    private void OnMouseUp()
+    {
+        if (MainController.enableVelocity && !userRotatingMolecule && !isScaling)
+        {
+            Vector3 throwVector = transform.position - prevPos;
+            float throwSpeed = throwVector.magnitude / Time.deltaTime;
+            Vector3 throwVelocity = throwSpeed * throwVector.normalized;
+            molRigidBody.velocity = throwVelocity;
+        }
+    }
+
     public void RotateMolecule()
     {
         transform.Rotate(Vector3.up, speed * Time.deltaTime);
-
     }
 
     private void _ShowAndroidToastMessage(string message)

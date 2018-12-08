@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
 
     public Dropdown dropdown;
     public Toggle rotateToggle;
-    public Toggle spinToggle;
+    public Toggle physicsToggle;
     public Toggle infoToggle;
     public GameObject ChemViewARControllerOBJ;
     public List<GameObject> molsArray;
@@ -92,16 +92,6 @@ public class UIController : MonoBehaviour
     public void SetToggles(MoleculeController _selectedMol)
     {
 
-        if (_selectedMol.rotateMolecule == true)
-        {
-            spinToggle.isOn = true;
-        }
-
-        else
-        {
-            spinToggle.isOn = false;
-        }
-
         if (_selectedMol.displayingInfoSheet == true)
         {
             infoToggle.isOn = true;
@@ -112,7 +102,7 @@ public class UIController : MonoBehaviour
         }
 
         rotateToggle.enabled = true;
-        spinToggle.enabled = true;
+        physicsToggle.enabled = true;
         infoToggle.enabled = true;
 
     }
@@ -123,8 +113,6 @@ public class UIController : MonoBehaviour
         {
             rotateToggle.enabled = false;
             rotateToggle.isOn = false;
-            spinToggle.enabled = false;
-            spinToggle.isOn = false;
             infoToggle.enabled = false;
             infoToggle.isOn = false;
         }

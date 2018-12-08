@@ -65,15 +65,12 @@ public class ChemViewARController : MonoBehaviour
 
     public bool UserRotating = false;
 
+    public bool enableVelocity;
 
-    public void MoleculeSpinToggle(bool newValue)
+
+    public void MoleculePhysicsToggle(bool newValue)
     {
-        if (selectedMol != null)
-        {
-            MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
-            selectedMolScript.rotateMolecule = newValue;
-        }
-
+        enableVelocity = newValue;
     }
 
     public void MoleculeUserRotationToggle(bool newValue)
@@ -330,6 +327,9 @@ public class ChemViewARController : MonoBehaviour
 
                     // Make molecule model a child of the anchor.
                     molObj.transform.parent = anchor.transform;
+
+                    if (selectedMol != null)
+                        selectedMol.Dehighlight();
 
                     MoleculeController selectedMolScript = molObj.GetComponentInChildren<MoleculeController>();
                     selectedMolScript.planePosition = anchor.transform.position;

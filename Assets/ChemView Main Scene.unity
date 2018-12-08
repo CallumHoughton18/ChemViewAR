@@ -1042,6 +1042,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: MainController
+      value: 
+      objectReference: {fileID: 627916104}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
   m_IsPrefabParent: 0
@@ -1160,6 +1165,7 @@ MonoBehaviour:
   SearchingForPlaneUI: {fileID: 1133631540}
   rotateSelectedMolecule: 0
   UserRotating: 0
+  enableVelocity: 0
 --- !u!1001 &772842041
 Prefab:
   m_ObjectHideFlags: 0
@@ -1235,7 +1241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdown: {fileID: 969685143}
   rotateToggle: {fileID: 1877427334}
-  spinToggle: {fileID: 1811480585}
+  physicsToggle: {fileID: 1811480585}
   infoToggle: {fileID: 962909817}
   ChemViewARControllerOBJ: {fileID: 627916101}
   molsArray: []
@@ -2320,9 +2326,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1432231723}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2657,7 +2663,7 @@ GameObject:
   - component: {fileID: 1811480586}
   - component: {fileID: 1811480585}
   m_Layer: 5
-  m_Name: spinMolecule
+  m_Name: addMolPhysics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2706,7 +2712,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 627916104}
-        m_MethodName: MoleculeSpinToggle
+        m_MethodName: MoleculePhysicsToggle
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
