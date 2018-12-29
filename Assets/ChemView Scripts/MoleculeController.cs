@@ -15,6 +15,15 @@ public class MoleculeController : MonoBehaviour
     public Vector3 planePosition;
     float xPos;
     float yPos;
+    float rotX;
+    float rotY;
+
+    float rotationTime;
+    bool recordRotTime = false;
+    Vector2 initRotationFingerPos;
+    bool pitchRotation;
+    float totalZRotation;
+
     float scaleForOutline = 1;
     Collider collider;
     Rigidbody molRigidBody;
@@ -58,6 +67,7 @@ public class MoleculeController : MonoBehaviour
         initRotation = transform.rotation;
         BeginningScale = transform.localScale;
         molRigidBody = transform.GetComponent<Rigidbody>();
+        molRigidBody.maxAngularVelocity = 15;
         collider = GetComponent<Collider>();
         moleculeName = transform.name.Replace("(Clone)", string.Empty);
         Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
@@ -141,6 +151,9 @@ public class MoleculeController : MonoBehaviour
             molRigidBody.constraints = RigidbodyConstraints.None;
             //molRigidBody.useGravity = true;
         }
+
+        if (MainController.enableVelocity && userRotatingMolecule && recordRotTime)
+            rotationTime += Time.deltaTime;
     }
 
     private void LateUpdate()
@@ -158,21 +171,25 @@ public class MoleculeController : MonoBehaviour
                 rotationDeg.z = -DetectRotationAndPinch.turnAngleDelta;
                 desiredRotation *= Quaternion.Euler(rotationDeg);
                 transform.rotation = desiredRotation;
+                pitchRotation = true;
+
+                if ((totalZRotation< 0) != (DetectRotationAndPinch.turnAngleDelta< 0)) /// otherwise rotating one way then the other would give final force as 0, ie no spin.
+                {
+                    totalZRotation = 0;
+                    rotationTime = 0;
+                }
+
+
+                totalZRotation += DetectRotationAndPinch.turnAngleDelta;
             }
 
             else
             {
-                float rotX = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
-                float rotY = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
+                rotX = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
+                rotY = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
 
-                transform.Rotate(Vector3.right, rotY, Space.Self);
-                transform.Rotate(Vector3.up, rotX, Space.Self);
-
-                if (MainController.enableVelocity)
-                {
-                    transform.Rotate(Vector3.right, rotY * Time.deltaTime);
-                    transform.Rotate(Vector3.up, rotX * Time.deltaTime);
-                }
+                transform.Rotate(Vector3.right, rotY);
+                transform.Rotate(Vector3.up, rotX);
 
             }
         }
@@ -263,6 +280,14 @@ public class MoleculeController : MonoBehaviour
             xPos = Input.mousePosition.x - distance.x;
             yPos = Input.mousePosition.y - distance.y;
         }
+
+
+        if (MainController.enableVelocity && userRotatingMolecule && recordRotTime == false)
+        {
+            initRotationFingerPos = DetectRotationAndPinch.fingerPoint;
+            recordRotTime = true;
+        }
+
     }
 
     void OnMouseDrag()
@@ -272,6 +297,7 @@ public class MoleculeController : MonoBehaviour
             try
             {
                 prevPos = transform.position;
+
                 if (MainController.enableVelocity)
                 {
                     molRigidBody.velocity = Vector3.zero;
@@ -315,6 +341,40 @@ public class MoleculeController : MonoBehaviour
             Vector3 throwVelocity = throwSpeed * throwVector.normalized;
             molRigidBody.velocity = throwVelocity;
         }
+
+        if (userRotatingMolecule && MainController.enableVelocity)
+        {
+            molRigidBody.angularVelocity = Vector3.zero;
+
+            if (pitchRotation)
+            {
+                float force = GenerateForce(totalZRotation,rotationTime) / 40;
+                molRigidBody.AddTorque(0, 0, force);
+            }
+
+            else
+            {
+
+                molRigidBody.AddTorque(transform.up * GenerateForce(rotX,rotationTime));
+                molRigidBody.AddTorque(transform.right * GenerateForce(rotY, rotationTime));
+            }
+
+            pitchRotation = false;
+            totalZRotation = 0;
+            recordRotTime = false;
+            rotationTime = 0;
+        }
+    }
+
+    float GenerateForce(float distance, float time)
+    {
+        _ShowAndroidToastMessage(distance.ToString());
+        float vel = distance / time;
+        float accel = vel / time;
+
+        float force = molRigidBody.mass * accel;
+
+        return force;
     }
 
     public void RotateMolecule()
