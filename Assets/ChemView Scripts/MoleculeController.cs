@@ -173,7 +173,7 @@ public class MoleculeController : MonoBehaviour
                 transform.rotation = desiredRotation;
                 pitchRotation = true;
 
-                if ((totalZRotation< 0) != (DetectRotationAndPinch.turnAngleDelta< 0)) /// otherwise rotating one way then the other would give final force as 0, ie no spin.
+                if ((totalZRotation < 0) != (DetectRotationAndPinch.turnAngleDelta < 0)) /// otherwise rotating one way then the other would give final force as 0, ie no spin.
                 {
                     totalZRotation = 0;
                     rotationTime = 0;
@@ -198,27 +198,17 @@ public class MoleculeController : MonoBehaviour
 
     public void DisplayInfoSheet(Camera player, bool display)
     {
-        if (display == true && displayingInfoSheet == false && isSelected == true)
+        if (display == true && displayingInfoSheet == false && isSelected == true && MainController.enableVelocity == false)
         {
+
             displayingInfoSheet = true;
 
-            try
-            {
-                Vector3 colliderSize = collider.bounds.size;
-                Vector3 placement = new Vector3(transform.position.x + colliderSize.x, transform.position.y + colliderSize.y, transform.position.z + colliderSize.z);
-                var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
+            Vector3 colliderSize = collider.bounds.size;
+            Vector3 placement = new Vector3(transform.position.x, transform.position.y + (colliderSize.y), transform.position.z + (colliderSize.z));
+            var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
 
-                sheet.transform.LookAt(player.transform);
-                sheet.transform.Rotate(0, 180, 0);
+            sheet.transform.parent = transform.parent;
 
-                sheet.transform.parent = transform.parent;
-
-                _ShowAndroidToastMessage("Displaying Mol info...");
-            }
-            catch (Exception ex)
-            {
-                _ShowAndroidToastMessage(ex.ToString());
-            }
         }
 
         else if (display == false && isSelected == true)
@@ -299,10 +289,8 @@ public class MoleculeController : MonoBehaviour
                 prevPos = transform.position;
 
                 if (MainController.enableVelocity)
-                {
                     molRigidBody.velocity = Vector3.zero;
-                    molRigidBody.angularVelocity = Vector3.zero;
-                }
+
 
                 distance = Camera.main.WorldToScreenPoint(transform.position);
                 Vector2 touchMovement = Input.GetTouch(0).deltaPosition;
@@ -348,14 +336,14 @@ public class MoleculeController : MonoBehaviour
 
             if (pitchRotation)
             {
-                float force = GenerateForce(totalZRotation,rotationTime) / 40;
+                float force = GenerateForce(totalZRotation, rotationTime) / 40;
                 molRigidBody.AddTorque(0, 0, force);
             }
 
             else
             {
 
-                molRigidBody.AddTorque(transform.up * GenerateForce(rotX,rotationTime));
+                molRigidBody.AddTorque(transform.up * GenerateForce(rotX, rotationTime));
                 molRigidBody.AddTorque(transform.right * GenerateForce(rotY, rotationTime));
             }
 

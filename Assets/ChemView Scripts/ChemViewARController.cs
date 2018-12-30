@@ -71,6 +71,12 @@ public class ChemViewARController : MonoBehaviour
     public void MoleculePhysicsToggle(bool newValue)
     {
         enableVelocity = newValue;
+
+        if (enableVelocity && selectedMol.displayingInfoSheet)
+        {
+            uIController.TurnOffToggle(2);
+            selectedMol.DisplayInfoSheet(FirstPersonCamera, false);
+        }
     }
 
     public void MoleculeUserRotationToggle(bool newValue)
@@ -88,8 +94,18 @@ public class ChemViewARController : MonoBehaviour
     {
         if (selectedMol != null)
         {
-            MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
-            selectedMolScript.DisplayInfoSheet(FirstPersonCamera, newValue);
+            if (enableVelocity && newValue)
+            {
+                _ShowAndroidToastMessage("Disable physics to show information sheet!");
+                uIController.TurnOffToggle(2);
+            }
+
+
+            else if (enableVelocity == false)
+            {
+                MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
+                selectedMolScript.DisplayInfoSheet(FirstPersonCamera, newValue);
+            }
         }
     }
 

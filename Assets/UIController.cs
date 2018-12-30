@@ -48,7 +48,7 @@ public class UIController : MonoBehaviour
     public void FadeIn()
     {
 
-        StartCoroutine(FadeCanvasGroup(UICanvasGroup, UICanvasGroup.alpha, 1));
+        GetComponent<UIFader>().FadeIn();
         UICanvasGroup.interactable = true;
 
     }
@@ -56,28 +56,7 @@ public class UIController : MonoBehaviour
     public void FadeOut()
     {
         UICanvasGroup.interactable = false;
-        StartCoroutine(FadeCanvasGroup(UICanvasGroup, UICanvasGroup.alpha, 0));
-    }
-
-    public IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float start, float end, float lerpTime = 0.5f)
-    {
-        float _timeStartedLerping = Time.time;
-        float timeSinceStarted = Time.time - _timeStartedLerping;
-        float percentageComplete = timeSinceStarted / lerpTime;
-
-        while (true)
-        {
-            timeSinceStarted = Time.time - _timeStartedLerping;
-            percentageComplete = timeSinceStarted / lerpTime;
-
-            float currentValue = Mathf.Lerp(start, end, percentageComplete);
-
-            canvasGroup.alpha = currentValue;
-
-            if (percentageComplete >= 1) break;
-
-            yield return new WaitForFixedUpdate();
-        }
+        GetComponent<UIFader>().FadeOut();
     }
 
     public void DropdownValueChanged(Dropdown change)
@@ -105,6 +84,23 @@ public class UIController : MonoBehaviour
         physicsToggle.enabled = true;
         infoToggle.enabled = true;
 
+    }
+
+    public void TurnOffToggle(int i) /// 1 = rotate, 2 = info
+    {
+        switch (i)
+        {
+            case 1:
+                rotateToggle.isOn = false;
+                break;
+
+            case 2:
+                infoToggle.isOn = false;
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void TurnOffToggles()
