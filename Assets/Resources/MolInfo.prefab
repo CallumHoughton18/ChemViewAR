@@ -114,6 +114,7 @@ MonoBehaviour:
   headerText: {fileID: 114885200029078366}
   bodyText: {fileID: 114323567589885386}
   molImage: {fileID: 114739726431507424}
+  sheetRectangle: {fileID: 224818694048048574}
 --- !u!114 &114323567589885386
 MonoBehaviour:
   m_ObjectHideFlags: 1

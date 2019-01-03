@@ -27,6 +27,7 @@ public class MoleculeController : MonoBehaviour
     float scaleForOutline = 1;
     Collider collider;
     Rigidbody molRigidBody;
+    GameObject sheet;
 
     public float initialFingersDistance;
     public Vector3 initialScale;
@@ -204,8 +205,14 @@ public class MoleculeController : MonoBehaviour
             displayingInfoSheet = true;
 
             Vector3 colliderSize = collider.bounds.size;
-            Vector3 placement = new Vector3(transform.position.x, transform.position.y + (colliderSize.y), transform.position.z + (colliderSize.z));
-            var sheet = Instantiate(molInfoSheet, placement, transform.rotation);
+            Vector3 placement = new Vector3(transform.position.x, transform.position.y + (colliderSize.y), transform.position.z + (colliderSize.z * 0.7f));
+
+            if (sheet == null)
+                sheet = Instantiate(molInfoSheet, placement, transform.rotation);
+
+            else
+                sheet.GetComponent<UIFader>().FadeIn();
+            
 
             sheet.transform.parent = transform.parent;
 
@@ -218,8 +225,7 @@ public class MoleculeController : MonoBehaviour
             {
                 if (child.tag == "infosheet")
                 {
-                    _ShowAndroidToastMessage("Destroying Info Sheet");
-                    Destroy(child.gameObject);
+                    child.GetComponent<UIFader>().FadeOut();
                 }
             }
         }
