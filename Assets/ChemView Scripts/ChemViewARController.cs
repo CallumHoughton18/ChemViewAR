@@ -115,7 +115,7 @@ public class ChemViewARController : MonoBehaviour
         SearchingForPlaneUI.SetActive(true);
 
         Shader.SetGlobalColor("_OutlineColor", Color.green);
-        Shader.SetGlobalFloat("_Outline", 0.005f);
+        Shader.SetGlobalFloat("_Outline", 0.003f);
 
     }
 

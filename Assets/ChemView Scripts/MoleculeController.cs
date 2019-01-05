@@ -62,6 +62,8 @@ public class MoleculeController : MonoBehaviour
     GameObject MainControllerObject;
     bool noPhysics = true;
 
+    public float HighlightThicknessFactor;
+
     // Use this for initialization
     IEnumerator Start()
     {
@@ -71,7 +73,7 @@ public class MoleculeController : MonoBehaviour
         molRigidBody.maxAngularVelocity = 15;
         collider = GetComponent<Collider>();
         moleculeName = transform.name.Replace("(Clone)", string.Empty);
-        Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
+        Shader.SetGlobalFloat("_Outline", (0.003f * scaleForOutline) * HighlightThicknessFactor);
 
         string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
         using (WWW wikiReq = new WWW(query))
@@ -98,9 +100,6 @@ public class MoleculeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Behaviour highlight = (Behaviour)GetComponent("Halo");
-
         //transform.Rotate(Vector3.up, speed * Time.deltaTime); //starts molecule rotation
         if (rotateMolecule == true)
         {
@@ -130,9 +129,8 @@ public class MoleculeController : MonoBehaviour
 
                     transform.localScale = initialScale * scaleFactor;
 
-                    /// issue here, two molecules using same _outline value looks bad
                     scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
-                    Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
+                    Shader.SetGlobalFloat("_Outline", (0.003f * scaleForOutline) * HighlightThicknessFactor);
                 }
             }
 
@@ -234,7 +232,7 @@ public class MoleculeController : MonoBehaviour
     }
     public void Highlight()
     {
-        Shader.SetGlobalFloat("_Outline", 0.005f * scaleForOutline);
+        Shader.SetGlobalFloat("_Outline", (0.003f * scaleForOutline) * HighlightThicknessFactor);
         GameObject HighlightGameObj = GameObject.Find("HighlightShaderObj");
         MeshRenderer hightlightRenderer = HighlightGameObj.GetComponent<MeshRenderer>();
         Shader highlightShader = hightlightRenderer.materials[0].shader;
