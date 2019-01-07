@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MoleculeController : MonoBehaviour
@@ -15,8 +16,8 @@ public class MoleculeController : MonoBehaviour
     public Vector3 planePosition;
     float xPos;
     float yPos;
-    float rotX;
-    float rotY;
+    float xDistance;
+    float yDistance;
 
     float rotationTime;
     bool recordRotTime = false;
@@ -72,7 +73,7 @@ public class MoleculeController : MonoBehaviour
         molRigidBody = transform.GetComponent<Rigidbody>();
         molRigidBody.maxAngularVelocity = 15;
         collider = GetComponent<Collider>();
-        moleculeName = transform.name.Replace("(Clone)", string.Empty);
+
         Shader.SetGlobalFloat("_Outline", (0.003f * scaleForOutline) * HighlightThicknessFactor);
 
         string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
@@ -113,7 +114,7 @@ public class MoleculeController : MonoBehaviour
             fingersOnScreen++; //Counts num touches on screen
 
 
-            if (fingersOnScreen == 2 && isSelected == true && userRotatingMolecule == false) //enable 'pinch' motion
+            if (fingersOnScreen == 2 && isSelected == true && MainController.UserRotating == false) //enable 'pinch' motion
             {
                 isScaling = true;
                 if (touch.phase == TouchPhase.Began)
@@ -169,6 +170,7 @@ public class MoleculeController : MonoBehaviour
                 Vector3 rotationDeg = Vector3.zero;
                 rotationDeg.z = -DetectRotationAndPinch.turnAngleDelta;
                 desiredRotation *= Quaternion.Euler(rotationDeg);
+                //transform.Rotate(desiredRotation.eulerAngles);
                 transform.rotation = desiredRotation;
                 pitchRotation = true;
 
@@ -184,11 +186,9 @@ public class MoleculeController : MonoBehaviour
 
             else
             {
-                rotX = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
-                rotY = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
-
-                transform.Rotate(Vector3.right, rotY);
-                transform.Rotate(Vector3.up, rotX);
+                /// use for generating force if physics enabled
+                xDistance = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
+                yDistance = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
 
             }
         }
@@ -210,7 +210,7 @@ public class MoleculeController : MonoBehaviour
 
             else
                 sheet.GetComponent<UIFader>().FadeIn();
-            
+
 
             sheet.transform.parent = transform.parent;
 
@@ -322,6 +322,18 @@ public class MoleculeController : MonoBehaviour
                 _ShowAndroidToastMessage(e.ToString());
             }
         }
+
+        else if (userRotatingMolecule && Input.touchCount == 1)
+        {
+            float XaxisRotation = Input.GetAxis("Mouse X") * 0.05f;
+            float YaxisRotation = Input.GetAxis("Mouse Y") * 0.05f;
+            // select the axis by which you want to rotate the GameObject
+            if (XaxisRotation < 1 && YaxisRotation < 1)
+            {
+                transform.RotateAround(Vector3.up, XaxisRotation);
+                transform.RotateAround(Vector3.left, YaxisRotation);
+            }
+        }
     }
 
     private void OnMouseUp()
@@ -347,8 +359,8 @@ public class MoleculeController : MonoBehaviour
             else
             {
 
-                molRigidBody.AddTorque(transform.up * GenerateForce(rotX, rotationTime));
-                molRigidBody.AddTorque(transform.right * GenerateForce(rotY, rotationTime));
+                molRigidBody.AddTorque(transform.up * GenerateForce(xDistance, rotationTime));
+                molRigidBody.AddTorque(transform.right * GenerateForce(yDistance, rotationTime));
             }
 
             pitchRotation = false;

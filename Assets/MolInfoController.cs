@@ -32,7 +32,7 @@ public class MolInfoController : MonoBehaviour
         initPosition = transform.localPosition;
 
         parentMol = transform.parent.GetComponentInChildren<MoleculeController>();
-        headerText.text = parentMol.moleculeName;
+        headerText.text = parentMol.transform.parent.name.Replace("(Clone)",string.Empty);
         bodyText.text = parentMol.moleculeInfo;
         molImage.sprite = parentMol.molImage;
 
