@@ -101,11 +101,6 @@ public class MoleculeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.Rotate(Vector3.up, speed * Time.deltaTime); //starts molecule rotation
-        if (rotateMolecule == true)
-        {
-            RotateMolecule();
-        }
 
         int fingersOnScreen = 0;
 
@@ -158,40 +153,6 @@ public class MoleculeController : MonoBehaviour
 
     private void LateUpdate()
     {
-
-        if (userRotatingMolecule)
-        {
-            Quaternion desiredRotation = transform.rotation;
-
-            DetectRotationAndPinch.Calculate();
-
-            if (Mathf.Abs(DetectRotationAndPinch.turnAngleDelta) > 0)
-            { // rotate
-                Vector3 rotationDeg = Vector3.zero;
-                rotationDeg.z = -DetectRotationAndPinch.turnAngleDelta;
-                desiredRotation *= Quaternion.Euler(rotationDeg);
-                //transform.Rotate(desiredRotation.eulerAngles);
-                transform.rotation = desiredRotation;
-                pitchRotation = true;
-
-                if ((totalZRotation < 0) != (DetectRotationAndPinch.turnAngleDelta < 0)) /// otherwise rotating one way then the other would give final force as 0, ie no spin.
-                {
-                    totalZRotation = 0;
-                    rotationTime = 0;
-                }
-
-
-                totalZRotation += DetectRotationAndPinch.turnAngleDelta;
-            }
-
-            else
-            {
-                /// use for generating force if physics enabled
-                xDistance = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
-                yDistance = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
-
-            }
-        }
 
     }
 
@@ -286,6 +247,10 @@ public class MoleculeController : MonoBehaviour
 
     void OnMouseDrag()
     {
+        DetectRotationAndPinch.Calculate();
+        xDistance = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
+        yDistance = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
+
         if (Input.touchCount == 1 && isSelected == true && userRotatingMolecule == false) //factor in camera movement to molecule movement also
         {
             try
@@ -327,13 +292,66 @@ public class MoleculeController : MonoBehaviour
         {
             float XaxisRotation = Input.GetAxis("Mouse X") * 0.05f;
             float YaxisRotation = Input.GetAxis("Mouse Y") * 0.05f;
+
             // select the axis by which you want to rotate the GameObject
             if (XaxisRotation < 1 && YaxisRotation < 1)
             {
-                transform.RotateAround(Vector3.up, XaxisRotation);
-                transform.RotateAround(Vector3.left, YaxisRotation);
+                RotateLeftRight(XaxisRotation, YaxisRotation);
             }
         }
+
+        else if (userRotatingMolecule && Input.touchCount == 2)
+        {
+            Quaternion desiredRotation = transform.rotation;
+
+            if (Mathf.Abs(DetectRotationAndPinch.turnAngleDelta) > 0)
+            { // rotate
+                Vector3 rotationDeg = Vector3.zero;
+                rotationDeg.z = -DetectRotationAndPinch.turnAngleDelta;
+                pitchRotation = true;
+                RotateZ(rotationDeg.z);
+                totalZRotation += -rotationDeg.z;
+
+                if ((totalZRotation < 0) != (DetectRotationAndPinch.turnAngleDelta < 0)) /// otherwise rotating one way then the other would give final force as 0, ie no spin.
+                {
+                    totalZRotation = 0;
+                    rotationTime = 0;
+                }
+
+
+            }
+        }
+    }
+
+    public void RotateLeftRight(float rotateLeftRight, float rotateUpDown)
+    {
+        float sensitivity = 10f;
+
+        Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
+
+        Vector3 relativeUp = ARCam.transform.TransformDirection(Vector3.up);
+        Vector3 relativeRight = ARCam.transform.TransformDirection(Vector3.right);
+        Vector3 molRelUp = transform.InverseTransformDirection(relativeUp);
+
+        Vector3 molRelRight = transform.InverseTransformDirection(relativeRight);
+        Quaternion rotateBy = Quaternion.AngleAxis(rotateLeftRight / gameObject.transform.localScale.x * sensitivity, molRelUp)
+            * Quaternion.AngleAxis(-rotateUpDown / gameObject.transform.localScale.x * sensitivity, molRelRight);
+
+
+        transform.Rotate(rotateBy.eulerAngles);
+    }
+
+    public void RotateZ(float ZRotation)
+    {
+        float sensitivity = 0.5f;
+
+        Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
+
+        Vector3 relativeForward = ARCam.transform.TransformDirection(Vector3.forward);
+        Vector3 molRelForward = transform.InverseTransformDirection(relativeForward);
+
+        Quaternion rotateBy = Quaternion.AngleAxis(-ZRotation / gameObject.transform.localScale.x * sensitivity, molRelForward);
+        transform.Rotate(rotateBy.eulerAngles);
     }
 
     private void OnMouseUp()
@@ -372,18 +390,12 @@ public class MoleculeController : MonoBehaviour
 
     float GenerateForce(float distance, float time)
     {
-        _ShowAndroidToastMessage(distance.ToString());
         float vel = distance / time;
         float accel = vel / time;
 
         float force = molRigidBody.mass * accel;
 
         return force;
-    }
-
-    public void RotateMolecule()
-    {
-        transform.Rotate(Vector3.up, speed * Time.deltaTime);
     }
 
     private void _ShowAndroidToastMessage(string message)
