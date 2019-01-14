@@ -170,7 +170,7 @@ public class MoleculeController : MonoBehaviour
                 sheet = Instantiate(molInfoSheet, placement, transform.rotation);
 
             else
-                sheet.GetComponent<UIFader>().FadeIn();
+                sheet.GetComponent<UIFader>().FadeInWithScale(sheet,new Vector3(0.005f, 0.005f, 0.005f));
 
 
             sheet.transform.parent = transform.parent;
@@ -184,7 +184,7 @@ public class MoleculeController : MonoBehaviour
             {
                 if (child.tag == "infosheet")
                 {
-                    child.GetComponent<UIFader>().FadeOut();
+                    child.GetComponent<UIFader>().FadeOutWithScale(child.gameObject);
                 }
             }
         }

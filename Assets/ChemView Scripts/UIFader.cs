@@ -18,6 +18,20 @@ public class UIFader : MonoBehaviour {
         StartCoroutine(FadeCanvasGroup(UICanvasGroup, UICanvasGroup.alpha, 0));
     }
 
+    public void FadeInWithScale(GameObject gameObject, Vector3 newScale)
+    {
+        StartCoroutine(FadeCanvasGroup(UICanvasGroup, UICanvasGroup.alpha, 1));
+        StartCoroutine(ScaleGameObject(gameObject, new Vector3(0,0,0), newScale));
+        UICanvasGroup.interactable = true;
+    }
+
+    public void FadeOutWithScale(GameObject gameObject)
+    {
+        UICanvasGroup.interactable = false;
+        StartCoroutine(FadeCanvasGroup(UICanvasGroup, UICanvasGroup.alpha, 0));
+        StartCoroutine(ScaleGameObject(gameObject, gameObject.transform.localScale, new Vector3(0, 0, 0)));
+    }
+
     public IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float start, float end, float lerpTime = 0.5f)
     {
         float _timeStartedLerping = Time.time;
@@ -37,5 +51,17 @@ public class UIFader : MonoBehaviour {
 
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    IEnumerator ScaleGameObject(GameObject gameObject, Vector3 originalScale, Vector3 newScale, float lerpTime = 0.5f)
+    {
+        float currentTime = 0.0f;
+
+        do
+        {
+            gameObject.transform.localScale = Vector3.Lerp(originalScale, newScale, currentTime / lerpTime);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= lerpTime);
     }
 }

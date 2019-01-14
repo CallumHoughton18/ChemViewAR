@@ -32,11 +32,27 @@ public class MolInfoController : MonoBehaviour
         initPosition = transform.localPosition;
 
         parentMol = transform.parent.GetComponentInChildren<MoleculeController>();
-        headerText.text = parentMol.transform.parent.name.Replace("(Clone)",string.Empty);
+        headerText.text = parentMol.transform.parent.name.Replace("(Clone)", string.Empty);
+        int characterCount = parentMol.moleculeInfo.Length;
+
+        if (characterCount < 10)
+            headerText.fontSize = 15;
+
+        else if (characterCount < 30)
+                headerText.fontSize = 10;
+
+
+        else if (characterCount < 50)
+            headerText.fontSize = 5;
+
+        else if (characterCount < 60)
+            headerText.fontSize = 3;
+
+
         bodyText.text = parentMol.moleculeInfo;
         molImage.sprite = parentMol.molImage;
 
-        GetComponent<UIFader>().FadeIn();
+        GetComponent<UIFader>().FadeInWithScale(gameObject, new Vector3(0.005f, 0.005f, 0.005f));
 
         DetermineSheetScale();
 
@@ -54,7 +70,7 @@ public class MolInfoController : MonoBehaviour
         float distance = Vector3.Distance(user.transform.position, parentMol.gameObject.transform.position);
 
         if (distance <= 0.8)
-            gameObject.transform.localScale =  gameObject.transform.localScale / 2;
+            gameObject.transform.localScale = gameObject.transform.localScale / 2;
 
 
         else if (distance <= 1)
