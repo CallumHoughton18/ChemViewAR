@@ -13,7 +13,7 @@ public class UIController : MonoBehaviour
     public Toggle physicsToggle;
     public Toggle infoToggle;
     public GameObject ChemViewARControllerOBJ;
-    public List<GameObject> molsArray;
+    public List<GameObject> molsList;
     public GameObject MoleculeContainer;
     ChemViewARController ChemController;
     public CanvasGroup UICanvasGroup;
@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
         ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
         foreach (Transform molecule in MoleculeContainer.transform)
         {
-            molsArray.Add(molecule.gameObject);
+            molsList.Add(molecule.gameObject);
         }
 
         PopulateDropDown();
@@ -62,7 +62,7 @@ public class UIController : MonoBehaviour
 
     public void DropdownValueChanged(Dropdown change)
     {
-        GameObject newSelectedMol = molsArray.Where(mol => mol.name == (change.options[change.value].text)).FirstOrDefault();
+        GameObject newSelectedMol = molsList.Where(mol => mol.name == (change.options[change.value].text)).FirstOrDefault();
         ChemViewARController ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
         ChemController.loadedChemModel = newSelectedMol;
         _ShowAndroidToastMessage("Molecule changed to: " + newSelectedMol.name);
@@ -126,7 +126,7 @@ public class UIController : MonoBehaviour
 
         List<string> mols = new List<string>();
 
-        foreach (var mol in molsArray)
+        foreach (var mol in molsList)
         {
             mols.Add(mol.name);
         }
