@@ -24,7 +24,8 @@ public class MoleculeController : MonoBehaviour
     Vector2 initRotationFingerPos;
     bool pitchRotation;
     float totalZRotation;
-
+    int rotateLeftRightSign;
+    int rotateUpDownSign;
     float scaleForOutline = 1;
     Collider collider;
     Rigidbody molRigidBody;
@@ -65,7 +66,6 @@ public class MoleculeController : MonoBehaviour
 
     public float HighlightThicknessFactor;
 
-    // Use this for initialization
     IEnumerator Start()
     {
         initRotation = transform.rotation;
@@ -81,16 +81,18 @@ public class MoleculeController : MonoBehaviour
         {
             yield return wikiReq;
             WikiInfo wikiObj = JsonConvert.DeserializeObject<WikiInfo>(wikiReq.text);
-            moleculeInfo = wikiObj.extract;
+            if (string.IsNullOrEmpty(moleculeInfo))
+                moleculeInfo = wikiObj.extract;
 
             using (WWW www = new WWW(wikiObj.thumbnail.source))
             {
-                // Wait for download to complete
+                /// Wait for download to complete
                 yield return www;
 
-                // assign texture
-
-                molImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+                /// assign texture
+             
+                if (molImage == null)
+                    molImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
             }
 
         }
@@ -329,6 +331,11 @@ public class MoleculeController : MonoBehaviour
 
         Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
 
+        Vector3 distance = ARCam.transform.position - gameObject.transform.position;
+
+        //float angleRadius = Vector3.SignedAngle(distance, gameObject.transform.position, Vector3.forward);
+        //float angleRadius = Vector2.SignedAngle(new Vector2(distance.x, distance.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y));
+
         Vector3 relativeUp = ARCam.transform.TransformDirection(Vector3.up);
         Vector3 relativeRight = ARCam.transform.TransformDirection(Vector3.right);
         Vector3 molRelUp = transform.InverseTransformDirection(relativeUp);
@@ -352,6 +359,12 @@ public class MoleculeController : MonoBehaviour
 
         Quaternion rotateBy = Quaternion.AngleAxis(-ZRotation / gameObject.transform.localScale.x * sensitivity, molRelForward);
         transform.Rotate(rotateBy.eulerAngles);
+    }
+
+    public bool IsBetween(float num, float lower, float upper)
+    {
+        bool isBetween = false;
+        return isBetween ? lower <= num && num <= upper : lower < num && num < upper;
     }
 
     private void OnMouseUp()
@@ -386,6 +399,34 @@ public class MoleculeController : MonoBehaviour
             recordRotTime = false;
             rotationTime = 0;
         }
+
+        //float angle = Vector3.Angle(MainController.FirstPersonCamera.GetComponent<Camera>().transform.forward, transform.forward);
+        //float angleRadius = Vector2.SignedAngle(new Vector2(distance.x, distance.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y));
+
+        //if (IsBetween(angle, 110, 180)) //behind
+        //{
+        //    rotateLeftRightSign= 1;
+        //    rotateUpDownSign = -1;
+        //}
+
+        //else if (IsBetween(angle, 50, 110)) //sides
+        //{
+        //    rotateLeftRightSign= 1;
+        //    rotateUpDownSign= 1;
+        //    _ShowAndroidToastMessage(angle.ToString());
+        //}
+
+        //else if (IsBetween(angle, 0, 50)) //in front
+        //{
+        //    rotateLeftRightSign= 1;
+        //    rotateUpDownSign= -1;
+        //}
+
+        //else
+        //{
+        //    rotateLeftRightSign= -1;
+        //    rotateUpDownSign= 1;
+        //}
     }
 
     float GenerateForce(float distance, float time)

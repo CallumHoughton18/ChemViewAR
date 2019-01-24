@@ -57,6 +57,7 @@ public class UIController : MonoBehaviour
     {
         UICanvasGroup.interactable = false;
         GetComponent<UIFader>().FadeOut();
+        TurnOffToggle(1);
     }
 
     public void DropdownValueChanged(Dropdown change)
