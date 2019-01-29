@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-
-    public Dropdown dropdown;
     public Toggle rotateToggle;
     public Toggle physicsToggle;
     public Toggle infoToggle;
@@ -17,6 +15,7 @@ public class UIController : MonoBehaviour
     public GameObject MoleculeContainer;
     ChemViewARController ChemController;
     public CanvasGroup UICanvasGroup;
+    public GameObject molSelectCanvas;
 
     private void OnGUI()
     {
@@ -24,20 +23,11 @@ public class UIController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
         foreach (Transform molecule in MoleculeContainer.transform)
         {
             molsList.Add(molecule.gameObject);
         }
-
-        PopulateDropDown();
-
-        dropdown = GetComponent<Dropdown>();
-        dropdown.onValueChanged.AddListener(delegate
-        {
-            DropdownValueChanged(dropdown);
-        });
     }
 
     // Update is called once per frame
@@ -121,18 +111,21 @@ public class UIController : MonoBehaviour
 
     }
 
-    void PopulateDropDown()
+    public void SpawnMolSelectCanvas()
     {
 
-        List<string> mols = new List<string>();
-
-        foreach (var mol in molsList)
+        Camera camera = ChemController.FirstPersonCamera;
+        GameObject molSelect = Instantiate(molSelectCanvas, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z + 100), camera.transform.rotation) as GameObject;
+        try
         {
-            mols.Add(mol.name);
+            molSelect.GetComponentInChildren<MolListViewGenerator>().GenListItems(molsList, ChemViewARControllerOBJ);
         }
 
-        dropdown.ClearOptions();
-        dropdown.AddOptions(mols);
+        catch (Exception e)
+        {
+            _ShowAndroidToastMessage(e.ToString());
+        }
+
     }
 
     private void _ShowAndroidToastMessage(string message)

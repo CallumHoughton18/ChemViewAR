@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,42 +10,60 @@ public class MolListViewGenerator : MonoBehaviour
 
     public GameObject MoleculeContainer;
     public GameObject ChemViewARControllerOBJ;
+    public GameObject buttonPrefab;
+    public GameObject contentPanel;
     List<Button> moleculeButtons = new List<Button>();
-    GameObject buttonPrefab;
     List<GameObject> molsList = new List<GameObject>();
     // Use this for initialization
     void Start()
     {
-        foreach (Transform molecule in MoleculeContainer.transform)
-        {
-            GameObject molButton = Instantiate(buttonPrefab);
-            var button = GetComponent<Button>();
-            button.GetComponent<Text>().text = molecule.name;
-            button.onClick.AddListener(() => MoleculeClick(molecule.name));
+    }
 
-            molsList.Add(molecule.gameObject);
+    public void GenListItems(List<GameObject> molecules, GameObject chemViewARControllerOBJ)
+    {
+        try
+        {
+            _ShowAndroidToastMessage(molecules.Count.ToString());
+            //MoleculeContainer = molContainer;
+            //ChemViewARControllerOBJ = chemViewARControllerOBJ;
+            foreach (GameObject molecule in molecules)
+            {
+                GameObject molButton = Instantiate(buttonPrefab) as GameObject;
+                molButton.transform.SetParent(contentPanel.transform, false);
+                molButton.transform.localScale = Vector3.one;
+                molButton.GetComponentInChildren<Text>().text = molecule.name;
+                //molButton.GetComponent<Button>().onClick.AddListener(() => MoleculeClick(mo));
+            }
+        }
+
+        catch (Exception e)
+        {
+            _ShowAndroidToastMessage(e.ToString());
         }
     }
 
     public void MoleculeClick(string molClicked)
     {
-        GameObject newSelectedMol = molsList.Where(mol => mol.name == molClicked).FirstOrDefault();
-        ChemViewARController ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
-        ChemController.loadedChemModel = newSelectedMol;
+        _ShowAndroidToastMessage(molClicked);
+        //GameObject newSelectedMol = molsList.Where(mol => mol.name == molClicked).FirstOrDefault();
+        //ChemViewARController ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
+        //ChemController.loadedChemModel = newSelectedMol;
     }
 
-    void GenerateListItems( List<GameObject>molsList)
+    private void _ShowAndroidToastMessage(string message)
     {
+        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject unityActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 
-        foreach (var mol in molsList)
+        if (unityActivity != null)
         {
-            //buttons objs generated and added to parent
+            AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
+            unityActivity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
+            {
+                AndroidJavaObject toastObject = toastClass.CallStatic<AndroidJavaObject>("makeText", unityActivity,
+                    message, 0);
+                toastObject.Call("show");
+            }));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
