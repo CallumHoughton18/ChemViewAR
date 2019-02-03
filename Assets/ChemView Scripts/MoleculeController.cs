@@ -1,14 +1,17 @@
 ﻿using Assets.Models;
-using GoogleARCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoleculeController : MonoBehaviour
 {
+    public Sprite molpreviewImage;
+    public string chemFormula;
+    public string molarMass;
+    public string meltingPoint;
+    public string boilingPoint;
 
     float speed = 100;
 
@@ -96,10 +99,7 @@ public class MoleculeController : MonoBehaviour
             }
 
         }
-
-        MainController = MainControllerObject.GetComponent<ChemViewARController>();
     }
-
     // Update is called once per frame
     void Update()
     {

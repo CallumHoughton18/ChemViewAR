@@ -799,6 +799,32 @@ Prefab:
       propertyPath: moleculeName
       value: Acetone
       objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: chemFormula
+      value: C3H6O
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: meltingPoint
+      value: "\u221294.7 \xB0C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: boilingPoint
+      value: "56.05 \xB0C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: molarMass
+      value: 58.08 g/mol
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: molpreviewImage
+      value: 
+      objectReference: {fileID: 21300000, guid: f2c7877dba0f8da4285903654957cb1a,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 122856692839758284, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
@@ -899,6 +925,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: 
+  molarMass: 
+  meltingPoint: 
+  boilingPoint: 
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -1277,7 +1308,7 @@ MonoBehaviour:
   molsList: []
   MoleculeContainer: {fileID: 209310123}
   UICanvasGroup: {fileID: 882475038}
-  molSelectCanvas: {fileID: 1454283025220616, guid: a6cef9a39b1246445a8d14e6bf15db8a,
+  molSelectCanvas: {fileID: 1266560182660560, guid: 8ff20b4c43deb124c92f2e1627ae84cf,
     type: 2}
 --- !u!114 &882475034
 MonoBehaviour:
@@ -1577,6 +1608,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: 
+  molarMass: 
+  meltingPoint: 
+  boilingPoint: 
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -2011,7 +2047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
-  m_DragThreshold: 5
+  m_DragThreshold: 15
 --- !u!4 &1233457659
 Transform:
   m_ObjectHideFlags: 0
@@ -2264,6 +2300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: 
+  molarMass: 
+  meltingPoint: 
+  boilingPoint: 
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -3040,6 +3081,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: 
+  molarMass: 
+  meltingPoint: 
+  boilingPoint: 
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}

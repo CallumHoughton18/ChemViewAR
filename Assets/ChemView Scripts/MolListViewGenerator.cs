@@ -9,45 +9,52 @@ public class MolListViewGenerator : MonoBehaviour
 {
 
     public GameObject MoleculeContainer;
-    public GameObject ChemViewARControllerOBJ;
-    public GameObject buttonPrefab;
+    public ChemViewARController chemViewController;
+    public Button buttonPrefab;
     public GameObject contentPanel;
     List<Button> moleculeButtons = new List<Button>();
     List<GameObject> molsList = new List<GameObject>();
+    public MolListInfo molListInfoSheet;
     // Use this for initialization
     void Start()
     {
     }
 
-    public void GenListItems(List<GameObject> molecules, GameObject chemViewARControllerOBJ)
+    public void GenListItems(List<GameObject> molecules, ChemViewARController chemViewARController)
     {
-        try
+
+        //MoleculeContainer = molContainer;
+        //ChemViewARControllerOBJ = chemViewARControllerOBJ;
+        foreach (GameObject molecule in molecules)
         {
-            _ShowAndroidToastMessage(molecules.Count.ToString());
-            //MoleculeContainer = molContainer;
-            //ChemViewARControllerOBJ = chemViewARControllerOBJ;
-            foreach (GameObject molecule in molecules)
-            {
-                GameObject molButton = Instantiate(buttonPrefab) as GameObject;
-                molButton.transform.SetParent(contentPanel.transform, false);
-                molButton.transform.localScale = Vector3.one;
-                molButton.GetComponentInChildren<Text>().text = molecule.name;
-                //molButton.GetComponent<Button>().onClick.AddListener(() => MoleculeClick(mo));
-            }
+            string molName = molecule.name;
+            Button molButton = Instantiate(buttonPrefab) as Button;
+            molButton.transform.SetParent(contentPanel.transform, false);
+            molButton.transform.localScale = Vector3.one;
+            molButton.GetComponentInChildren<Text>().text = molName;
+            molButton.onClick.AddListener(() => MoleculeClick(molName));
         }
 
-        catch (Exception e)
-        {
-            _ShowAndroidToastMessage(e.ToString());
-        }
+        molsList = molecules;
+        chemViewController = chemViewARController;
+
     }
 
     public void MoleculeClick(string molClicked)
     {
-        _ShowAndroidToastMessage(molClicked);
-        //GameObject newSelectedMol = molsList.Where(mol => mol.name == molClicked).FirstOrDefault();
-        //ChemViewARController ChemController = ChemViewARControllerOBJ.GetComponent<ChemViewARController>();
-        //ChemController.loadedChemModel = newSelectedMol;
+        try
+        {
+            Debug.Log(molClicked);
+            //_ShowAndroidToastMessage(molClicked);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.ToString());
+            //_ShowAndroidToastMessage(e.ToString());
+        }
+        GameObject newSelectedMol = molsList.Where(mol => mol.name == molClicked).FirstOrDefault();
+        chemViewController.loadedChemModel = newSelectedMol;
+        molListInfoSheet.SetMolSelectInfoSheet(chemViewController);
     }
 
     private void _ShowAndroidToastMessage(string message)
