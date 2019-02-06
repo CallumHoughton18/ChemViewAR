@@ -926,10 +926,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: 
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  chemFormula: C8H10N4O2
+  molarMass: 194.194 g/mol
+  meltingPoint: "235 to 238 \xB0C"
+  boilingPoint: "178\xB0C"
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -1179,10 +1179,10 @@ RectTransform:
   m_Father: {fileID: 882475037}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -762, y: 444}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -762, y: -162}
+  m_SizeDelta: {x: -1620, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861759902
 MonoBehaviour:
@@ -1609,10 +1609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: 
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  chemFormula: C3H7NO2
+  molarMass: 89.094 g/mol
+  meltingPoint: "300 \xB0C"
+  boilingPoint: "250 \xB0C"
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -2301,10 +2301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: 
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  chemFormula: C13H18O2
+  molarMass: 206.285 g/mol
+  meltingPoint: "75 to 78 \xB0C"
+  boilingPoint: "157 \xB0C"
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -3082,10 +3082,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: 
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  chemFormula: CHBrClF
+  molarMass: 147.37 g/mol
+  meltingPoint: "\u2212115 \xB0C"
+  boilingPoint: "36 \xB0C"
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
