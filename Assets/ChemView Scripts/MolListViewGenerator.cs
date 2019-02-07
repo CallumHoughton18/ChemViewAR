@@ -12,19 +12,22 @@ public class MolListViewGenerator : MonoBehaviour
     public ChemViewARController chemViewController;
     public Button buttonPrefab;
     public GameObject contentPanel;
+    public Dropdown filterDropDown;
     List<Button> moleculeButtons = new List<Button>();
     List<GameObject> molsList = new List<GameObject>();
     public MolListInfo molListInfoSheet;
     // Use this for initialization
     void Start()
     {
+        filterDropDown.onValueChanged.AddListener(delegate { FilterDropDownChanged(filterDropDown); });
     }
 
     public void GenListItems(List<GameObject> molecules, ChemViewARController chemViewARController)
     {
+        filterDropDown.ClearOptions();
+        List<string> filterOptions = Enum.GetNames(typeof(ChemviewHelper.MoleculeSubType)).ToList();
+        filterDropDown.AddOptions(filterOptions);
 
-        //MoleculeContainer = molContainer;
-        //ChemViewARControllerOBJ = chemViewARControllerOBJ;
         foreach (GameObject molecule in molecules)
         {
             string molName = molecule.name;
@@ -39,6 +42,23 @@ public class MolListViewGenerator : MonoBehaviour
         chemViewController = chemViewARController;
 
     }
+
+    void FilterDropDownChanged(Dropdown change)
+    {
+        ChemviewHelper.MoleculeSubType selectedMolTypeFilter = (ChemviewHelper.MoleculeSubType)change.value;
+        int i = 0;
+
+        foreach (var mol in molsList)
+        {
+            if (mol.GetComponentInChildren<MoleculeController>().moleculeSubType == selectedMolTypeFilter)
+                i += 1;
+        }
+
+
+        Debug.Log(i.ToString());
+
+    }
+
 
     public void MoleculeClick(string molClicked)
     {

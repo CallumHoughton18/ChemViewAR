@@ -3,8 +3,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-
 public class MoleculeController : MonoBehaviour
 {
     public Sprite molpreviewImage;
@@ -12,6 +10,7 @@ public class MoleculeController : MonoBehaviour
     public string molarMass;
     public string meltingPoint;
     public string boilingPoint;
+    public ChemviewHelper.MoleculeSubType moleculeSubType;
 
     float speed = 100;
 
