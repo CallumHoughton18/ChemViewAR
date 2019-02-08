@@ -20,22 +20,32 @@ public class MolListViewGenerator : MonoBehaviour
     void Start()
     {
         filterDropDown.onValueChanged.AddListener(delegate { FilterDropDownChanged(filterDropDown); });
-    }
-
-    public void GenListItems(List<GameObject> molecules, ChemViewARController chemViewARController)
-    {
         filterDropDown.ClearOptions();
         List<string> filterOptions = Enum.GetNames(typeof(ChemviewHelper.MoleculeSubType)).ToList();
         filterDropDown.AddOptions(filterOptions);
+    }
+
+    public void GenListItems(List<GameObject> molecules, ChemViewARController chemViewARController, ChemviewHelper.MoleculeSubType filter = ChemviewHelper.MoleculeSubType.All)
+    {
+        foreach (Transform child in contentPanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
 
         foreach (GameObject molecule in molecules)
         {
-            string molName = molecule.name;
-            Button molButton = Instantiate(buttonPrefab) as Button;
-            molButton.transform.SetParent(contentPanel.transform, false);
-            molButton.transform.localScale = Vector3.one;
-            molButton.GetComponentInChildren<Text>().text = molName;
-            molButton.onClick.AddListener(() => MoleculeClick(molName));
+            if (filter == ChemviewHelper.MoleculeSubType.All)
+            {
+                GenMolButton(molecule);
+            }
+
+            else
+            {
+                if (molecule.GetComponentInChildren<MoleculeController>().moleculeSubType == filter)
+                {
+                    GenMolButton(molecule);
+                }
+            }
         }
 
         molsList = molecules;
@@ -43,16 +53,22 @@ public class MolListViewGenerator : MonoBehaviour
 
     }
 
+    public void GenMolButton(GameObject molecule)
+    {
+        string molName = molecule.name;
+        Button molButton = Instantiate(buttonPrefab) as Button;
+        molButton.transform.SetParent(contentPanel.transform, false);
+        molButton.transform.localScale = Vector3.one;
+        molButton.GetComponentInChildren<Text>().text = molName;
+        molButton.onClick.AddListener(() => MoleculeClick(molName));
+    }
+
     void FilterDropDownChanged(Dropdown change)
     {
         ChemviewHelper.MoleculeSubType selectedMolTypeFilter = (ChemviewHelper.MoleculeSubType)change.value;
         int i = 0;
 
-        foreach (var mol in molsList)
-        {
-            if (mol.GetComponentInChildren<MoleculeController>().moleculeSubType == selectedMolTypeFilter)
-                i += 1;
-        }
+        GenListItems(molsList, chemViewController, selectedMolTypeFilter);
 
 
         Debug.Log(i.ToString());
