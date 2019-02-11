@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     public Toggle physicsToggle;
     public Toggle infoToggle;
     public GameObject ChemViewARControllerOBJ;
+    private GameObject molSelect;
     public List<GameObject> molsList;
     public GameObject MoleculeContainer;
     ChemViewARController ChemController;
@@ -111,14 +112,23 @@ public class UIController : MonoBehaviour
 
     }
 
-    public void SpawnMolSelectCanvas()
+    public void SpawnMolSelectCanvas(bool spawnSheet)
     {
 
         Camera camera = ChemController.FirstPersonCamera;
-        GameObject molSelect = Instantiate(molSelectCanvas, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z + 100), camera.transform.rotation) as GameObject;
         try
         {
-            molSelect.GetComponentInChildren<MolListViewGenerator>().GenListItems(molsList, ChemController);
+            if (spawnSheet)
+            {
+                Debug.Log("Spawn Sheet");
+                molSelect = Instantiate(molSelectCanvas, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z + 100), camera.transform.rotation) as GameObject;
+                molSelect.GetComponentInChildren<MolListViewGenerator>().GenListItems(molsList, ChemController);
+            }
+
+            else if (!spawnSheet && molSelect != null)
+            {
+                molSelect.GetComponent<MolSelectController>().DestroySheet();
+            }
         }
 
         catch (Exception e)
