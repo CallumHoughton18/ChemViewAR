@@ -36,17 +36,17 @@ public class MolInfoController : MonoBehaviour
         int characterCount = parentMol.moleculeInfo.Length;
 
         if (characterCount < 10)
-            headerText.fontSize = 15;
+            bodyText.fontSize = 15;
 
         else if (characterCount < 30)
-                headerText.fontSize = 10;
+            bodyText.fontSize = 10;
 
 
         else if (characterCount < 50)
-            headerText.fontSize = 5;
+            bodyText.fontSize = 5;
 
         else if (characterCount < 60)
-            headerText.fontSize = 3;
+            bodyText.fontSize = 3;
 
 
         bodyText.text = parentMol.moleculeInfo;

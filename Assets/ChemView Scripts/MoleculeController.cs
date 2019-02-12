@@ -279,6 +279,7 @@ public class MoleculeController : MonoBehaviour
                 if (Vector3.Distance(NewMolPos, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
                 {
                     transform.parent.position = NewMolPos;
+                    //GetComponent<Rigidbody>().velocity = (fingerPos - transform.position).normalized * 5;
                     transform.position = NewMolPos;
                 }
             }

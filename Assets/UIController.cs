@@ -120,14 +120,17 @@ public class UIController : MonoBehaviour
         {
             if (spawnSheet)
             {
+                if (molSelect != null)
+                    Destroy(molSelect);
+
                 Debug.Log("Spawn Sheet");
-                molSelect = Instantiate(molSelectCanvas, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z + 100), camera.transform.rotation) as GameObject;
+                molSelect = Instantiate(molSelectCanvas, camera.transform.position + (camera.transform.forward * 100), camera.transform.rotation) as GameObject;
                 molSelect.GetComponentInChildren<MolListViewGenerator>().GenListItems(molsList, ChemController);
             }
 
             else if (!spawnSheet && molSelect != null)
             {
-                molSelect.GetComponent<MolSelectController>().DestroySheet();
+                molSelect.GetComponent<MolSelectController>().FadeOutSheet();
             }
         }
 

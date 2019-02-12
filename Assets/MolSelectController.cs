@@ -9,7 +9,7 @@ public class MolSelectController : MonoBehaviour {
         GetComponent<UIFader>().FadeInWithScale(gameObject, new Vector3(1, 1, 1));
 	}
 
-    public void DestroySheet()
+    public void FadeOutSheet()
     {
         GetComponent<UIFader>().FadeOutWithScale(gameObject);
     }
