@@ -2606,7 +2606,7 @@ Prefab:
     - target: {fileID: 114388091529749504, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
       propertyPath: m_Spacing
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114978199258125754, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
@@ -2621,7 +2621,7 @@ Prefab:
     - target: {fileID: 224383833724330860, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000047683716
+      value: -0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 114388091529749504, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
@@ -2798,7 +2798,7 @@ Prefab:
     - target: {fileID: 114388091529749504, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
       propertyPath: m_ChildAlignment
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114388091529749504, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
@@ -2818,7 +2818,7 @@ Prefab:
     - target: {fileID: 224561264435600972, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 80.5
       objectReference: {fileID: 0}
     - target: {fileID: 114427820999077184, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
         type: 2}
@@ -2828,6 +2828,56 @@ Prefab:
     - target: {fileID: 1180568948594006, guid: 25c790bf0df34094e8f0fdbd9ed5a855, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114148558276380842, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_Text
+      value: Option A
+      objectReference: {fileID: 0}
+    - target: {fileID: 114539123721338388, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1704897988}
+    - target: {fileID: 114539123721338388, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 224591206242451336, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224163988069820094, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224239115778406716, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 114799659009290734, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224561264435600972, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224561264435600972, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 17.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224591206242451336, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25c790bf0df34094e8f0fdbd9ed5a855, type: 2}
@@ -2926,6 +2976,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1704897988 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114884100035962224, guid: 25c790bf0df34094e8f0fdbd9ed5a855,
+    type: 2}
+  m_PrefabInternal: {fileID: 1477013688}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1759795985
 GameObject:
   m_ObjectHideFlags: 0
