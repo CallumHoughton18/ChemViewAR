@@ -124,7 +124,9 @@ public class UIController : MonoBehaviour
                     Destroy(molSelect);
 
                 Debug.Log("Spawn Sheet");
-                molSelect = Instantiate(molSelectCanvas, camera.transform.position + (camera.transform.forward * 100), camera.transform.rotation) as GameObject;
+                molSelect = Instantiate(molSelectCanvas) as GameObject;
+                molSelect.transform.position = camera.transform.position + (camera.transform.forward * 1);
+                molSelect.transform.rotation = camera.transform.rotation;
                 molSelect.GetComponentInChildren<MolListViewGenerator>().GenListItems(molsList, ChemController);
             }
 
