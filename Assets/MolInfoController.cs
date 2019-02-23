@@ -52,6 +52,9 @@ public class MolInfoController : MonoBehaviour
         bodyText.text = parentMol.moleculeInfo;
         molImage.sprite = parentMol.molImage;
 
+        _ShowAndroidToastMessage("Body Font Size: " + bodyText.fontSize);
+
+
         GetComponent<UIFader>().FadeInWithScale(gameObject, new Vector3(0.005f, 0.005f, 0.005f));
 
         DetermineSheetScale();

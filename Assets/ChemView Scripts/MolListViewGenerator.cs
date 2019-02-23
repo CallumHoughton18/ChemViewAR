@@ -12,9 +12,11 @@ public class MolListViewGenerator : MonoBehaviour
     public ChemViewARController chemViewController;
     public Button buttonPrefab;
     public GameObject contentPanel;
+    double panelHeight;
     public Dropdown filterDropDown;
     List<Button> moleculeButtons = new List<Button>();
     List<GameObject> molsList = new List<GameObject>();
+    RectTransform panelRect;
     public MolListInfo molListInfoSheet;
     // Use this for initialization
     void Start()
@@ -23,6 +25,18 @@ public class MolListViewGenerator : MonoBehaviour
         filterDropDown.ClearOptions();
         List<string> filterOptions = Enum.GetNames(typeof(ChemviewHelper.MoleculeSubType)).ToList();
         filterDropDown.AddOptions(filterOptions);
+        filterDropDown.value = Convert.ToInt32(ChemviewHelper.MoleculeSubType.All);
+        panelRect = contentPanel.GetComponent<RectTransform>();
+    }
+
+    private void LateUpdate()
+    {
+        double newPanelHeight = panelRect.sizeDelta.y;
+        if (panelHeight != newPanelHeight)
+        {
+            panelHeight = newPanelHeight;
+            GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 1f;
+        }
     }
 
     public void GenListItems(List<GameObject> molecules, ChemViewARController chemViewARController, ChemviewHelper.MoleculeSubType filter = ChemviewHelper.MoleculeSubType.All)
@@ -69,7 +83,7 @@ public class MolListViewGenerator : MonoBehaviour
         int i = 0;
 
         GenListItems(molsList, chemViewController, selectedMolTypeFilter);
-
+        //LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponentInChildren<RectTransform>());
 
         Debug.Log(i.ToString());
 
@@ -78,16 +92,6 @@ public class MolListViewGenerator : MonoBehaviour
 
     public void MoleculeClick(string molClicked)
     {
-        try
-        {
-            Debug.Log(molClicked);
-            //_ShowAndroidToastMessage(molClicked);
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.ToString());
-            //_ShowAndroidToastMessage(e.ToString());
-        }
         GameObject newSelectedMol = molsList.Where(mol => mol.name == molClicked).FirstOrDefault();
         chemViewController.loadedChemModel = newSelectedMol;
         molListInfoSheet.SetMolSelectInfoSheet(chemViewController);
