@@ -34,19 +34,20 @@ public class MolInfoController : MonoBehaviour
         parentMol = transform.parent.GetComponentInChildren<MoleculeController>();
         headerText.text = parentMol.transform.parent.name.Replace("(Clone)", string.Empty);
         int characterCount = parentMol.moleculeInfo.Length;
+        _ShowAndroidToastMessage(characterCount.ToString());
 
-        if (characterCount < 10)
-            bodyText.fontSize = 15;
+        if (characterCount < 200)
+            bodyText.fontSize = 11;
 
-        else if (characterCount < 30)
-            bodyText.fontSize = 10;
+        else if (characterCount < 300)
+            bodyText.fontSize = 9;
 
 
-        else if (characterCount < 50)
+        else if (characterCount < 400)
+            bodyText.fontSize = 7;
+
+        else if (characterCount > 400)
             bodyText.fontSize = 5;
-
-        else if (characterCount < 60)
-            bodyText.fontSize = 3;
 
 
         bodyText.text = parentMol.moleculeInfo;
