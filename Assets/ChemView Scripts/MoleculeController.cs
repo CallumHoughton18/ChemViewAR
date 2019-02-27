@@ -3,6 +3,13 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using UnityEngine;
+
+public class MolRelDirection
+{
+    public Vector3 molRelUp { get; set; }
+    public Vector3 molrelRight { get; set; }
+}
+
 public class MoleculeController : MonoBehaviour
 {
     public Sprite molpreviewImage;
@@ -325,24 +332,27 @@ public class MoleculeController : MonoBehaviour
         }
     }
 
-    public void RotateLeftRight(float rotateLeftRight, float rotateUpDown)
+
+    private MolRelDirection GetMolRelativeDirection()
     {
-        float sensitivity = 10f;
-
         Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
-
-        Vector3 distance = ARCam.transform.position - gameObject.transform.position;
-
-        //float angleRadius = Vector3.SignedAngle(distance, gameObject.transform.position, Vector3.forward);
-        //float angleRadius = Vector2.SignedAngle(new Vector2(distance.x, distance.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y));
 
         Vector3 relativeUp = ARCam.transform.TransformDirection(Vector3.up);
         Vector3 relativeRight = ARCam.transform.TransformDirection(Vector3.right);
         Vector3 molRelUp = transform.InverseTransformDirection(relativeUp);
         Vector3 molRelRight = transform.InverseTransformDirection(relativeRight);
+        MolRelDirection molRelDirection = new MolRelDirection { molrelRight = molRelRight, molRelUp = molRelUp };
+        return molRelDirection;
 
-        Quaternion rotateBy = Quaternion.AngleAxis(rotateLeftRight / gameObject.transform.localScale.x * sensitivity, molRelUp)
-            * Quaternion.AngleAxis(-rotateUpDown / gameObject.transform.localScale.x * sensitivity, molRelRight);
+    }
+    public void RotateLeftRight(float rotateLeftRight, float rotateUpDown)
+    {
+        float sensitivity = 10f;
+
+        MolRelDirection molRelDirection = GetMolRelativeDirection();
+
+        Quaternion rotateBy = Quaternion.AngleAxis(rotateLeftRight / gameObject.transform.localScale.x * sensitivity, molRelDirection.molRelUp)
+            * Quaternion.AngleAxis(-rotateUpDown / gameObject.transform.localScale.x * sensitivity, molRelDirection.molrelRight);
 
 
         transform.Rotate(rotateBy.eulerAngles);
@@ -390,17 +400,10 @@ public class MoleculeController : MonoBehaviour
             else
             {
 
-                //TODO: move this into function to be used in normal rotation and in adding physics torque
-                Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
-                Vector3 relativeUp = ARCam.transform.TransformDirection(Vector3.up);
-                Vector3 relativeRight = ARCam.transform.TransformDirection(Vector3.right);
-                Vector3 molRelUp = transform.InverseTransformDirection(relativeUp);
-                Vector3 molRelRight = transform.InverseTransformDirection(relativeRight);
-                Vector3 molRelRightQuart = Quaternion.AngleAxis(xDistance / gameObject.transform.localScale.x, molRelUp).eulerAngles;
-                Vector3 molRelUpQuart = Quaternion.AngleAxis(-yDistance / gameObject.transform.localScale.x, molRelRight).eulerAngles;
+                MolRelDirection molRelDirection = GetMolRelativeDirection();
 
-                molRigidBody.AddTorque((molRelUp) * GenerateForce(xDistance, rotationTime));
-                molRigidBody.AddRelativeTorque((molRelRight) * GenerateForce(-yDistance, rotationTime));
+                molRigidBody.AddTorque((molRelDirection.molRelUp) * GenerateForce(xDistance, rotationTime));
+                molRigidBody.AddRelativeTorque((molRelDirection.molrelRight) * GenerateForce(-yDistance, rotationTime));
 
 
             }
