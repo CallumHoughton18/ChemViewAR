@@ -339,8 +339,8 @@ public class MoleculeController : MonoBehaviour
         Vector3 relativeUp = ARCam.transform.TransformDirection(Vector3.up);
         Vector3 relativeRight = ARCam.transform.TransformDirection(Vector3.right);
         Vector3 molRelUp = transform.InverseTransformDirection(relativeUp);
-
         Vector3 molRelRight = transform.InverseTransformDirection(relativeRight);
+
         Quaternion rotateBy = Quaternion.AngleAxis(rotateLeftRight / gameObject.transform.localScale.x * sensitivity, molRelUp)
             * Quaternion.AngleAxis(-rotateUpDown / gameObject.transform.localScale.x * sensitivity, molRelRight);
 
@@ -390,8 +390,19 @@ public class MoleculeController : MonoBehaviour
             else
             {
 
-                molRigidBody.AddTorque(transform.up * GenerateForce(xDistance, rotationTime));
-                molRigidBody.AddTorque(transform.right * GenerateForce(yDistance, rotationTime));
+                //TODO: move this into function to be used in normal rotation and in adding physics torque
+                Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
+                Vector3 relativeUp = ARCam.transform.TransformDirection(Vector3.up);
+                Vector3 relativeRight = ARCam.transform.TransformDirection(Vector3.right);
+                Vector3 molRelUp = transform.InverseTransformDirection(relativeUp);
+                Vector3 molRelRight = transform.InverseTransformDirection(relativeRight);
+                Vector3 molRelRightQuart = Quaternion.AngleAxis(xDistance / gameObject.transform.localScale.x, molRelUp).eulerAngles;
+                Vector3 molRelUpQuart = Quaternion.AngleAxis(-yDistance / gameObject.transform.localScale.x, molRelRight).eulerAngles;
+
+                molRigidBody.AddTorque((molRelUp) * GenerateForce(xDistance, rotationTime));
+                molRigidBody.AddRelativeTorque((molRelRight) * GenerateForce(-yDistance, rotationTime));
+
+
             }
 
             pitchRotation = false;
