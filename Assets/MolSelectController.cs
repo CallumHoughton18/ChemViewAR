@@ -18,4 +18,10 @@ public class MolSelectController : MonoBehaviour {
     void Update () {
         transform.rotation = Quaternion.LookRotation(transform.position - FirstPersonCamera.transform.position);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Bounds collisionBounds = collision.gameObject.GetComponent<BoxCollider>().bounds;
+
+    }
 }

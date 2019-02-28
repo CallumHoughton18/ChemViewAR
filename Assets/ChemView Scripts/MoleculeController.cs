@@ -82,6 +82,7 @@ public class MoleculeController : MonoBehaviour
         molRigidBody = transform.GetComponent<Rigidbody>();
         molRigidBody.maxAngularVelocity = 15;
         collider = GetComponent<Collider>();
+        InvokeRepeating("ReduceAngularVelocity", 0, 1.0f);
 
         Shader.SetGlobalFloat("_Outline", (0.003f * scaleForOutline) * HighlightThicknessFactor);
 
@@ -106,10 +107,14 @@ public class MoleculeController : MonoBehaviour
 
         }
     }
+
+    void ReduceAngularVelocity()
+    {
+        molRigidBody.angularVelocity = molRigidBody.angularVelocity * 0.6f;
+    }
     // Update is called once per frame
     void Update()
     {
-
         int fingersOnScreen = 0;
 
         foreach (Touch touch in Input.touches)
@@ -387,7 +392,7 @@ public class MoleculeController : MonoBehaviour
             molRigidBody.velocity = throwVelocity;
         }
 
-        if (userRotatingMolecule && MainController.enableVelocity)
+        if (userRotatingMolecule && MainController.enableVelocity && xDistance > 5 || yDistance > 5)
         {
             molRigidBody.angularVelocity = Vector3.zero;
 
