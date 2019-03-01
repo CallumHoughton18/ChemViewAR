@@ -21,7 +21,5 @@ public class MolSelectController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Bounds collisionBounds = collision.gameObject.GetComponent<BoxCollider>().bounds;
-
     }
 }

@@ -161,7 +161,6 @@ public class ChemViewARController : MonoBehaviour
             {
                 Ray raycast = FirstPersonCamera.ScreenPointToRay(touch.position);
                 RaycastHit raycastHit;
-
                 if (Physics.Raycast(raycast, out raycastHit))
                 {
 
@@ -170,8 +169,8 @@ public class ChemViewARController : MonoBehaviour
                         if (selectedMol == null)
                         {
                             selectedMol = raycastHit.collider.GetComponentInChildren<MoleculeController>();
-                            MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
-                            selectedMolScript.isSelected = true;
+                            //MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
+                            selectedMol.isSelected = true;
                             selectedMol.Highlight();
                             uIController.SetToggles(selectedMol);
                         }
@@ -185,8 +184,8 @@ public class ChemViewARController : MonoBehaviour
                                 uIController.TurnOffToggles();
 
                                 selectedMol = raycastHit.collider.GetComponentInChildren<MoleculeController>();
-                                MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
-                                selectedMolScript.isSelected = true;
+                                //MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
+                                selectedMol.isSelected = true;
                                 selectedMol.Highlight();
                                 uIController.SetToggles(selectedMol);
                             }
@@ -330,7 +329,7 @@ public class ChemViewARController : MonoBehaviour
                     molObj.transform.GetChild(0).position = hit.Pose.position;
 
 
-                    molObj.transform.Translate(0, 0.5f, 0, Space.World);
+                    molObj.transform.Translate(0, 0.8f, 0, Space.World);
 
                     // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
                     molObj.transform.Rotate(0, k_ModelRotation, 0, Space.Self);

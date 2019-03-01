@@ -23,10 +23,11 @@ public class MoleculeController : MonoBehaviour
 
     Vector3 distance;
     public Vector3 planePosition;
+    Vector3 newPosition;
     float xPos;
     float yPos;
-    float xDistance;
-    float yDistance;
+    float mouseDownMousePosX;
+    float mouseDownMousePosY;
 
     float rotationTime;
     bool recordRotTime = false;
@@ -79,7 +80,7 @@ public class MoleculeController : MonoBehaviour
     {
         initRotation = transform.rotation;
         BeginningScale = transform.localScale;
-        molRigidBody = transform.GetComponent<Rigidbody>();
+        molRigidBody = GetComponent<Rigidbody>();
         molRigidBody.maxAngularVelocity = 15;
         collider = GetComponent<Collider>();
         InvokeRepeating("ReduceAngularVelocity", 0, 1.0f);
@@ -100,7 +101,7 @@ public class MoleculeController : MonoBehaviour
                 yield return www;
 
                 /// assign texture
-             
+
                 if (molImage == null)
                     molImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
             }
@@ -147,19 +148,6 @@ public class MoleculeController : MonoBehaviour
                 isScaling = false;
         }
 
-        if (MainController.enableVelocity == false)
-        {
-            molRigidBody.velocity = Vector3.zero;
-            molRigidBody.angularVelocity = Vector3.zero;
-            molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
-        }
-
-        else if (MainController.enableVelocity)
-        {
-            molRigidBody.constraints = RigidbodyConstraints.None;
-            //molRigidBody.useGravity = true;
-        }
-
         if (MainController.enableVelocity && userRotatingMolecule && recordRotTime)
             rotationTime += Time.deltaTime;
     }
@@ -183,7 +171,7 @@ public class MoleculeController : MonoBehaviour
                 sheet = Instantiate(molInfoSheet, placement, transform.rotation);
 
             else
-                sheet.GetComponent<UIFader>().FadeInWithScale(sheet,new Vector3(0.005f, 0.005f, 0.005f));
+                sheet.GetComponent<UIFader>().FadeInWithScale(sheet, new Vector3(0.005f, 0.005f, 0.005f));
 
 
             sheet.transform.parent = transform.parent;
@@ -241,6 +229,9 @@ public class MoleculeController : MonoBehaviour
 
     void OnMouseDown()
     {
+        mouseDownMousePosX = Input.mousePosition.x;
+        mouseDownMousePosX = Input.mousePosition.y;
+
         if (isSelected == true)
         {
             ScaleTransform = transform;
@@ -258,11 +249,39 @@ public class MoleculeController : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        try
+        {
+            if (NewMolPos != Vector3.zero && NewMolPos != null) //TODO: add physics toggle compatibility.
+            {
+                Vector3 newPos = (NewMolPos - transform.position);
+                Vector3 velocity = newPos * 1.0f / Time.fixedDeltaTime;
+                molRigidBody.velocity = velocity;
+            }
+
+            if (MainController.enableVelocity == false)
+            {
+                molRigidBody.angularVelocity = Vector3.zero;
+                molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+            }
+
+            else if (MainController.enableVelocity)
+            {
+                molRigidBody.constraints = RigidbodyConstraints.None;
+            }
+        }
+
+        catch (Exception e)
+        {
+            _ShowAndroidToastMessage(e.ToString());
+        }
+    }
+
     void OnMouseDrag()
     {
-        DetectRotationAndPinch.Calculate();
-        xDistance = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
-        yDistance = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
+        //xDistance = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
+        //yDistance = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
 
         if (Input.touchCount == 1 && isSelected == true && userRotatingMolecule == false) //factor in camera movement to molecule movement also
         {
@@ -280,7 +299,7 @@ public class MoleculeController : MonoBehaviour
                 Vector3 fingerPos = new Vector3(Input.mousePosition.x - xPos,
                          Input.mousePosition.y - yPos, distance.z);
 
-                NewMolPos = Camera.main.ScreenToWorldPoint(fingerPos);
+                Vector3 possibleNewMolPos = Camera.main.ScreenToWorldPoint(fingerPos);
 
                 Vector3 fingerPosDelta =
                     new Vector3(distance.x + touchMovement.x,
@@ -288,11 +307,9 @@ public class MoleculeController : MonoBehaviour
 
                 Vector3 worldPos = Camera.main.ScreenToWorldPoint(fingerPosDelta);
 
-                if (Vector3.Distance(NewMolPos, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
+                if (Vector3.Distance(possibleNewMolPos, worldPos) < 0.15) // cannot directly set to fingerPosDelta as molecule then does not move with camera.
                 {
-                    transform.parent.position = NewMolPos;
-                    //GetComponent<Rigidbody>().velocity = (fingerPos - transform.position).normalized * 5;
-                    transform.position = NewMolPos;
+                    NewMolPos = possibleNewMolPos;
                 }
             }
 
@@ -316,6 +333,7 @@ public class MoleculeController : MonoBehaviour
 
         else if (userRotatingMolecule && Input.touchCount == 2)
         {
+            DetectRotationAndPinch.Calculate();
             Quaternion desiredRotation = transform.rotation;
 
             if (Mathf.Abs(DetectRotationAndPinch.turnAngleDelta) > 0)
@@ -384,6 +402,12 @@ public class MoleculeController : MonoBehaviour
 
     private void OnMouseUp()
     {
+        //float mousePosX = Input.mousePosition.x;
+        //float mousePosY = Input.mousePosition.y;
+
+        //float xDis = Math.Abs(mouseDownMousePosX - mousePosX);
+        //float yDis = Math.Abs(mouseDownMousePosY - mousePosY);
+
         if (MainController.enableVelocity && !userRotatingMolecule && !isScaling)
         {
             Vector3 throwVector = transform.position - prevPos;
@@ -392,7 +416,7 @@ public class MoleculeController : MonoBehaviour
             molRigidBody.velocity = throwVelocity;
         }
 
-        if (userRotatingMolecule && MainController.enableVelocity && xDistance > 5 || yDistance > 5)
+        if (userRotatingMolecule && MainController.enableVelocity/* && xDis > 5 || yDis > 5*/)
         {
             molRigidBody.angularVelocity = Vector3.zero;
 
@@ -407,8 +431,8 @@ public class MoleculeController : MonoBehaviour
 
                 MolRelDirection molRelDirection = GetMolRelativeDirection();
 
-                molRigidBody.AddTorque((molRelDirection.molRelUp) * GenerateForce(xDistance, rotationTime));
-                molRigidBody.AddRelativeTorque((molRelDirection.molrelRight) * GenerateForce(-yDistance, rotationTime));
+                molRigidBody.AddTorque((molRelDirection.molRelUp) * GenerateForce(mouseDownMousePosX, rotationTime));
+                molRigidBody.AddRelativeTorque((molRelDirection.molrelRight) * GenerateForce(-mouseDownMousePosY, rotationTime));
 
 
             }
@@ -418,34 +442,6 @@ public class MoleculeController : MonoBehaviour
             recordRotTime = false;
             rotationTime = 0;
         }
-
-        //float angle = Vector3.Angle(MainController.FirstPersonCamera.GetComponent<Camera>().transform.forward, transform.forward);
-        //float angleRadius = Vector2.SignedAngle(new Vector2(distance.x, distance.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y));
-
-        //if (IsBetween(angle, 110, 180)) //behind
-        //{
-        //    rotateLeftRightSign= 1;
-        //    rotateUpDownSign = -1;
-        //}
-
-        //else if (IsBetween(angle, 50, 110)) //sides
-        //{
-        //    rotateLeftRightSign= 1;
-        //    rotateUpDownSign= 1;
-        //    _ShowAndroidToastMessage(angle.ToString());
-        //}
-
-        //else if (IsBetween(angle, 0, 50)) //in front
-        //{
-        //    rotateLeftRightSign= 1;
-        //    rotateUpDownSign= -1;
-        //}
-
-        //else
-        //{
-        //    rotateLeftRightSign= -1;
-        //    rotateUpDownSign= 1;
-        //}
     }
 
     float GenerateForce(float distance, float time)

@@ -6,7 +6,7 @@ PhysicsManager:
   serializedVersion: 7
   m_Gravity: {x: 0, y: -9.81, z: 0}
   m_DefaultMaterial: {fileID: 0}
-  m_BounceThreshold: 0.1
+  m_BounceThreshold: 8
   m_SleepThreshold: 0.005
   m_DefaultContactOffset: 0.001
   m_DefaultSolverIterations: 6
@@ -21,7 +21,7 @@ PhysicsManager:
   m_AutoSimulation: 1
   m_AutoSyncTransforms: 1
   m_ClothInterCollisionSettingsToggle: 0
-  m_ContactPairsMode: 2
+  m_ContactPairsMode: 0
   m_BroadphaseType: 0
   m_WorldBounds:
     m_Center: {x: 0, y: 0, z: 0}
