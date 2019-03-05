@@ -77,6 +77,11 @@ public class ChemViewARController : MonoBehaviour
             uIController.TurnOffToggle(2);
             selectedMol.DisplayInfoSheet(FirstPersonCamera, false);
         }
+
+        else
+        {
+            selectedMol.StopMotion();
+        }
     }
 
     public void MoleculeUserRotationToggle(bool newValue)

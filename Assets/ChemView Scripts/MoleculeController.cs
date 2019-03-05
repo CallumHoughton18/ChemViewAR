@@ -28,6 +28,7 @@ public class MoleculeController : MonoBehaviour
     float yPos;
     float mouseDownMousePosX;
     float mouseDownMousePosY;
+    Vector2 mouseDownPixelPos;
 
     float rotationTime;
     bool recordRotTime = false;
@@ -58,6 +59,7 @@ public class MoleculeController : MonoBehaviour
     public bool rotateMolecule = false;
 
     public bool userRotatingMolecule = false;
+    bool collidingWithSurface = false;
 
     public string moleculeName;
     public string moleculeInfo;
@@ -231,6 +233,7 @@ public class MoleculeController : MonoBehaviour
     {
         mouseDownMousePosX = Input.mousePosition.x;
         mouseDownMousePosX = Input.mousePosition.y;
+        mouseDownPixelPos = Input.GetTouch(0).position;
 
         if (isSelected == true)
         {
@@ -266,7 +269,7 @@ public class MoleculeController : MonoBehaviour
                 molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
             }
 
-            else if (MainController.enableVelocity)
+            else if (MainController.enableVelocity && collidingWithSurface == false)
             {
                 molRigidBody.constraints = RigidbodyConstraints.None;
             }
@@ -400,24 +403,35 @@ public class MoleculeController : MonoBehaviour
         return isBetween ? lower <= num && num <= upper : lower < num && num < upper;
     }
 
+    public void StopMotion()
+    {
+        molRigidBody.velocity = Vector3.zero;
+        molRigidBody.angularVelocity = Vector3.zero;
+    }
+
     private void OnMouseUp()
     {
+        Vector2 deltaFingerPos = Input.GetTouch(0).position - mouseDownPixelPos;
+        float xDistance = Input.GetTouch(0).deltaPosition.x * 15 * Mathf.Deg2Rad;
+        float yDistance = Input.GetTouch(0).deltaPosition.y * 15 * Mathf.Deg2Rad;
         //float mousePosX = Input.mousePosition.x;
         //float mousePosY = Input.mousePosition.y;
 
         //float xDis = Math.Abs(mouseDownMousePosX - mousePosX);
         //float yDis = Math.Abs(mouseDownMousePosY - mousePosY);
 
-        if (MainController.enableVelocity && !userRotatingMolecule && !isScaling)
+        if (MainController.enableVelocity && !userRotatingMolecule && !isScaling && Math.Abs(deltaFingerPos.x) > 0.5 && Math.Abs(deltaFingerPos.y) > 0.5)
         {
+            NewMolPos = Vector3.zero; //so velocity not updated in late update
             Vector3 throwVector = transform.position - prevPos;
             float throwSpeed = throwVector.magnitude / Time.deltaTime;
             Vector3 throwVelocity = throwSpeed * throwVector.normalized;
             molRigidBody.velocity = throwVelocity;
         }
 
-        if (userRotatingMolecule && MainController.enableVelocity/* && xDis > 5 || yDis > 5*/)
+        if (userRotatingMolecule && MainController.enableVelocity && Math.Abs(deltaFingerPos.x) >  0.5 && Math.Abs(deltaFingerPos.y) > 0.5)
         {
+            NewMolPos = Vector3.zero;
             molRigidBody.angularVelocity = Vector3.zero;
 
             if (pitchRotation)
@@ -431,8 +445,8 @@ public class MoleculeController : MonoBehaviour
 
                 MolRelDirection molRelDirection = GetMolRelativeDirection();
 
-                molRigidBody.AddTorque((molRelDirection.molRelUp) * GenerateForce(mouseDownMousePosX, rotationTime));
-                molRigidBody.AddRelativeTorque((molRelDirection.molrelRight) * GenerateForce(-mouseDownMousePosY, rotationTime));
+                molRigidBody.AddTorque((molRelDirection.molRelUp) * GenerateForce(xDistance, rotationTime));
+                molRigidBody.AddRelativeTorque((molRelDirection.molrelRight) * GenerateForce(-yDistance, rotationTime));
 
 
             }
@@ -441,6 +455,31 @@ public class MoleculeController : MonoBehaviour
             totalZRotation = 0;
             recordRotTime = false;
             rotationTime = 0;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!MainController.enableVelocity)
+        {
+            molRigidBody.velocity = Vector3.zero;
+        }
+
+        if (collision.gameObject.name == "ChemViewSurface" && NewMolPos != Vector3.zero) //is being dragged and colliding with surface
+        {
+           // _ShowAndroidToastMessage("Surface Collision");
+            collidingWithSurface = true;
+            molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == "ChemViewSurface")
+        {
+            collidingWithSurface = false;
+            //_ShowAndroidToastMessage("Collision Left");
+            //molRigidBody.constraints = RigidbodyConstraints.None;
         }
     }
 
