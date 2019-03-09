@@ -123,7 +123,6 @@ public class UIController : MonoBehaviour
                 if (molSelect != null)
                     Destroy(molSelect);
 
-                Debug.Log("Spawn Sheet");
                 molSelect = Instantiate(molSelectCanvas) as GameObject;
                 molSelect.transform.position = camera.transform.position + (camera.transform.forward * 1);
                 molSelect.transform.rotation = camera.transform.rotation;
