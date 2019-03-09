@@ -77,6 +77,7 @@ public class MoleculeController : MonoBehaviour
     bool noPhysics = true;
 
     public float HighlightThicknessFactor;
+    private float playerMolDistance = 1;
 
     IEnumerator Start()
     {
@@ -87,7 +88,7 @@ public class MoleculeController : MonoBehaviour
         collider = GetComponent<Collider>();
         InvokeRepeating("ReduceAngularVelocity", 0, 1.0f);
 
-        Shader.SetGlobalFloat("_Outline", (0.003f * scaleForOutline) * HighlightThicknessFactor);
+        CalculateShaderWidthWithDistance();
 
         string query = wikiAPITemplateQuery.Replace("MOLNAME", moleculeName);
         using (WWW wikiReq = new WWW(query))
@@ -115,9 +116,27 @@ public class MoleculeController : MonoBehaviour
     {
         molRigidBody.angularVelocity = molRigidBody.angularVelocity * 0.6f;
     }
+
+    void CalculateShaderWidthWithDistance()
+    {
+        float newPlayeMolDistance = Vector3.Distance(gameObject.transform.position, MainController.FirstPersonCamera.transform.position);
+
+        if (newPlayeMolDistance != playerMolDistance && newPlayeMolDistance > 1) //updates shader
+        {
+            playerMolDistance = newPlayeMolDistance;
+            SetShaderOutlineSize();
+
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isSelected)
+        {
+            CalculateShaderWidthWithDistance();
+        }
+
         int fingersOnScreen = 0;
 
         foreach (Touch touch in Input.touches)
@@ -142,7 +161,7 @@ public class MoleculeController : MonoBehaviour
                     transform.localScale = initialScale * scaleFactor;
 
                     scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
-                    Shader.SetGlobalFloat("_Outline", (0.003f * scaleForOutline) * HighlightThicknessFactor);
+                    SetShaderOutlineSize();
                 }
             }
 
@@ -152,6 +171,11 @@ public class MoleculeController : MonoBehaviour
 
         if (MainController.enableVelocity && userRotatingMolecule && recordRotTime)
             rotationTime += Time.deltaTime;
+    }
+
+    private void SetShaderOutlineSize()
+    {
+        Shader.SetGlobalFloat("_Outline", ((0.003f * scaleForOutline) * HighlightThicknessFactor) / playerMolDistance);
     }
 
     private void LateUpdate()
