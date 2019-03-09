@@ -551,7 +551,6 @@ Transform:
   - {fileID: 91184325}
   - {fileID: 776943435}
   - {fileID: 500438356}
-  - {fileID: 1898624933}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3406,7 +3405,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: MolName
 --- !u!222 &1377403003
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3819,209 +3818,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1632950043
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1898624933}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.62622637
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.69055635
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.3173084
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.17403427
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_TagString
-      value: Molecule
-      objectReference: {fileID: 0}
-    - target: {fileID: 3300000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-  m_IsPrefabParent: 0
---- !u!4 &1632950044 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-  m_PrefabInternal: {fileID: 1632950043}
---- !u!1 &1632950045 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
-  m_PrefabInternal: {fileID: 1632950043}
---- !u!114 &1632950046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632950045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  molpreviewImage: {fileID: 0}
-  chemFormula: C13H18O2
-  molarMass: 206.285 g/mol
-  meltingPoint: "75 to 78 \xB0C"
-  boilingPoint: "157 \xB0C"
-  moleculeSubType: 1
-  planePosition: {x: 0, y: 0, z: 0}
-  initialFingersDistance: 0
-  initialScale: {x: 0, y: 0, z: 0}
-  BeginningScale: {x: 0, y: 0, z: 0}
-  initRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialHaloScale: {x: 0, y: 0, z: 0}
-  isSelected: 0
-  rotateMolecule: 0
-  userRotatingMolecule: 0
-  moleculeName: Ibuprofen
-  moleculeInfo: 
-  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
-    type: 2}
-  molImage: {fileID: 0}
-  displayingInfoSheet: 0
-  isScaling: 0
-  MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 1
---- !u!65 &1632950047
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632950045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.41, y: 11.22, z: 7.24}
-  m_Center: {x: -0.08, y: 0.2, z: -0.01}
---- !u!54 &1632950048
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632950045}
-  serializedVersion: 2
-  m_Mass: 0.01
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 1
---- !u!1 &1653184454
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1653184455}
-  - component: {fileID: 1653184457}
-  - component: {fileID: 1653184456}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1653184455
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1653184454}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1632950044}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1653184456
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1653184454}
-  m_Mesh: {fileID: 4300000, guid: 2dc5c2c6a6eef30469bcc26e6af1401b, type: 3}
---- !u!23 &1653184457
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1653184454}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: d48c91479eec17b489f3b60f340ac994, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &1704897988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4663,7 +4459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: -0.0011024475}
+  m_AnchoredPosition: {x: -0.60220337, y: 0.0010070801}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -4917,35 +4713,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
---- !u!1 &1898624932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1898624933}
-  m_Layer: 0
-  m_Name: Ibuprofen Decimated
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1898624933
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1898624932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1632950044}
-  m_Father: {fileID: 209310124}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957810160
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,8 +4953,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

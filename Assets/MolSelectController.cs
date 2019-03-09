@@ -11,7 +11,7 @@ public class MolSelectController : MonoBehaviour {
 
     public void FadeOutSheet()
     {
-        GetComponent<UIFader>().FadeOutWithScale(gameObject,true);
+        GetComponent<UIFader>().FadeOutWithScale(gameObject);
     }
 
     // Update is called once per frame

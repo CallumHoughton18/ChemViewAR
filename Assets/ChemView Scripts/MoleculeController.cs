@@ -412,6 +412,13 @@ public class MoleculeController : MonoBehaviour
     private void OnMouseUp()
     {
         Vector2 deltaFingerPos = Input.GetTouch(0).position - mouseDownPixelPos;
+        float xDistance = Input.GetTouch(0).deltaPosition.x * 15 * Mathf.Deg2Rad;
+        float yDistance = Input.GetTouch(0).deltaPosition.y * 15 * Mathf.Deg2Rad;
+        //float mousePosX = Input.mousePosition.x;
+        //float mousePosY = Input.mousePosition.y;
+
+        //float xDis = Math.Abs(mouseDownMousePosX - mousePosX);
+        //float yDis = Math.Abs(mouseDownMousePosY - mousePosY);
 
         if (MainController.enableVelocity && !userRotatingMolecule && !isScaling && Math.Abs(deltaFingerPos.x) > 0.5 && Math.Abs(deltaFingerPos.y) > 0.5)
         {
@@ -435,8 +442,6 @@ public class MoleculeController : MonoBehaviour
 
             else
             {
-                float xDistance = Input.GetTouch(0).deltaPosition.x * 15 * Mathf.Deg2Rad;
-                float yDistance = Input.GetTouch(0).deltaPosition.y * 15 * Mathf.Deg2Rad;
 
                 MolRelDirection molRelDirection = GetMolRelativeDirection();
 
@@ -462,6 +467,7 @@ public class MoleculeController : MonoBehaviour
 
         if (collision.gameObject.name == "ChemViewSurface" && NewMolPos != Vector3.zero) //is being dragged and colliding with surface
         {
+           // _ShowAndroidToastMessage("Surface Collision");
             collidingWithSurface = true;
             molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
         }
@@ -472,7 +478,8 @@ public class MoleculeController : MonoBehaviour
         if (collision.gameObject.name == "ChemViewSurface")
         {
             collidingWithSurface = false;
-            molRigidBody.constraints = RigidbodyConstraints.None;
+            //_ShowAndroidToastMessage("Collision Left");
+            //molRigidBody.constraints = RigidbodyConstraints.None;
         }
     }
 
