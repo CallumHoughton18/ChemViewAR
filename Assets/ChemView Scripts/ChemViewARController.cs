@@ -143,13 +143,19 @@ public class ChemViewARController : MonoBehaviour
 
         if (showSearchingUI != SearchingForPlaneUI.activeInHierarchy)
         {
+            SearchingForPlaneUI.SetActive(showSearchingUI);
+
             if (showSearchingUI)
+            {
+                SearchingForPlaneUI.GetComponent<SearchingForPlaneController>().StartMessageCoroutine();
                 uIController.FadeOut();
+            }
 
             else
+            {
                 uIController.FadeIn();
+            }
         }
-        SearchingForPlaneUI.SetActive(showSearchingUI);
 
         Touch touch;
 
