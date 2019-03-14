@@ -10,7 +10,7 @@ public static class ChemviewHelper {
         return (T)MoleculeSubType.Parse(typeof(T), value, true);
     }
 
-    private static void ShowAndroidToastMessage(string message)
+    public static void ShowAndroidToastMessage(string message)
     {
         AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         AndroidJavaObject unityActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");

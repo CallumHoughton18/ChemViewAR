@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     ChemViewARController ChemController;
     public CanvasGroup UICanvasGroup;
     public GameObject molSelectCanvas;
+    public bool SearchingForPlanes { get; set; }
 
     private void OnGUI()
     {
