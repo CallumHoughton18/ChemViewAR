@@ -16,7 +16,7 @@ public class SearchingForPlaneController : MonoBehaviour
     int i = 0;
     void Start()
     {
-        searchingMessages = new List<string> { "Searching for Plane", "Searching for Plane.", "Searching for Plane..", "Searching for Plane..." };
+        searchingMessages = new List<string> { "Searching for Plane", "Searching for Plane.", "Searching for Plane..", "Searching for Plane...", "Point at a Flat Surface to Generate a Plane!" };
         StartMessageCoroutine();
         _visibleYPos = transform.position.y;
         RectTransform rt = GetComponent<RectTransform>();
@@ -30,12 +30,13 @@ public class SearchingForPlaneController : MonoBehaviour
         {
             gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - _movementIncrement, transform.position.z);
 
-            //if (gameObject.transform.position.y >= _hiddenYPos)
-            //    gameObject.SetActive(false);
+            if (!_showDialog && gameObject.transform.position.y <= _hiddenYPos)
+            {
+                gameObject.SetActive(false);
+            }
         }
         else if (_showDialog && gameObject.transform.position.y <= _visibleYPos)
         {
-            //gameObject.SetActive(true);
             gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + _movementIncrement, transform.position.z);
         }
     }
@@ -45,7 +46,8 @@ public class SearchingForPlaneController : MonoBehaviour
 
         if (showDialog)
         {
-            _movementIncrement = Mathf.Abs((_visibleYPos - transform.position.y) / 3);
+            gameObject.SetActive(true);
+            _movementIncrement = Mathf.Abs((_visibleYPos - transform.position.y) / 3); //not completely at position it was originally in still?
         }
 
         else
@@ -76,9 +78,17 @@ public class SearchingForPlaneController : MonoBehaviour
             i++;
 
             if (i > searchingMessages.Count - 1)
+            {
                 i = 0;
+                searchingText.alignment = TextAnchor.MiddleCenter;
+                yield return new WaitForSeconds(3f);
+            }
 
-            yield return new WaitForSeconds(1f);
+            else
+            {
+                searchingText.alignment = TextAnchor.MiddleLeft;
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
 }

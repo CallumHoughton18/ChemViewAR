@@ -94,19 +94,25 @@ public class MoleculeController : MonoBehaviour
         using (WWW wikiReq = new WWW(query))
         {
             yield return wikiReq;
+
             WikiInfo wikiObj = JsonConvert.DeserializeObject<WikiInfo>(wikiReq.text);
-            if (string.IsNullOrEmpty(moleculeInfo))
-                moleculeInfo = wikiObj.extract;
 
-            using (WWW www = new WWW(wikiObj.thumbnail.source))
+            if (wikiObj.type != "https://mediawiki.org/wiki/HyperSwitch/errors/not_found")
             {
-                /// Wait for download to complete
-                yield return www;
 
-                /// assign texture
+                if (string.IsNullOrEmpty(moleculeInfo))
+                    moleculeInfo = wikiObj.extract;
 
-                if (molImage == null)
-                    molImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+                using (WWW www = new WWW(wikiObj.thumbnail.source))
+                {
+                    /// Wait for download to complete
+                    yield return www;
+
+                    /// assign texture
+
+                    if (molImage == null)
+                        molImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+                }
             }
 
         }
@@ -397,7 +403,7 @@ public class MoleculeController : MonoBehaviour
     }
     public void RotateLeftRight(float rotateLeftRight, float rotateUpDown)
     {
-        float sensitivity = 10f;
+        float sensitivity = 10f * Mathf.Clamp(Vector3.Distance(gameObject.transform.position, MainController.FirstPersonCamera.transform.position),1,99999);
 
         MolRelDirection molRelDirection = GetMolRelativeDirection();
 
