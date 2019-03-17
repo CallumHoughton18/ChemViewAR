@@ -23,6 +23,7 @@ public class ChemViewARController : MonoBehaviour
     public Camera FirstPersonCamera;
 
     public MoleculeController selectedMol;
+    private MoleculeController _lastSelectedMol;
 
     public GameObject UICanvas;
     public GameObject ControlsCanvas;
@@ -182,7 +183,7 @@ public class ChemViewARController : MonoBehaviour
                         if (selectedMol == null)
                         {
                             selectedMol = raycastHit.collider.GetComponentInChildren<MoleculeController>();
-                            //MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
+                            _lastSelectedMol = selectedMol;
                             selectedMol.isSelected = true;
                             selectedMol.Highlight();
                             uIController.SetToggles(selectedMol);
@@ -197,7 +198,7 @@ public class ChemViewARController : MonoBehaviour
                                 uIController.TurnOffToggles();
 
                                 selectedMol = raycastHit.collider.GetComponentInChildren<MoleculeController>();
-                                //MoleculeController selectedMolScript = selectedMol.GetComponentInChildren<MoleculeController>();
+                                _lastSelectedMol = selectedMol;
                                 selectedMol.isSelected = true;
                                 selectedMol.Highlight();
                                 uIController.SetToggles(selectedMol);
@@ -287,17 +288,12 @@ public class ChemViewARController : MonoBehaviour
     public void DeleteSelectedMolecule()
     {
 
-        if (selectedMol != null)
+        if (_lastSelectedMol != null)
         {
             uIController.TurnOffToggles();
-            selectedMol.Dehighlight();
-            selectedMol.Destroy();
+            _lastSelectedMol.Dehighlight();
+            _lastSelectedMol.Destroy();
 
-        }
-
-        else
-        {
-            _ShowAndroidToastMessage("No mol selected");
         }
 
     }
@@ -306,8 +302,6 @@ public class ChemViewARController : MonoBehaviour
     {
         _ShowAndroidToastMessage("Destroying all molecules");
         List<GameObject> mols = GameObject.FindGameObjectsWithTag("Molecule").Where(x => x.transform.parent.name.ToLower().Contains("anchor")).ToList();
-
-        _ShowAndroidToastMessage(mols.Count().ToString());
 
         foreach (var mol in mols)
         {
@@ -363,6 +357,7 @@ public class ChemViewARController : MonoBehaviour
                     selectedMolScript.planePosition = anchor.transform.position;
                     selectedMolScript.Highlight();
                     selectedMol = selectedMolScript;
+                    _lastSelectedMol = selectedMol;
                     uIController.SetToggles(selectedMol);
 
                 }
