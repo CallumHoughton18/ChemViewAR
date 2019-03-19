@@ -30,6 +30,7 @@ public class ChemViewARController : MonoBehaviour
     private UIController uIController;
 
     private bool prevDoubleTap = false;
+    private bool firstSurface = true;
 
     /// <summary>
     /// A prefab for tracking and visualizing detected planes.
@@ -145,6 +146,12 @@ public class ChemViewARController : MonoBehaviour
 
         if (showSearchingUI != uIController.SearchingForPlanes)
         {
+            if (firstSurface == true)
+            {
+                ChemviewHelper.ShowAndroidToastMessage("Double tap on a surface to spawn a molecule");
+                firstSurface = false;
+            }
+
             uIController.SearchingForPlanes = showSearchingUI;
             SearchingForPlaneUI.GetComponent<SearchingForPlaneController>().MovePosition(showSearchingUI);
 
@@ -351,7 +358,9 @@ public class ChemViewARController : MonoBehaviour
                     molObj.transform.parent = anchor.transform;
 
                     if (selectedMol != null)
+                    {
                         selectedMol.Dehighlight();
+                    }
 
                     MoleculeController selectedMolScript = molObj.GetComponentInChildren<MoleculeController>();
                     selectedMolScript.planePosition = anchor.transform.position;
