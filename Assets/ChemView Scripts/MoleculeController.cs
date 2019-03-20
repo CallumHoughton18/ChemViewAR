@@ -86,7 +86,7 @@ public class MoleculeController : MonoBehaviour
         molRigidBody = GetComponent<Rigidbody>();
         molRigidBody.maxAngularVelocity = 15;
         collider = GetComponent<Collider>();
-        InvokeRepeating("ReduceAngularVelocity", 0, 1.0f);
+        InvokeRepeating("ReduceAngularAndVelocity", 0, 1.0f);
 
         CalculateShaderWidthWithDistance();
 
@@ -118,9 +118,10 @@ public class MoleculeController : MonoBehaviour
         }
     }
 
-    void ReduceAngularVelocity()
+    void ReduceAngularAndVelocity()
     {
         molRigidBody.angularVelocity = molRigidBody.angularVelocity * 0.6f;
+        molRigidBody.velocity = molRigidBody.velocity * 0.6f;
     }
 
     void CalculateShaderWidthWithDistance()
@@ -141,52 +142,47 @@ public class MoleculeController : MonoBehaviour
         if (isSelected)
         {
             CalculateShaderWidthWithDistance();
-        }
 
-        int fingersOnScreen = 0;
+            int fingersOnScreen = 0;
 
-        foreach (Touch touch in Input.touches)
-        {
-            fingersOnScreen++; //Counts num touches on screen
-
-
-            if (fingersOnScreen == 2 && isSelected == true && MainController.UserRotating == false) //enable 'pinch' motion
+            foreach (Touch touch in Input.touches)
             {
-                isScaling = true;
-                if (touch.phase == TouchPhase.Began)
+                fingersOnScreen++; //Counts num touches on screen
+
+
+                if (fingersOnScreen == 2 && isSelected == true && MainController.UserRotating == false) //enable 'pinch' motion
                 {
-                    initialFingersDistance = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
-                    initialScale = ScaleTransform.localScale;
+                    isScaling = true;
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        initialFingersDistance = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
+                        initialScale = ScaleTransform.localScale;
+                    }
+                    else
+                    {
+                        float currentFingersDistance = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
+
+                        float scaleFactor = currentFingersDistance / initialFingersDistance;
+
+                        transform.localScale = initialScale * scaleFactor;
+
+                        scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
+                        SetShaderOutlineSize();
+                    }
                 }
+
                 else
-                {
-                    float currentFingersDistance = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
-
-                    float scaleFactor = currentFingersDistance / initialFingersDistance;
-
-                    transform.localScale = initialScale * scaleFactor;
-
-                    scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
-                    SetShaderOutlineSize();
-                }
+                    isScaling = false;
             }
 
-            else
-                isScaling = false;
+            if (MainController.enableVelocity && userRotatingMolecule && recordRotTime)
+                rotationTime += Time.deltaTime;
         }
-
-        if (MainController.enableVelocity && userRotatingMolecule && recordRotTime)
-            rotationTime += Time.deltaTime;
     }
 
     private void SetShaderOutlineSize()
     {
         Shader.SetGlobalFloat("_Outline", ((0.003f * scaleForOutline) * HighlightThicknessFactor) / playerMolDistance);
-    }
-
-    private void LateUpdate()
-    {
-
     }
 
     public void DisplayInfoSheet(Camera player, bool display)
@@ -284,37 +280,29 @@ public class MoleculeController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        try
+
+        if (NewMolPos != Vector3.zero && NewMolPos != null) //TODO: add physics toggle compatibility.
         {
-            if (NewMolPos != Vector3.zero && NewMolPos != null) //TODO: add physics toggle compatibility.
-            {
-                Vector3 newPos = (NewMolPos - transform.position);
-                Vector3 velocity = newPos * 1.0f / Time.fixedDeltaTime;
-                molRigidBody.velocity = velocity;
-            }
-
-            if (MainController.enableVelocity == false)
-            {
-                molRigidBody.angularVelocity = Vector3.zero;
-                molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
-            }
-
-            else if (MainController.enableVelocity && collidingWithSurface == false)
-            {
-                molRigidBody.constraints = RigidbodyConstraints.None;
-            }
+            Vector3 newPos = (NewMolPos - transform.position);
+            Vector3 velocity = newPos * 1.0f / Time.fixedDeltaTime;
+            molRigidBody.velocity = velocity;
         }
 
-        catch (Exception e)
+        if (MainController.enableVelocity == false)
         {
-            _ShowAndroidToastMessage(e.ToString());
+            molRigidBody.angularVelocity = Vector3.zero;
+            molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
         }
+
+        else if (MainController.enableVelocity && collidingWithSurface == false)
+        {
+            molRigidBody.constraints = RigidbodyConstraints.None;
+        }
+
     }
 
     void OnMouseDrag()
     {
-        //xDistance = DetectRotationAndPinch.fingerPoint.x * 15 * Mathf.Deg2Rad;
-        //yDistance = DetectRotationAndPinch.fingerPoint.y * 15 * Mathf.Deg2Rad;
 
         if (Input.touchCount == 1 && isSelected == true && userRotatingMolecule == false) //factor in camera movement to molecule movement also
         {
@@ -354,6 +342,7 @@ public class MoleculeController : MonoBehaviour
 
         else if (userRotatingMolecule && Input.touchCount == 1)
         {
+
             float XaxisRotation = Input.GetAxis("Mouse X") * 0.05f;
             float YaxisRotation = Input.GetAxis("Mouse Y") * 0.05f;
 
@@ -377,7 +366,7 @@ public class MoleculeController : MonoBehaviour
                 RotateZ(rotationDeg.z);
                 totalZRotation += -rotationDeg.z;
 
-                if ((totalZRotation < 0) != (DetectRotationAndPinch.turnAngleDelta < 0)) /// otherwise rotating one way then the other would give final force as 0, ie no spin.
+                if ((totalZRotation < 0) != (DetectRotationAndPinch.turnAngleDelta < 0)) // otherwise rotating one way then the other would give final force as 0, ie no spin.
                 {
                     totalZRotation = 0;
                     rotationTime = 0;
@@ -403,7 +392,7 @@ public class MoleculeController : MonoBehaviour
     }
     public void RotateLeftRight(float rotateLeftRight, float rotateUpDown)
     {
-        float sensitivity = 10f * Mathf.Clamp(Vector3.Distance(gameObject.transform.position, MainController.FirstPersonCamera.transform.position),1,99999);
+        float sensitivity = 10f * Mathf.Clamp(Vector3.Distance(gameObject.transform.position, MainController.FirstPersonCamera.transform.position), 1, 99999);
 
         MolRelDirection molRelDirection = GetMolRelativeDirection();
 
@@ -445,6 +434,7 @@ public class MoleculeController : MonoBehaviour
 
         if (MainController.enableVelocity && !userRotatingMolecule && !isScaling && Math.Abs(deltaFingerPos.x) > 0.5 && Math.Abs(deltaFingerPos.y) > 0.5)
         {
+            molRigidBody.constraints = RigidbodyConstraints.None;
             NewMolPos = Vector3.zero; //so velocity not updated in late update
             Vector3 throwVector = transform.position - prevPos;
             float throwSpeed = throwVector.magnitude / Time.deltaTime;
@@ -452,8 +442,9 @@ public class MoleculeController : MonoBehaviour
             molRigidBody.velocity = throwVelocity;
         }
 
-        if (userRotatingMolecule && MainController.enableVelocity && Math.Abs(deltaFingerPos.x) >  0.5 && Math.Abs(deltaFingerPos.y) > 0.5)
+        if (userRotatingMolecule && MainController.enableVelocity && Math.Abs(deltaFingerPos.x) > 0.5 && Math.Abs(deltaFingerPos.y) > 0.5)
         {
+            molRigidBody.constraints = RigidbodyConstraints.None;
             NewMolPos = Vector3.zero;
             molRigidBody.angularVelocity = Vector3.zero;
 

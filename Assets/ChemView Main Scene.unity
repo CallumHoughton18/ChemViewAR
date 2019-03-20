@@ -397,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &91184325
 Transform:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ Transform:
   - {fileID: 91184325}
   - {fileID: 776943435}
   - {fileID: 500438356}
-  - {fileID: 1898624933}
+  - {fileID: 1236014708}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1026,64 +1026,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359124641}
---- !u!1001 &371302497
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1898624933}
-    m_Modifications:
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-      propertyPath: m_TagString
-      value: Molecule
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-  m_IsPrefabParent: 0
 --- !u!1 &488232179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &500438356
 Transform:
   m_ObjectHideFlags: 0
@@ -1355,6 +1297,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: f2c7877dba0f8da4285903654957cb1a,
         type: 3}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 122856692839758284, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
@@ -1450,7 +1397,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 544191767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
@@ -1960,7 +1907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &776943435
 Transform:
   m_ObjectHideFlags: 0
@@ -2320,7 +2267,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 938748559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
@@ -3053,6 +3000,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1236014707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1236014708}
+  m_Layer: 0
+  m_Name: Ibuprofen Combined Meshes
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1236014708
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1236014707}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 2020568834}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1279128650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,7 +3716,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1450929072}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
@@ -4334,7 +4310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1825905491
 Transform:
   m_ObjectHideFlags: 0
@@ -4529,7 +4505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: -0.0011749268}
+  m_AnchoredPosition: {x: -0.60220337, y: -0.0028572083}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -4783,35 +4759,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
---- !u!1 &1898624932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1898624933}
-  m_Layer: 0
-  m_Name: Ibuprofen Decimated
-  m_TagString: Molecule
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1898624933
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1898624932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.65, y: -0.11, z: -0.36}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2072334188}
-  m_Father: {fileID: 209310124}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957810160
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +4828,136 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!1001 &2020568833
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1236014708}
+    m_Modifications:
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116969592381008, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+      propertyPath: m_TagString
+      value: Molecule
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 348fa053368b0d743a7a1a75caaad3a9, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &2020568834 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2020568833}
+--- !u!1 &2020568835 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1116969592381008, guid: 348fa053368b0d743a7a1a75caaad3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2020568833}
+--- !u!114 &2020568836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020568835}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: C13H18O2
+  molarMass: 206.285 g/mol
+  meltingPoint: "75 to 78 \xB0C"
+  boilingPoint: "157 \xB0C"
+  moleculeSubType: 1
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Ibuprofen
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.5
+--- !u!65 &2020568837
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020568835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.51, y: 5.09, z: 5.21}
+  m_Center: {x: 0, y: 0.98, z: -0.22}
+--- !u!54 &2020568838
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020568835}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &2024493828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4980,7 +5057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2027844112
 Transform:
   m_ObjectHideFlags: 0
@@ -4988,7 +5065,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2027844111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.91, z: -0.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1450929073}
@@ -5252,7 +5329,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2035424643}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
   m_Name: 
@@ -5385,76 +5462,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.0012359619}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
---- !u!1 &2072334187 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-  m_PrefabInternal: {fileID: 371302497}
---- !u!4 &2072334188 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400178, guid: 130456391b5891f46a6c4c6fd85a4823, type: 3}
-  m_PrefabInternal: {fileID: 371302497}
---- !u!114 &2072334189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072334187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  molpreviewImage: {fileID: 0}
-  chemFormula: C13H18O2
-  molarMass: 206.285 g/mol
-  meltingPoint: "75 to 78 \xB0C"
-  boilingPoint: "157 \xB0C"
-  moleculeSubType: 1
-  planePosition: {x: 0, y: 0, z: 0}
-  initialFingersDistance: 0
-  initialScale: {x: 0, y: 0, z: 0}
-  BeginningScale: {x: 0, y: 0, z: 0}
-  initRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialHaloScale: {x: 0, y: 0, z: 0}
-  isSelected: 0
-  rotateMolecule: 0
-  userRotatingMolecule: 0
-  moleculeName: Ibuprofen
-  moleculeInfo: 
-  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
-    type: 2}
-  molImage: {fileID: 0}
-  displayingInfoSheet: 0
-  isScaling: 0
-  MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 1
---- !u!65 &2072334190
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072334187}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12.51, y: 5.09, z: 5.21}
-  m_Center: {x: 0, y: 0.98, z: -0.22}
---- !u!54 &2072334191
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072334187}
-  serializedVersion: 2
-  m_Mass: 0.01
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 1
 --- !u!1 &2080880802
 GameObject:
   m_ObjectHideFlags: 0
@@ -5555,7 +5562,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083512464}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c669a4cc43174caea1a3748b76f2652, type: 3}
   m_Name: 
