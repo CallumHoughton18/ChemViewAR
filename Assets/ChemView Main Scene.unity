@@ -383,35 +383,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &91184324
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 91184325}
-  m_Layer: 0
-  m_Name: Caffeine
-  m_TagString: Molecule
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &91184325
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 91184324}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41, y: -2.67, z: -9.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 544191766}
-  m_Father: {fileID: 209310124}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &97747990
 Prefab:
   m_ObjectHideFlags: 0
@@ -547,11 +518,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1825905491}
-  - {fileID: 2027844112}
-  - {fileID: 91184325}
-  - {fileID: 776943435}
-  - {fileID: 500438356}
   - {fileID: 1236014708}
+  - {fileID: 1745699048}
+  - {fileID: 1205726297}
+  - {fileID: 434135591}
+  - {fileID: 1030882665}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -886,68 +857,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 90.14, y: 70.5, z: 15.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &324357358
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2027844112}
-    m_Modifications:
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 100178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_TagString
-      value: Molecule
-      objectReference: {fileID: 0}
-    - target: {fileID: 100178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-  m_IsPrefabParent: 0
 --- !u!1 &359124641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +935,35 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359124641}
+--- !u!1 &434135590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 434135591}
+  m_Layer: 0
+  m_Name: BromoChloroFluoroMethane
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &434135591
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 434135590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0000064338383, y: -4.110011, z: 1.2100028}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 1596593798}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488232179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,35 +1029,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 0}
---- !u!1 &500438355
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 500438356}
-  m_Layer: 0
-  m_Name: BromoChloroFluoroMethane
-  m_TagString: Molecule
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &500438356
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 500438355}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -4.11, z: 1.21}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2035424642}
-  m_Father: {fileID: 209310124}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501610059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,138 +1215,6 @@ Prefab:
     - {fileID: 122856692839758284, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &544191765
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 91184325}
-    m_Modifications:
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.13130483
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99134207
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -15.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 100274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-      propertyPath: m_TagString
-      value: Molecule
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-  m_IsPrefabParent: 0
---- !u!4 &544191766 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-  m_PrefabInternal: {fileID: 544191765}
---- !u!1 &544191767 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100274, guid: f91c83837b2e5ab4e9c9638947670d79, type: 3}
-  m_PrefabInternal: {fileID: 544191765}
---- !u!54 &544191768
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 544191767}
-  serializedVersion: 2
-  m_Mass: 0.01
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &544191769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 544191767}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  molpreviewImage: {fileID: 0}
-  chemFormula: C8H10N4O2
-  molarMass: 194.194 g/mol
-  meltingPoint: "235 to 238 \xB0C"
-  boilingPoint: "178\xB0C"
-  moleculeSubType: 1
-  planePosition: {x: 0, y: 0, z: 0}
-  initialFingersDistance: 0
-  initialScale: {x: 0, y: 0, z: 0}
-  BeginningScale: {x: 0, y: 0, z: 0}
-  initRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialHaloScale: {x: 0, y: 0, z: 0}
-  isSelected: 0
-  rotateMolecule: 0
-  userRotatingMolecule: 0
-  moleculeName: Caffeine
-  moleculeInfo: 
-  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
-    type: 2}
-  molImage: {fileID: 0}
-  displayingInfoSheet: 0
-  isScaling: 0
-  MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 20
---- !u!65 &544191770
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 544191767}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.78, y: 2.24, z: 6.63}
-  m_Center: {x: 0.46, y: 0.17, z: -0.18}
 --- !u!1 &557169198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,35 +1670,100 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12b36f1c14c47bc4f81135188b03fa97, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &776943434
+--- !u!1 &853783439
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 776943435}
+  - component: {fileID: 853783440}
+  - component: {fileID: 853783443}
+  - component: {fileID: 853783442}
+  - component: {fileID: 853783441}
   m_Layer: 0
-  m_Name: L-(+)-Alanine
+  m_Name: NaClObj
   m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &776943435
+  m_IsActive: 1
+--- !u!4 &853783440
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 776943434}
+  m_GameObject: {fileID: 853783439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 2.35, z: -9.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_Children:
-  - {fileID: 938748558}
-  m_Father: {fileID: 209310124}
-  m_RootOrder: 3
+  - {fileID: 1195866441}
+  m_Father: {fileID: 1030882665}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &853783441
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853783439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 132.94, y: 132.31, z: 135.06}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &853783442
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853783439}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &853783443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853783439}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: NaCl
+  molarMass: 
+  meltingPoint: 
+  boilingPoint: 
+  moleculeSubType: 0
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: NaCl
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.5
 --- !u!1 &882475032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,146 +1998,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &938748557
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 776943435}
-    m_Modifications:
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-      propertyPath: m_TagString
-      value: Molecule
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-  m_IsPrefabParent: 0
---- !u!4 &938748558 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-  m_PrefabInternal: {fileID: 938748557}
---- !u!1 &938748559 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100068, guid: e0a8dc9b7de631548b14ea24c6d0d43f, type: 3}
-  m_PrefabInternal: {fileID: 938748557}
---- !u!54 &938748560
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938748559}
-  serializedVersion: 2
-  m_Mass: 0.01
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!65 &938748561
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938748559}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.38, y: 3.83, z: 4.51}
-  m_Center: {x: -0.38, y: 0.35, z: 0}
---- !u!114 &938748562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938748559}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  molpreviewImage: {fileID: 0}
-  chemFormula: C3H7NO2
-  molarMass: 89.094 g/mol
-  meltingPoint: "300 \xB0C"
-  boilingPoint: "250 \xB0C"
-  moleculeSubType: 2
-  planePosition: {x: 0, y: 0, z: 0}
-  initialFingersDistance: 0
-  initialScale: {x: 0, y: 0, z: 0}
-  BeginningScale: {x: 0, y: 0, z: 0}
-  initRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialHaloScale: {x: 0, y: 0, z: 0}
-  isSelected: 0
-  rotateMolecule: 0
-  userRotatingMolecule: 0
-  moleculeName: Alanine
-  moleculeInfo: 
-  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
-    type: 2}
-  molImage: {fileID: 0}
-  displayingInfoSheet: 0
-  isScaling: 0
-  MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 40
 --- !u!1 &955390901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,6 +2278,35 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1022578345}
+--- !u!1 &1030882664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1030882665}
+  m_Layer: 0
+  m_Name: NaCl
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1030882665
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030882664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 208, y: 25, z: -17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 853783440}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040508568
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,6 +2446,140 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1065580198
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1205726297}
+    m_Modifications:
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621506721853912, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_TagString
+      value: Molecule
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621506721853912, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9ed1c91319698ba46bd6f0d571f16cb5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1065580199 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4399987019290822, guid: 9ed1c91319698ba46bd6f0d571f16cb5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1065580198}
+--- !u!1 &1065580200 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1621506721853912, guid: 9ed1c91319698ba46bd6f0d571f16cb5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1065580198}
+--- !u!114 &1065580201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065580200}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: C3H7NO2
+  molarMass: 89.094 g/mol
+  meltingPoint: "300 \xB0C"
+  boilingPoint: "250 \xB0C"
+  moleculeSubType: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Alanine
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 40
+--- !u!65 &1065580202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065580200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.38, y: 3.83, z: 4.51}
+  m_Center: {x: -0.38, y: 0.35, z: 0}
+--- !u!54 &1065580203
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065580200}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1090848512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +2731,85 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchingText: {fileID: 2034957722}
+--- !u!1001 &1195866440
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 853783440}
+    m_Modifications:
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -56.399998
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.199999
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.049999
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000008146035
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000030908623
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000007549791
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+      propertyPath: m_Name
+      value: NaclMesh
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &1195866441 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: dca3285acb054e044b137d64c72c64ba, type: 3}
+  m_PrefabInternal: {fileID: 1195866440}
+--- !u!1 &1205726296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1205726297}
+  m_Layer: 0
+  m_Name: L-(+)-Alanine
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1205726297
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205726296}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3699865, y: 2.3500338, z: -9.550012}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 1065580199}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1215342055
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,7 +2953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1236014708}
   m_Layer: 0
-  m_Name: Ibuprofen Combined Meshes
+  m_Name: Ibuprofen
   m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3027,7 +2971,7 @@ Transform:
   m_Children:
   - {fileID: 2020568834}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1279128650
 GameObject:
@@ -3311,6 +3255,144 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1307680875}
+--- !u!1001 &1318194732
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1745699048}
+    m_Modifications:
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.13130483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99134207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -15.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267439030834018, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_TagString
+      value: Molecule
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267439030834018, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9ee0fc91342c7084fa2d9412ebaf1cad, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1318194733 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4918371254003818, guid: 9ee0fc91342c7084fa2d9412ebaf1cad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1318194732}
+--- !u!1 &1318194734 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1267439030834018, guid: 9ee0fc91342c7084fa2d9412ebaf1cad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1318194732}
+--- !u!114 &1318194735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318194734}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: C8H10N4O2
+  molarMass: 194.194 g/mol
+  meltingPoint: "235 to 238 \xB0C"
+  boilingPoint: "178\xB0C"
+  moleculeSubType: 1
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Caffeine
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 20
+--- !u!65 &1318194736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318194734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.78, y: 2.24, z: 6.63}
+  m_Center: {x: 0.46, y: 0.17, z: -0.18}
+--- !u!54 &1318194737
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318194734}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1345111303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,76 +3769,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!1 &1450929072 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-  m_PrefabInternal: {fileID: 324357358}
---- !u!4 &1450929073 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400178, guid: 2391b64744364404aa1cf73a19b47b99, type: 3}
-  m_PrefabInternal: {fileID: 324357358}
---- !u!54 &1450929074
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1450929072}
-  serializedVersion: 2
-  m_Mass: 0.01
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 1
---- !u!114 &1450929075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1450929072}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  molpreviewImage: {fileID: 0}
-  chemFormula: C13H18O2
-  molarMass: 206.285 g/mol
-  meltingPoint: "75 to 78 \xB0C"
-  boilingPoint: "157 \xB0C"
-  moleculeSubType: 1
-  planePosition: {x: 0, y: 0, z: 0}
-  initialFingersDistance: 0
-  initialScale: {x: 0, y: 0, z: 0}
-  BeginningScale: {x: 0, y: 0, z: 0}
-  initRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialHaloScale: {x: 0, y: 0, z: 0}
-  isSelected: 0
-  rotateMolecule: 0
-  userRotatingMolecule: 0
-  moleculeName: Ibuprofen
-  moleculeInfo: 
-  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
-    type: 2}
-  molImage: {fileID: 0}
-  displayingInfoSheet: 0
-  isScaling: 0
-  MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.5
---- !u!65 &1450929076
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1450929072}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12.51, y: 5.09, z: 5.21}
-  m_Center: {x: 0, y: 0.98, z: -0.22}
 --- !u!1 &1557338796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,6 +3856,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1001 &1596593797
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 434135591}
+    m_Modifications:
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471034886415442, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+      propertyPath: m_TagString
+      value: Molecule
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 91245a24f6f34d64e8d5325972ad47bd, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1596593798 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4806602827613856, guid: 91245a24f6f34d64e8d5325972ad47bd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1596593797}
+--- !u!1 &1596593799 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1471034886415442, guid: 91245a24f6f34d64e8d5325972ad47bd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1596593797}
+--- !u!114 &1596593800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1596593799}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: CHBrClF
+  molarMass: 147.37 g/mol
+  meltingPoint: "\u2212115 \xB0C"
+  boilingPoint: "36 \xB0C"
+  moleculeSubType: 0
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: BromoChloroFluoroMethane
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 1
+--- !u!65 &1596593801
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1596593799}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.91, y: 3.38, z: 2.73}
+  m_Center: {x: 0, y: 0.67, z: 0.13}
+--- !u!54 &1596593802
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1596593799}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1608144853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,6 +4156,35 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1705099773}
+--- !u!1 &1745699047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1745699048}
+  m_Layer: 0
+  m_Name: Caffeine
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1745699048
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1745699047}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.41001287, y: -2.6699123, z: -9.100026}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 1318194733}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1759795985
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,7 +4676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: -0.0028572083}
+  m_AnchoredPosition: {x: -0.60220337, y: 0.0013275146}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -5043,35 +5214,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
---- !u!1 &2027844111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2027844112}
-  m_Layer: 0
-  m_Name: Ibuprofen
-  m_TagString: Molecule
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2027844112
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2027844111}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: -0.56}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1450929073}
-  m_Father: {fileID: 209310124}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032163643
 GameObject:
   m_ObjectHideFlags: 0
@@ -5218,146 +5360,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2034957720}
---- !u!1001 &2035424641
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 500438356}
-    m_Modifications:
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_Name
-      value: BromoChloroFluoroMethane
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_TagString
-      value: Molecule
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-  m_IsPrefabParent: 0
---- !u!4 &2035424642 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-  m_PrefabInternal: {fileID: 2035424641}
---- !u!1 &2035424643 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: 1b48155cb64b76148b8f12de67dd0ae8, type: 3}
-  m_PrefabInternal: {fileID: 2035424641}
---- !u!54 &2035424644
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2035424643}
-  serializedVersion: 2
-  m_Mass: 0.01
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!65 &2035424645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2035424643}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.91, y: 3.38, z: 2.73}
-  m_Center: {x: 0, y: 0.67, z: 0.13}
---- !u!114 &2035424646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2035424643}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  molpreviewImage: {fileID: 0}
-  chemFormula: CHBrClF
-  molarMass: 147.37 g/mol
-  meltingPoint: "\u2212115 \xB0C"
-  boilingPoint: "36 \xB0C"
-  moleculeSubType: 0
-  planePosition: {x: 0, y: 0, z: 0}
-  initialFingersDistance: 0
-  initialScale: {x: 0, y: 0, z: 0}
-  BeginningScale: {x: 0, y: 0, z: 0}
-  initRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialHaloScale: {x: 0, y: 0, z: 0}
-  isSelected: 0
-  rotateMolecule: 0
-  userRotatingMolecule: 0
-  moleculeName: BromoChloroFluoroMethane
-  moleculeInfo: 
-  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
-    type: 2}
-  molImage: {fileID: 0}
-  displayingInfoSheet: 0
-  isScaling: 0
-  MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 1
 --- !u!1 &2051394734
 GameObject:
   m_ObjectHideFlags: 0
@@ -5562,7 +5564,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083512464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c669a4cc43174caea1a3748b76f2652, type: 3}
   m_Name: 

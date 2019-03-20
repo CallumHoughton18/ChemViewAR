@@ -340,8 +340,9 @@ public class ChemViewARController : MonoBehaviour
                 {
                     // Instantiate chemical model at the hit pose.
                     var molObj = Instantiate(loadedChemModel, hit.Pose.position, hit.Pose.rotation);
+                    molObj.SetActive(true);
+                    molObj.GetComponentInChildren<MoleculeController>().enabled = true;
                     molObj.transform.GetChild(0).position = hit.Pose.position;
-
 
                     molObj.transform.Translate(0, 0.8f, 0, Space.World);
 
