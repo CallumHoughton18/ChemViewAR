@@ -29,6 +29,7 @@ public class MoleculeController : MonoBehaviour
     float mouseDownMousePosX;
     float mouseDownMousePosY;
     Vector2 mouseDownPixelPos;
+    Quaternion _rotateBy;
 
     float rotationTime;
     bool recordRotTime = false;
@@ -299,6 +300,16 @@ public class MoleculeController : MonoBehaviour
             molRigidBody.constraints = RigidbodyConstraints.None;
         }
 
+        //if (userRotatingMolecule && _rotateBy != null)
+        //{
+        //    molRigidBody.MoveRotation(transform.rotation * _rotateBy);
+        //}
+
+        //else if (userRotatingMolecule == false && MainController.enableVelocity == false)
+        //{
+        //    molRigidBody.angularVelocity = Vector3.zero;
+        //}
+
     }
 
     void OnMouseDrag()
@@ -392,27 +403,29 @@ public class MoleculeController : MonoBehaviour
     }
     public void RotateLeftRight(float rotateLeftRight, float rotateUpDown)
     {
-        float sensitivity = 10f * Mathf.Clamp(Vector3.Distance(gameObject.transform.position, MainController.FirstPersonCamera.transform.position), 1, 99999);
+        float sensitivity = 25f * Mathf.Clamp(Vector3.Distance(gameObject.transform.position, MainController.FirstPersonCamera.transform.position), 1, 99999);
 
         MolRelDirection molRelDirection = GetMolRelativeDirection();
 
-        Quaternion rotateBy = Quaternion.AngleAxis(rotateLeftRight / gameObject.transform.localScale.x * sensitivity, molRelDirection.molRelUp)
-            * Quaternion.AngleAxis(-rotateUpDown / gameObject.transform.localScale.x * sensitivity, molRelDirection.molrelRight);
+        Quaternion rotateBy = Quaternion.AngleAxis(rotateLeftRight / gameObject.transform.parent.transform.localScale.x * sensitivity, molRelDirection.molRelUp)
+            * Quaternion.AngleAxis(-rotateUpDown / gameObject.transform.parent.transform.localScale.x * sensitivity, molRelDirection.molrelRight);
 
 
+        _rotateBy = rotateBy;
         transform.Rotate(rotateBy.eulerAngles);
+        //TODO: Use rotation in fixed update to potentially solve jittery issues
     }
 
     public void RotateZ(float ZRotation)
     {
-        float sensitivity = 0.5f;
+        float sensitivity = 25f;
 
         Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
 
         Vector3 relativeForward = ARCam.transform.TransformDirection(Vector3.forward);
         Vector3 molRelForward = transform.InverseTransformDirection(relativeForward);
 
-        Quaternion rotateBy = Quaternion.AngleAxis(-ZRotation / gameObject.transform.localScale.x * sensitivity, molRelForward);
+        Quaternion rotateBy = Quaternion.AngleAxis(-ZRotation / gameObject.transform.parent.transform.localScale.x * sensitivity, molRelForward);
         transform.Rotate(rotateBy.eulerAngles);
     }
 

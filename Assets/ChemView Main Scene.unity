@@ -1696,7 +1696,7 @@ Transform:
   m_GameObject: {fileID: 853783439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
+  m_LocalScale: {x: 0.00625, y: 0.00625, z: 0.00625}
   m_Children:
   - {fileID: 1195866441}
   m_Father: {fileID: 1030882665}
@@ -1763,7 +1763,7 @@ MonoBehaviour:
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.5
+  HighlightThicknessFactor: 0.02625
 --- !u!1 &882475032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2552,7 @@ MonoBehaviour:
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 40
+  HighlightThicknessFactor: 1
 --- !u!65 &1065580202
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3365,7 +3365,7 @@ MonoBehaviour:
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 20
+  HighlightThicknessFactor: 1
 --- !u!65 &1318194736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4676,7 +4676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: 0.0013275146}
+  m_AnchoredPosition: {x: -0.60220337, y: -0.0018005371}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
