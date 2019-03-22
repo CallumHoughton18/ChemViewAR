@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class MolRelDirection
@@ -300,11 +301,6 @@ public class MoleculeController : MonoBehaviour
             molRigidBody.constraints = RigidbodyConstraints.None;
         }
 
-        //if (userRotatingMolecule && _rotateBy != null)
-        //{
-        //    molRigidBody.MoveRotation(transform.rotation * _rotateBy);
-        //}
-
         //else if (userRotatingMolecule == false && MainController.enableVelocity == false)
         //{
         //    molRigidBody.angularVelocity = Vector3.zero;
@@ -403,7 +399,7 @@ public class MoleculeController : MonoBehaviour
     }
     public void RotateLeftRight(float rotateLeftRight, float rotateUpDown)
     {
-        float sensitivity = 25f * Mathf.Clamp(Vector3.Distance(gameObject.transform.position, MainController.FirstPersonCamera.transform.position), 1, 99999);
+        float sensitivity = 35f;
 
         MolRelDirection molRelDirection = GetMolRelativeDirection();
 
@@ -412,13 +408,25 @@ public class MoleculeController : MonoBehaviour
 
 
         _rotateBy = rotateBy;
-        transform.Rotate(rotateBy.eulerAngles);
+
+        try
+        {
+
+                //molRigidBody.MoveRotation(rotateBy * transform.rotation);
+                transform.Rotate(rotateBy.eulerAngles);
+        }
+
+        catch(Exception e)
+        {
+            ChemviewHelper.ShowAndroidToastMessage(e.ToString());
+        }
         //TODO: Use rotation in fixed update to potentially solve jittery issues
     }
 
+
     public void RotateZ(float ZRotation)
     {
-        float sensitivity = 25f;
+        float sensitivity = 2.5f;
 
         Camera ARCam = MainController.FirstPersonCamera.GetComponent<Camera>();
 
@@ -489,6 +497,12 @@ public class MoleculeController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.name == "ChemViewSurface" && userRotatingMolecule )
+        {
+            collidingWithSurface = true;
+            NewMolPos = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
+        }
+
         if (!MainController.enableVelocity)
         {
             molRigidBody.velocity = Vector3.zero;
