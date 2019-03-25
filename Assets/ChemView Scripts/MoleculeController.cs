@@ -321,8 +321,13 @@ public class MoleculeController : MonoBehaviour
         {
 
             if (collidingWithSurface && userRotatingMolecule == false)
-            {
-                molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+            { 
+
+                if (molRigidBody.angularVelocity.x < 0.001f && molRigidBody.angularVelocity.y < 0.001f && molRigidBody.angularVelocity.z < 0.001f)
+                    molRigidBody.angularVelocity = Vector3.zero;
+
+                if (molRigidBody.angularVelocity == Vector3.zero)
+                    molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
             }
 
             else if (MainController.enableVelocity)
@@ -552,11 +557,6 @@ public class MoleculeController : MonoBehaviour
         if (collision.gameObject.name == "ChemViewSurface" && NewMolPos != Vector3.zero) //is being dragged and colliding with surface
         {
             collidingWithSurface = true;
-
-            if (MainController.enableVelocity == false)
-            {
-                molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
-            }
 
             double colSign = Math.Sign(collision.transform.position.y - transform.position.y);
 
