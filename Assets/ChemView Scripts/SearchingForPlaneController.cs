@@ -14,7 +14,7 @@ public class SearchingForPlaneController : MonoBehaviour
     private float _movementIncrement;
     List<string> searchingMessages;
     int i = 0;
-    void Start()
+    void Start() //TOOD: add way to cancel couritine
     {
         searchingMessages = new List<string> { "Searching for Plane", "Searching for Plane.", "Searching for Plane..", "Searching for Plane...", "Point at a Flat Surface to Generate a Plane!" };
         StartMessageCoroutine();

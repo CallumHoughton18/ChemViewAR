@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class ChemviewHelper {
     public enum MoleculeSubType { Basic, Drugs, Enantiomers, All}
+    public enum CollisionDirection { Top, Bottom, None}
 
     public static T ParseEnum<T>(string value)
     {

@@ -1746,6 +1746,7 @@ MonoBehaviour:
   meltingPoint: 
   boilingPoint: 
   moleculeSubType: 0
+  collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -2535,6 +2536,7 @@ MonoBehaviour:
   meltingPoint: "300 \xB0C"
   boilingPoint: "250 \xB0C"
   moleculeSubType: 2
+  collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -3348,6 +3350,7 @@ MonoBehaviour:
   meltingPoint: "235 to 238 \xB0C"
   boilingPoint: "178\xB0C"
   moleculeSubType: 1
+  collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -3941,6 +3944,7 @@ MonoBehaviour:
   meltingPoint: "\u2212115 \xB0C"
   boilingPoint: "36 \xB0C"
   moleculeSubType: 0
+  collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}
@@ -4676,7 +4680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: -0.0023956299}
+  m_AnchoredPosition: {x: -0.60220337, y: 0.0011062622}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -5084,6 +5088,7 @@ MonoBehaviour:
   meltingPoint: "75 to 78 \xB0C"
   boilingPoint: "157 \xB0C"
   moleculeSubType: 1
+  collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
   initialScale: {x: 0, y: 0, z: 0}

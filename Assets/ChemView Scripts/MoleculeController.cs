@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class MolRelDirection
@@ -19,6 +20,7 @@ public class MoleculeController : MonoBehaviour
     public string meltingPoint;
     public string boilingPoint;
     public ChemviewHelper.MoleculeSubType moleculeSubType;
+    public ChemviewHelper.CollisionDirection collisionDirection = ChemviewHelper.CollisionDirection.None;
 
     float speed = 100;
 
@@ -89,6 +91,8 @@ public class MoleculeController : MonoBehaviour
         molRigidBody.maxAngularVelocity = 15;
         collider = GetComponent<Collider>();
         InvokeRepeating("ReduceAngularAndVelocity", 0, 1.0f);
+
+        InvokeRepeating("ResetCollision", 0.5f, 0.5f);
 
         CalculateShaderWidthWithDistance();
 
@@ -280,13 +284,55 @@ public class MoleculeController : MonoBehaviour
 
     }
 
+    public void resetCollision()
+    {
+        collisionDirection = ChemviewHelper.CollisionDirection.None;
+    }
+
+    public void DampenMolPosForSurfaceCollisions(Vector3 directionToCheck, float yOffset)
+    {
+        RaycastHit info;
+
+        Vector3[] raycastOrigins = new Vector3[5] { new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z),
+            new Vector3(transform.position.x + collider.bounds.extents.x, transform.position.y + yOffset, transform.position.z),
+             new Vector3(transform.position.x - collider.bounds.extents.x, transform.position.y + yOffset, transform.position.z),
+             new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z + collider.bounds.extents.z),
+               new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z - collider.bounds.extents.z)};
+
+        foreach (Vector3 raycastOrigin in raycastOrigins)
+        {
+            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z), directionToCheck, out info))
+            {
+                if (info.collider.gameObject.name == "ChemViewSurface" && info.distance < 0.01f)
+                {
+                    NewMolPos = new Vector3(NewMolPos.x, transform.position.y, NewMolPos.z);
+                    ChemviewHelper.ShowAndroidToastMessage("freezing y pos" + info.distance);
+                }
+
+                break;
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
 
         if (NewMolPos != Vector3.zero && NewMolPos != null) //TODO: add physics toggle compatibility.
         {
+
+            if (collidingWithSurface && userRotatingMolecule == false)
+            {
+                molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+            }
+
+            else if (MainController.enableVelocity)
+            {
+                molRigidBody.constraints = RigidbodyConstraints.None;
+            }
+
             Vector3 newPos = (NewMolPos - transform.position);
             Vector3 velocity = newPos * 1.0f / Time.fixedDeltaTime;
+
             molRigidBody.velocity = velocity;
         }
 
@@ -300,11 +346,6 @@ public class MoleculeController : MonoBehaviour
         {
             molRigidBody.constraints = RigidbodyConstraints.None;
         }
-
-        //else if (userRotatingMolecule == false && MainController.enableVelocity == false)
-        //{
-        //    molRigidBody.angularVelocity = Vector3.zero;
-        //}
 
     }
 
@@ -412,11 +453,11 @@ public class MoleculeController : MonoBehaviour
         try
         {
 
-                //molRigidBody.MoveRotation(rotateBy * transform.rotation);
-                transform.Rotate(rotateBy.eulerAngles);
+            //molRigidBody.MoveRotation(rotateBy * transform.rotation);
+            transform.Rotate(rotateBy.eulerAngles);
         }
 
-        catch(Exception e)
+        catch (Exception e)
         {
             ChemviewHelper.ShowAndroidToastMessage(e.ToString());
         }
@@ -497,7 +538,7 @@ public class MoleculeController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "ChemViewSurface" && userRotatingMolecule )
+        if (collision.gameObject.name == "ChemViewSurface" && userRotatingMolecule)
         {
             collidingWithSurface = true;
             NewMolPos = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
@@ -511,7 +552,27 @@ public class MoleculeController : MonoBehaviour
         if (collision.gameObject.name == "ChemViewSurface" && NewMolPos != Vector3.zero) //is being dragged and colliding with surface
         {
             collidingWithSurface = true;
-            molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+
+            if (MainController.enableVelocity == false)
+            {
+                molRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+            }
+
+            double colSign = Math.Sign(collision.transform.position.y - transform.position.y);
+
+            if (MainController.enableVelocity)
+            {
+                if (colSign == -1)
+                {
+                    collisionDirection = ChemviewHelper.CollisionDirection.Top;
+                }
+
+                else if (colSign == 1)
+                {
+                    collisionDirection = ChemviewHelper.CollisionDirection.Bottom;
+                }
+            }
+
         }
     }
 
@@ -521,6 +582,8 @@ public class MoleculeController : MonoBehaviour
         {
             collidingWithSurface = false;
             molRigidBody.constraints = RigidbodyConstraints.None;
+            collisionDirection = ChemviewHelper.CollisionDirection.None;
+            ChemviewHelper.ShowAndroidToastMessage("Collision Left");
         }
     }
 
