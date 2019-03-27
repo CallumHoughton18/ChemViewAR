@@ -186,6 +186,13 @@ public class MoleculeController : MonoBehaviour
         }
     }
 
+    public void SetScale(Vector3 scale)
+    {
+        transform.localScale = scale;
+        scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
+        SetShaderOutlineSize();
+    }
+
     private void SetShaderOutlineSize()
     {
         Shader.SetGlobalFloat("_Outline", ((0.003f * scaleForOutline) * HighlightThicknessFactor) / playerMolDistance);
@@ -543,36 +550,21 @@ public class MoleculeController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.name == "ChemViewSurface")
+            collidingWithSurface = true;
+
         if (collision.gameObject.name == "ChemViewSurface" && userRotatingMolecule)
         {
-            collidingWithSurface = true;
-            NewMolPos = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
+            if (collision.transform.position.y < transform.position.y)
+                NewMolPos = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
+
+            else if (collision.transform.position.y > transform.position.y)
+                NewMolPos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
         }
 
         if (!MainController.enableVelocity)
         {
             molRigidBody.velocity = Vector3.zero;
-        }
-
-        if (collision.gameObject.name == "ChemViewSurface" && NewMolPos != Vector3.zero) //is being dragged and colliding with surface
-        {
-            collidingWithSurface = true;
-
-            double colSign = Math.Sign(collision.transform.position.y - transform.position.y);
-
-            if (MainController.enableVelocity)
-            {
-                if (colSign == -1)
-                {
-                    collisionDirection = ChemviewHelper.CollisionDirection.Top;
-                }
-
-                else if (colSign == 1)
-                {
-                    collisionDirection = ChemviewHelper.CollisionDirection.Bottom;
-                }
-            }
-
         }
     }
 
@@ -583,7 +575,6 @@ public class MoleculeController : MonoBehaviour
             collidingWithSurface = false;
             molRigidBody.constraints = RigidbodyConstraints.None;
             collisionDirection = ChemviewHelper.CollisionDirection.None;
-            ChemviewHelper.ShowAndroidToastMessage("Collision Left");
         }
     }
 
