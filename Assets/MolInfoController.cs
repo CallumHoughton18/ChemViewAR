@@ -44,17 +44,14 @@ public class MolInfoController : MonoBehaviour
 
 
         else if (characterCount < 400)
-            bodyText.fontSize = 7;
+            bodyText.fontSize = 8;
 
         else if (characterCount > 400)
-            bodyText.fontSize = 5;
+            bodyText.fontSize = 7;
 
 
         bodyText.text = parentMol.moleculeInfo;
         molImage.sprite = parentMol.molImage;
-
-        _ShowAndroidToastMessage("Body Font Size: " + bodyText.fontSize);
-
 
         GetComponent<UIFader>().FadeInWithScale(gameObject, new Vector3(0.005f, 0.005f, 0.005f));
 

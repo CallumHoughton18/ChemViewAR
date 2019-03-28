@@ -344,17 +344,7 @@ public class ChemViewARController : MonoBehaviour
                     molObj.GetComponentInChildren<MoleculeController>().enabled = true;
                     molObj.transform.GetChild(0).position = hit.Pose.position;
 
-                    float playerDisToSurface = Vector3.Distance(FirstPersonCamera.transform.position, hit.Pose.position);
-
-                    //if (playerDisToSurface < 2)
-                    //{
-                    //    float scaleFactor = playerDisToSurface/2;
-                    //    ChemviewHelper.ShowAndroidToastMessage("player surface dis: " +  playerDisToSurface.ToString());
-                    //    ChemviewHelper.ShowAndroidToastMessage(scaleFactor.ToString());
-                    //    molObj.GetComponentInChildren<MoleculeController>().SetScale(new Vector3(transform.localScale.x * scaleFactor, transform.localScale.y * scaleFactor, transform.localScale.z * scaleFactor));
-                    //}
-
-                    molObj.transform.Translate(0, 0.8f, 0, Space.World);
+                    molObj.transform.Translate(0, molObj.GetComponentInChildren<Collider>().bounds.extents.y + 0.01f, 0, Space.World);
 
                     // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
                     molObj.transform.Rotate(0, k_ModelRotation, 0, Space.Self);

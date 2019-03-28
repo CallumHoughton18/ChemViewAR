@@ -20,11 +20,13 @@ public class MoleculeController : MonoBehaviour
     public string meltingPoint;
     public string boilingPoint;
     public ChemviewHelper.MoleculeSubType moleculeSubType;
+    [HideInInspector]
     public ChemviewHelper.CollisionDirection collisionDirection = ChemviewHelper.CollisionDirection.None;
 
     float speed = 100;
 
     Vector3 distance;
+    [HideInInspector]
     public Vector3 planePosition;
     Vector3 newPosition;
     float xPos;
@@ -45,11 +47,15 @@ public class MoleculeController : MonoBehaviour
     Collider collider;
     Rigidbody molRigidBody;
     GameObject sheet;
-
+    [HideInInspector]
     public float initialFingersDistance;
+    [HideInInspector]
     public Vector3 initialScale;
+    [HideInInspector]
     public Vector3 BeginningScale;
+    [HideInInspector]
     public Quaternion initRotation;
+    [HideInInspector]
     public Vector3 initialHaloScale;
     Vector3 NewMolPos;
     Vector3 prevPos;
@@ -59,9 +65,11 @@ public class MoleculeController : MonoBehaviour
 
     float rotationSpeed = 100;
 
+    [HideInInspector]
     public bool isSelected = true;
+    [HideInInspector]
     public bool rotateMolecule = false;
-
+    [HideInInspector]
     public bool userRotatingMolecule = false;
     bool collidingWithSurface = false;
 
@@ -73,7 +81,9 @@ public class MoleculeController : MonoBehaviour
     public GameObject molInfoSheet;
     public Sprite molImage;
 
+    [HideInInspector]
     public bool displayingInfoSheet = false;
+    [HideInInspector]
     public bool isScaling = false;
 
     public ChemViewARController MainController;
@@ -186,11 +196,12 @@ public class MoleculeController : MonoBehaviour
         }
     }
 
-    public void SetScale(Vector3 scale)
+    public void SetScale(Vector3 scale, float scaleFactor)
     {
         transform.localScale = scale;
+        HighlightThicknessFactor *= scaleFactor;
         scaleForOutline = Vector3.SqrMagnitude(transform.localScale) / Vector3.SqrMagnitude(BeginningScale);
-        SetShaderOutlineSize();
+        CalculateShaderWidthWithDistance();
     }
 
     private void SetShaderOutlineSize()
