@@ -524,6 +524,8 @@ Transform:
   - {fileID: 434135591}
   - {fileID: 1030882665}
   - {fileID: 2091837932}
+  - {fileID: 578359281}
+  - {fileID: 1430685288}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1359,6 +1361,35 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 568572183}
+--- !u!1 &578359280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 578359281}
+  m_Layer: 0
+  m_Name: DMT
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &578359281
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578359280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.921, z: 0.271}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 674409830}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &602051346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1588,249 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 647263959}
+--- !u!1 &647771237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1116969592381008, guid: 348fa053368b0d743a7a1a75caaad3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 647771238}
+  - component: {fileID: 647771241}
+  - component: {fileID: 647771240}
+  - component: {fileID: 647771239}
+  m_Layer: 0
+  m_Name: Fullerene Comps
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647771238
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4867988571881894, guid: 348fa053368b0d743a7a1a75caaad3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647771237}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.124, z: 0.036}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
+  m_Children:
+  - {fileID: 1478474225}
+  m_Father: {fileID: 1430685288}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &647771239
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647771237}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.95
+  m_Center: {x: -0.2, y: 0.05, z: 0.11}
+--- !u!114 &647771240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647771237}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: C60
+  molarMass: 720.660 g/mol
+  meltingPoint: "\u2248600 \xBAC"
+  boilingPoint: '?'
+  moleculeSubType: 0
+  collisionDirection: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Buckminsterfullerene
+  moleculeInfo: Buckminsterfullerene is the smallest fullerene molecule containing
+    pentagonal and hexagonal rings in which no two pentagons share an edge (which
+    can be destabilizing, as in pentalene). It is also most common in terms of natural
+    occurrence, as it can often be found in soot.  The structure of C60 is a truncated
+    icosahedron, which resembles an association football ball of the type made of
+    twenty hexagons and twelve pentagons, with a carbon atom at the vertices of each
+    polygon and a bond along each polygon edge.  The van der Waals diameter of a C60
+    molecule is about 1.1 nanometers (nm). The nucleus to nucleus diameter of a C60
+    molecule is about 0.71 nm.  The C60 molecule has two bond lengths. The 6:6 ring
+    bonds (between two hexagons) can be considered "double bonds" and are shorter
+    than the 6:5 bonds (between a hexagon and a pentagon). Its average bond length
+    is 1.4 angstroms.  Silicon buckyballs have been created around metal ions.
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.125
+--- !u!54 &647771241
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647771237}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
+--- !u!1001 &674409829
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 578359281}
+    m_Modifications:
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.13942577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.04047808
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909925393711384, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_TagString
+      value: Molecule
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909925393711384, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 20d0961bbe7270f489f575fd858240aa, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &674409830 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4252903949308746, guid: 20d0961bbe7270f489f575fd858240aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 674409829}
+--- !u!1 &674409831 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1909925393711384, guid: 20d0961bbe7270f489f575fd858240aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 674409829}
+--- !u!114 &674409832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674409831}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: C12H16N2
+  molarMass: 188.274 g/mol
+  meltingPoint: "46 \xB0C"
+  boilingPoint: "60-80 \xB0C"
+  moleculeSubType: 1
+  collisionDirection: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Dimethyltryptamine
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.125
+--- !u!65 &674409833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674409831}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.27, y: 5.09, z: 8.3}
+  m_Center: {x: 0, y: 2.5, z: 1.37}
+--- !u!54 &674409834
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674409831}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &686983082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3894,6 +4168,35 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1399912316}
+--- !u!1 &1430685287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1430685288}
+  m_Layer: 0
+  m_Name: Buckminsterfullerene
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1430685288
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1430685287}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -2.163, z: 0.636}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 647771238}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432231723 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1916360562543842, guid: 3c780e07486284e43b21438c23ae48a2,
@@ -3914,6 +4217,52 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!1001 &1478474224
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 647771238}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &1478474225 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 0e4c804b23b7cd448b759b7b72f6c502, type: 3}
+  m_PrefabInternal: {fileID: 1478474224}
 --- !u!1 &1557338796
 GameObject:
   m_ObjectHideFlags: 0
@@ -4627,7 +4976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1825905491
 Transform:
   m_ObjectHideFlags: 0
@@ -4822,7 +5171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: 0.0013465881}
+  m_AnchoredPosition: {x: -0.60220337, y: 0.001247406}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
