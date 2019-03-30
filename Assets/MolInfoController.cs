@@ -43,16 +43,16 @@ public class MolInfoController : MonoBehaviour
             bodyText.fontSize = 9;
 
         else if (characterCount < 400)
-            bodyText.fontSize = 8;
-
-        else if (characterCount > 500)
             bodyText.fontSize = 7;
 
-        else if (characterCount > 600)
+        else if (characterCount > 500)
             bodyText.fontSize = 6;
 
-        else if (characterCount > 700)
+        else if (characterCount > 600)
             bodyText.fontSize = 5;
+
+        else if (characterCount > 700)
+            bodyText.fontSize = 4;
 
 
         bodyText.text = parentMol.moleculeInfo;
