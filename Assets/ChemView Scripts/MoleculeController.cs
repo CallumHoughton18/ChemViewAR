@@ -253,7 +253,10 @@ public class MoleculeController : MonoBehaviour
 
         foreach (Transform child in transform)
         {
-            child.GetComponent<MeshRenderer>().materials[0].shader = highlightShader;
+            foreach (Material mat in child.GetComponent<MeshRenderer>().materials)
+            {
+                mat.shader = highlightShader;
+            }
         }
 
         isSelected = true;
@@ -262,12 +265,15 @@ public class MoleculeController : MonoBehaviour
     public void Dehighlight()
     {
         GameObject HighlightGameObj = GameObject.Find("DehighlightShaderObj");
-        MeshRenderer hightlightRenderer = HighlightGameObj.GetComponent<MeshRenderer>();
-        Shader highlightShader = hightlightRenderer.materials[0].shader;
+        MeshRenderer dehighlightmesh = HighlightGameObj.GetComponent<MeshRenderer>();
+        Shader dehighlightShader = dehighlightmesh.materials[0].shader;
 
         foreach (Transform child in transform)
         {
-            child.GetComponent<MeshRenderer>().materials[0].shader = highlightShader;
+            foreach (Material mat in child.GetComponent<MeshRenderer>().materials)
+            {
+                mat.shader = dehighlightShader;
+            }
         }
 
         isSelected = false;
