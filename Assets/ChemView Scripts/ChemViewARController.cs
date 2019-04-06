@@ -344,7 +344,16 @@ public class ChemViewARController : MonoBehaviour
                     molObj.GetComponentInChildren<MoleculeController>().enabled = true;
                     molObj.transform.GetChild(0).position = hit.Pose.position;
 
-                    molObj.transform.Translate(0, molObj.GetComponentInChildren<Collider>().bounds.extents.y + 0.01f, 0, Space.World);
+                    Collider[] myColliders = molObj.GetComponentsInChildren<Collider>();
+                    Bounds moleculeBounds = new Bounds(transform.position, Vector3.zero);
+                    foreach (Collider nextCollider in myColliders)
+                    {
+                        moleculeBounds.Encapsulate(nextCollider.bounds);
+                    }
+
+                    molObj.GetComponentInChildren<MoleculeController>().moleculeBounds = moleculeBounds;
+
+                    molObj.transform.Translate(0, molObj.GetComponentInChildren<MoleculeController>().moleculeBounds.extents.y + 0.01f, 0, Space.World);
 
                     // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
                     molObj.transform.Rotate(0, k_ModelRotation, 0, Space.Self);

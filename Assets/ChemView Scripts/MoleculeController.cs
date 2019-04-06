@@ -44,7 +44,6 @@ public class MoleculeController : MonoBehaviour
     int rotateLeftRightSign;
     int rotateUpDownSign;
     float scaleForOutline = 1;
-    Collider collider;
     Rigidbody molRigidBody;
     GameObject sheet;
     [HideInInspector]
@@ -93,13 +92,16 @@ public class MoleculeController : MonoBehaviour
     public float HighlightThicknessFactor;
     private float playerMolDistance = 1;
 
+    [HideInInspector]
+    public Bounds moleculeBounds;
+
     IEnumerator Start()
     {
         initRotation = transform.rotation;
         BeginningScale = transform.localScale;
         molRigidBody = GetComponent<Rigidbody>();
         molRigidBody.maxAngularVelocity = 15;
-        collider = GetComponent<Collider>();
+
         InvokeRepeating("ReduceAngularAndVelocity", 0, 1.0f);
 
         InvokeRepeating("ResetCollision", 0.5f, 0.5f);
@@ -216,7 +218,7 @@ public class MoleculeController : MonoBehaviour
 
             displayingInfoSheet = true;
 
-            Vector3 colliderSize = collider.bounds.size;
+            Vector3 colliderSize = moleculeBounds.size;
             Vector3 placement = new Vector3(transform.position.x, transform.position.y + (colliderSize.y), transform.position.z + (colliderSize.z * 0.7f));
 
             if (sheet == null)
@@ -318,10 +320,10 @@ public class MoleculeController : MonoBehaviour
         RaycastHit info;
 
         Vector3[] raycastOrigins = new Vector3[5] { new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z),
-            new Vector3(transform.position.x + collider.bounds.extents.x, transform.position.y + yOffset, transform.position.z),
-             new Vector3(transform.position.x - collider.bounds.extents.x, transform.position.y + yOffset, transform.position.z),
-             new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z + collider.bounds.extents.z),
-               new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z - collider.bounds.extents.z)};
+            new Vector3(transform.position.x + moleculeBounds.extents.x, transform.position.y + yOffset, transform.position.z),
+             new Vector3(transform.position.x - moleculeBounds.extents.x, transform.position.y + yOffset, transform.position.z),
+             new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z + moleculeBounds.extents.z),
+               new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z - moleculeBounds.extents.z)};
 
         foreach (Vector3 raycastOrigin in raycastOrigins)
         {
