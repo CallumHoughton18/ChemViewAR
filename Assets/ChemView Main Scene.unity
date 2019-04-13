@@ -635,6 +635,104 @@ RectTransform:
   m_AnchoredPosition: {x: 1, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &90149234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 90149235}
+  - component: {fileID: 90149238}
+  - component: {fileID: 90149237}
+  - component: {fileID: 90149236}
+  m_Layer: 0
+  m_Name: Li3BiObj
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90149235
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90149234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children:
+  - {fileID: 1412511543}
+  m_Father: {fileID: 1905292836}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &90149236
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90149234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.87, y: 2.79, z: 2.58}
+  m_Center: {x: 0, y: 0, z: -0.15}
+--- !u!54 &90149237
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90149234}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &90149238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90149234}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: Li3Bi
+  molarMass: 
+  meltingPoint: 
+  boilingPoint: 
+  moleculeSubType: 0
+  collisionDirection: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Lithium Bismuthide
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.2
+  moleculeBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!1001 &97747990
 Prefab:
   m_ObjectHideFlags: 0
@@ -979,6 +1077,8 @@ Transform:
   - {fileID: 133093604}
   - {fileID: 1173114168}
   - {fileID: 1378793512}
+  - {fileID: 1905292836}
+  - {fileID: 2003602434}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1313,6 +1413,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 90.14, y: 70.5, z: 15.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &324357358
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1822210762}
+    m_Modifications:
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0021695376
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00073592213
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00048382944
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7002326
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.26217446
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.29899874
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5929069
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &359124641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1533,10 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359124641}
+--- !u!4 &371302498 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: dc437da879211c54291fc1e33f87a673, type: 3}
+  m_PrefabInternal: {fileID: 324357358}
 --- !u!1 &371786560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,7 +1550,7 @@ GameObject:
   - component: {fileID: 371786562}
   m_Layer: 0
   m_Name: TiO2AnataseObj
-  m_TagString: Untagged
+  m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2420,7 +2566,7 @@ GameObject:
   - component: {fileID: 661615319}
   m_Layer: 0
   m_Name: YCl3obj
-  m_TagString: Untagged
+  m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5286,6 +5432,52 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1399912316}
+--- !u!1001 &1412511542
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 90149235}
+    m_Modifications:
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00839071
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.028799718
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.009378046
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &1412511543 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: a61b3e1c71f424b47b6ca813b1c477eb, type: 3}
+  m_PrefabInternal: {fileID: 1412511542}
 --- !u!1 &1430685287
 GameObject:
   m_ObjectHideFlags: 0
@@ -6678,6 +6870,143 @@ RectTransform:
   m_AnchoredPosition: {x: -101, y: 115}
   m_SizeDelta: {x: 174, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1822210761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1822210762}
+  - component: {fileID: 1822210768}
+  - component: {fileID: 1822210767}
+  - component: {fileID: 1822210766}
+  - component: {fileID: 1822210765}
+  - component: {fileID: 1822210764}
+  - component: {fileID: 1822210763}
+  m_Layer: 0
+  m_Name: ChairObj
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822210762
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822210761}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.13942577, z: 0.04047808}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children:
+  - {fileID: 371302498}
+  m_Father: {fileID: 2003602434}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1822210763
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822210761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.51, y: 0.99, z: 0.93}
+  m_Center: {x: -0.13, y: -0.67, z: -1.27}
+--- !u!65 &1822210764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822210761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.51, y: 0.96, z: 0.93}
+  m_Center: {x: -0.13, y: 0.76, z: 1.26}
+--- !u!65 &1822210765
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822210761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 1.66, z: 2.03}
+  m_Center: {x: -1.15, y: 0.02, z: -0.07}
+--- !u!65 &1822210766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822210761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 1.66, z: 2.03}
+  m_Center: {x: 1.24, y: 0.02, z: -0.07}
+--- !u!114 &1822210767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822210761}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: C6H12
+  molarMass: 84.162 g/mol
+  meltingPoint: "6.47 \xB0C"
+  boilingPoint: "80.74 \xB0C"
+  moleculeSubType: 0
+  collisionDirection: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Cyclohexane
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.2
+  moleculeBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+--- !u!54 &1822210768
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822210761}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &1825905490
 GameObject:
   m_ObjectHideFlags: 0
@@ -6887,7 +7216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: -0.0011825562}
+  m_AnchoredPosition: {x: -0.60220337, y: -0.0016212463}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -7141,6 +7470,35 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!1 &1905292835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1905292836}
+  m_Layer: 0
+  m_Name: Lithium Bismuthide
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1905292836
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1905292835}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 206.504, y: 25.907, z: -17.199}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 90149235}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1928986353
 Prefab:
   m_ObjectHideFlags: 0
@@ -7256,6 +7614,35 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!1 &2003602433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2003602434}
+  m_Layer: 0
+  m_Name: Cyclohexane - Chair
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2003602434
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003602433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.921, y: 0.45, z: 1.497}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 1822210762}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2003610692
 Prefab:
   m_ObjectHideFlags: 0
