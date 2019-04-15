@@ -567,6 +567,64 @@ MonoBehaviour:
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+--- !u!1001 &52996483
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 697666411}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0035493579
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0058182776
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0024855859
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.040451102
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6670518
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.005240453
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7438939
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &52996484 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 9ec84b8b53522ea44acea7706c173a9c, type: 3}
+  m_PrefabInternal: {fileID: 52996483}
 --- !u!1 &74222172
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +791,52 @@ MonoBehaviour:
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+--- !u!1001 &92313164
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 599798042}
+    m_Modifications:
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00003516674
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0001886934
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0013023847
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.020932779
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.008542726
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00038735024
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99974436
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &92313165 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: e1dff5422f72d194cb05eadb2876acc4, type: 3}
+  m_PrefabInternal: {fileID: 92313164}
 --- !u!1001 &97747990
 Prefab:
   m_ObjectHideFlags: 0
@@ -806,7 +910,7 @@ Transform:
   m_Children:
   - {fileID: 30539012}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &137602786
 Prefab:
@@ -1080,7 +1184,7 @@ Transform:
   m_Children:
   - {fileID: 2095003916}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &209310123
 GameObject:
@@ -1111,15 +1215,17 @@ Transform:
   - {fileID: 1236014708}
   - {fileID: 1745699048}
   - {fileID: 1205726297}
+  - {fileID: 755695456}
   - {fileID: 434135591}
+  - {fileID: 1538057394}
   - {fileID: 1030882665}
   - {fileID: 578359281}
   - {fileID: 1430685288}
   - {fileID: 1452187714}
-  - {fileID: 755695456}
   - {fileID: 924451977}
   - {fileID: 1343175716}
   - {fileID: 2118090146}
+  - {fileID: 934643190}
   - {fileID: 201505735}
   - {fileID: 1268536548}
   - {fileID: 133093604}
@@ -1129,6 +1235,7 @@ Transform:
   - {fileID: 1905292836}
   - {fileID: 2003602434}
   - {fileID: 1444529622}
+  - {fileID: 1238070323}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1758,7 +1865,7 @@ Transform:
   m_Children:
   - {fileID: 1596593798}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460693493
 GameObject:
@@ -2338,8 +2445,132 @@ Transform:
   m_Children:
   - {fileID: 674409830}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &599798041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 599798042}
+  - component: {fileID: 599798044}
+  - component: {fileID: 599798043}
+  - component: {fileID: 599798047}
+  - component: {fileID: 599798046}
+  - component: {fileID: 599798045}
+  m_Layer: 0
+  m_Name: SulfurTetrafluorideObj
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599798042
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599798041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children:
+  - {fileID: 92313165}
+  m_Father: {fileID: 1538057394}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599798043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599798041}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: SF4
+  molarMass: 108.07 g/mol
+  meltingPoint: "\u2212121.0 \xB0C"
+  boilingPoint: "\u221238 \xB0C"
+  moleculeSubType: 0
+  collisionDirection: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Sulfur tetrafluoride
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.5
+  moleculeBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+--- !u!54 &599798044
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599798041}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &599798045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599798041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.57, y: 0.8, z: 0.87}
+  m_Center: {x: 0, y: -0.29, z: 0.57}
+--- !u!65 &599798046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599798041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.57, y: 0.8, z: 0.69}
+  m_Center: {x: 0, y: -0.29, z: -0.64}
+--- !u!65 &599798047
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599798041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.51, y: 0.63, z: 0.68}
+  m_Center: {x: 0, y: 0.22, z: 0}
 --- !u!1 &602051346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2993,6 +3224,143 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686983082}
+--- !u!1 &697666410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 697666411}
+  - component: {fileID: 697666417}
+  - component: {fileID: 697666416}
+  - component: {fileID: 697666415}
+  - component: {fileID: 697666414}
+  - component: {fileID: 697666413}
+  - component: {fileID: 697666412}
+  m_Layer: 0
+  m_Name: HaemophilusObj
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697666411
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697666410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 52996484}
+  m_Father: {fileID: 1238070323}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &697666412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697666410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.55, y: 0.53, z: 0.44}
+  m_Center: {x: -0.15, y: -0.32, z: 0.09}
+--- !u!65 &697666413
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697666410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61, y: 0.41, z: 0.44}
+  m_Center: {x: -0.08, y: 0.4, z: -0.07}
+--- !u!65 &697666414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697666410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36, y: 0.85, z: 0.44}
+  m_Center: {x: -0.04, y: 0, z: -0.34}
+--- !u!65 &697666415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697666410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.51, y: 0.92, z: 0.44}
+  m_Center: {x: 0, y: 0.05, z: 0.34}
+--- !u!54 &697666416
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697666410}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &697666417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697666410}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: Haemophilus influenzae
+  molarMass: 
+  meltingPoint: 
+  boilingPoint: 
+  moleculeSubType: 0
+  collisionDirection: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Haemophilus influenzae
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.5
+  moleculeBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!1 &755695455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,7 +3388,7 @@ Transform:
   m_Children:
   - {fileID: 1805732469}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &772842041
 Prefab:
@@ -3423,7 +3791,36 @@ Transform:
   m_Children:
   - {fileID: 460693494}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 10
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &934643189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 934643190}
+  m_Layer: 0
+  m_Name: Benzylpenicillin
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &934643190
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 934643189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.848, y: 2.033, z: -0.724}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 1942747551}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955390901
 GameObject:
@@ -3573,7 +3970,7 @@ Transform:
   m_Children:
   - {fileID: 1690239120}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962909816
 GameObject:
@@ -3761,7 +4158,7 @@ Transform:
   m_Children:
   - {fileID: 853783440}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040508568
 GameObject:
@@ -4254,7 +4651,7 @@ Transform:
   m_Children:
   - {fileID: 371786561}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1195866440
 Prefab:
@@ -4498,6 +4895,35 @@ Transform:
   m_Father: {fileID: 209310124}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1238070322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1238070323}
+  m_Layer: 0
+  m_Name: Haemophilus influenzae
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1238070323
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1238070322}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 162.542, y: 140.038, z: 246.67}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 697666411}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268536547
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,7 +4951,7 @@ Transform:
   m_Children:
   - {fileID: 1365407587}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1279128650
 GameObject:
@@ -5072,7 +5498,7 @@ Transform:
   m_Children:
   - {fileID: 1679656928}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345111303
 GameObject:
@@ -5421,7 +5847,7 @@ Transform:
   m_Children:
   - {fileID: 661615318}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1394164186
 Prefab:
@@ -5630,7 +6056,7 @@ Transform:
   m_Children:
   - {fileID: 647771238}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432231723 stripped
 GameObject:
@@ -5715,7 +6141,7 @@ Transform:
   m_Children:
   - {fileID: 1982544292}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 21
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452187713
 GameObject:
@@ -5744,7 +6170,7 @@ Transform:
   m_Children:
   - {fileID: 7504133}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478474224
 Prefab:
@@ -5896,6 +6322,35 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8f316283e17ea4a48aa4f6825b47d011, type: 3}
   m_PrefabInternal: {fileID: 1493478226}
+--- !u!1 &1538057393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1538057394}
+  m_Layer: 0
+  m_Name: Sulfur Tetrafluoride
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1538057394
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1538057393}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.785, z: 0.234}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 599798042}
+  m_Father: {fileID: 209310124}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1539381992
 Prefab:
   m_ObjectHideFlags: 0
@@ -6675,6 +7130,60 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1705099773}
+--- !u!1001 &1741815524
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1942747551}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.023613429
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0015625916
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0012513697
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &1741815525 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 44c99c2fbd085794fa524c499771a232, type: 3}
+  m_PrefabInternal: {fileID: 1741815524}
 --- !u!1 &1745699047
 GameObject:
   m_ObjectHideFlags: 0
@@ -7514,7 +8023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: 0.0005531311}
+  m_AnchoredPosition: {x: -0.60220337, y: -0.0010223389}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -7795,7 +8304,7 @@ Transform:
   m_Children:
   - {fileID: 90149235}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1928986353
 Prefab:
@@ -7843,6 +8352,234 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 91c0bfd3f10ba064a860fcf2161e570f, type: 3}
   m_PrefabInternal: {fileID: 1928986353}
+--- !u!1 &1942747550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1942747551}
+  - component: {fileID: 1942747564}
+  - component: {fileID: 1942747563}
+  - component: {fileID: 1942747562}
+  - component: {fileID: 1942747561}
+  - component: {fileID: 1942747560}
+  - component: {fileID: 1942747559}
+  - component: {fileID: 1942747558}
+  - component: {fileID: 1942747557}
+  - component: {fileID: 1942747556}
+  - component: {fileID: 1942747555}
+  - component: {fileID: 1942747554}
+  - component: {fileID: 1942747553}
+  - component: {fileID: 1942747552}
+  m_Layer: 0
+  m_Name: PenObj
+  m_TagString: Molecule
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1942747551
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children:
+  - {fileID: 1741815525}
+  m_Father: {fileID: 934643190}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1942747552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.57, z: 0.26}
+  m_Center: {x: 0.33, y: -0.15, z: -0.19}
+--- !u!65 &1942747553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.46, y: 1.59, z: 0.56}
+  m_Center: {x: -1.43, y: 0.06, z: -2.12}
+--- !u!65 &1942747554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.46, y: 1.59, z: 0.56}
+  m_Center: {x: -1.07, y: 0.06, z: -1.66}
+--- !u!65 &1942747555
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.46, y: 1.59, z: 0.56}
+  m_Center: {x: -0.67, y: 0.06, z: -1.17}
+--- !u!65 &1942747556
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.72, y: 1.25, z: 0.82}
+  m_Center: {x: -0.16, y: -0.17, z: -0.63}
+--- !u!65 &1942747557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.67, y: 0.19, z: 0.42}
+  m_Center: {x: 0.98, y: -0.46, z: 0.24}
+--- !u!65 &1942747558
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.53, y: 0.34, z: 0.3}
+  m_Center: {x: 0.85, y: 0.08, z: 1.08}
+--- !u!65 &1942747559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.69, y: 0.59, z: 0.81}
+  m_Center: {x: 1.09, y: -0.36, z: 1.56}
+--- !u!65 &1942747560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.69, y: 0.71, z: 1.49}
+  m_Center: {x: 0.31, y: 0.7, z: 1.08}
+--- !u!65 &1942747561
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.11, y: 1.01, z: 0.79}
+  m_Center: {x: 0.27, y: -0.07, z: 0.94}
+--- !u!65 &1942747562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.67, y: 0.46, z: 0.79}
+  m_Center: {x: 0.42, y: -0.61, z: 0.31}
+--- !u!114 &1942747563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8d69d88744942a778146819a81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  molpreviewImage: {fileID: 0}
+  chemFormula: C16H18N2O4S
+  molarMass: 334.4 g/mol
+  meltingPoint: "215.5 \xB0C"
+  boilingPoint: Unknown
+  moleculeSubType: 1
+  collisionDirection: 2
+  planePosition: {x: 0, y: 0, z: 0}
+  initialFingersDistance: 0
+  initialScale: {x: 0, y: 0, z: 0}
+  BeginningScale: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
+  initialHaloScale: {x: 0, y: 0, z: 0}
+  isSelected: 0
+  rotateMolecule: 0
+  userRotatingMolecule: 0
+  moleculeName: Benzylpenicillin
+  moleculeInfo: 
+  molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
+    type: 2}
+  molImage: {fileID: 0}
+  displayingInfoSheet: 0
+  isScaling: 0
+  MainController: {fileID: 627916104}
+  HighlightThicknessFactor: 0.125
+  moleculeBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+--- !u!54 &1942747564
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942747550}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &1957810160
 GameObject:
   m_ObjectHideFlags: 0
@@ -8076,7 +8813,7 @@ Transform:
   m_Children:
   - {fileID: 1822210762}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2003610692
 Prefab:
@@ -8862,7 +9599,7 @@ Transform:
   m_Children:
   - {fileID: 137602787}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2119688108
 GameObject:
