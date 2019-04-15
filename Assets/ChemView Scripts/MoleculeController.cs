@@ -15,10 +15,10 @@ public class MolRelDirection
 public class MoleculeController : MonoBehaviour
 {
     public Sprite molpreviewImage;
-    public string chemFormula;
-    public string molarMass;
-    public string meltingPoint;
-    public string boilingPoint;
+    public string molInfo1;
+    public string molInfo2;
+    public string molInfo3;
+    public string molInfo4;
     public ChemviewHelper.MoleculeSubType moleculeSubType;
     [HideInInspector]
     public ChemviewHelper.CollisionDirection collisionDirection = ChemviewHelper.CollisionDirection.None;

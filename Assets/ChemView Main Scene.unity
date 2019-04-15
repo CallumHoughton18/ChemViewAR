@@ -189,10 +189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C17H19NO3
-  molarMass: 285.343 g/mol
-  meltingPoint: "254 \xB0C"
-  boilingPoint: "190 \xB0C (sublimes)  "
+  molInfo1: 'Formula: C17H19NO3'
+  molInfo2: 'Molar Mass: 285.34 g/mol'
+  molInfo3: "Melting Point: 255 \xB0C"
+  molInfo4: "Boiling Point: 190 \xB0C"
   moleculeSubType: 1
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -540,10 +540,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: AntiFluorite
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Formula: Na2O'
+  molInfo2: 'Molar Mass: 61.979 g/mol'
+  molInfo3: "Melting Point: 1,132 \xB0C"
+  molInfo4: "Boiling Point: 1,950 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -764,10 +764,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: Li3Bi
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Formula: BiLi3'
+  molInfo2: 'Molar Mass: 229.8 g/mol'
+  molInfo3: 
+  molInfo4: 
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -992,10 +992,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C10H12N2O
-  molarMass: 176.215 g/mol
-  meltingPoint: "167.5 \xB0C"
-  boilingPoint: "386-446 \xB0"
+  molInfo1: 'Formula: C10H12N2O'
+  molInfo2: 'Molar Mass: 176.215 g/mol'
+  molInfo3: "Melting Point: 167.7 \xB0C"
+  molInfo4: "Boiling Point: 416 \xB0C"
   moleculeSubType: 1
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -1765,10 +1765,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: TiO2
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Formula: TiO2'
+  molInfo2: 'Molar Mass: 79.88 g/mol'
+  molInfo3: "Melting Point: 1,843 \xB0C"
+  molInfo4: "Boiling Point: 2,972 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -1941,10 +1941,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: Ebola Test
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Classification: Viral Protein'
+  molInfo2: 'Organism(s): Zaire ebolavirus'
+  molInfo3: 'Expression System: Homo sapiens'
+  molInfo4: 
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -2271,6 +2271,26 @@ Prefab:
       propertyPath: m_Size.z
       value: 0.99
       objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: molInfo1
+      value: "Formula: \tC3H6O"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: molInfo2
+      value: 'Molar Mass: 58.080 g/mol'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: molInfo3
+      value: "Melting Point: \u221294.7 \xB0C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: molInfo4
+      value: "Boiling Point: 56.05 \xB0C"
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 122856692839758284, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
@@ -2493,10 +2513,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: SF4
-  molarMass: 108.07 g/mol
-  meltingPoint: "\u2212121.0 \xB0C"
-  boilingPoint: "\u221238 \xB0C"
+  molInfo1: 'Formula: SF4'
+  molInfo2: 'Molar Mass: 108.07 g/mol'
+  molInfo3: "Melting Point: \u2212121.0 \xB0C"
+  molInfo4: "Boiling Point: \u221238 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -2827,10 +2847,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C60
-  molarMass: 720.660 g/mol
-  meltingPoint: "\u2248600 \xBAC"
-  boilingPoint: '?'
+  molInfo1: 'Formula: C60'
+  molInfo2: 'Molar Mass: 720.660 g/mol'
+  molInfo3: "Melting Point: \u2248600 \xBAC"
+  molInfo4: 'Boiling Point: Unknown'
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -2951,10 +2971,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: TiO2
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Formula: YCl3'
+  molInfo2: 'Molar Mass: 195.26 g/mol'
+  molInfo3: "Melting Point: 721 \xB0C"
+  molInfo4: "Boiiling Point: 1,507 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -3062,10 +3082,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C12H16N2
-  molarMass: 188.274 g/mol
-  meltingPoint: "46 \xB0C"
-  boilingPoint: "60-80 \xB0C"
+  molInfo1: 'Formula: C12H16N2'
+  molInfo2: 'Molar Mass: 188.269 g/mol '
+  molInfo3: "Melting Point: 40 \xB0C"
+  molInfo4: "Boiling Point: 160 \xB0C"
   moleculeSubType: 1
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -3334,10 +3354,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: Haemophilus influenzae
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Classification: CHAPERONE'
+  molInfo2: 'Expression System: Escherichia coli '
+  molInfo3: "Resolution: 2.3 \xC5"
+  molInfo4: 
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -3503,10 +3523,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: NaCl
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Formula: NaCl'
+  molInfo2: 'Molar Mass: 58.443 g/mol'
+  molInfo3: "Melting Point: 800.7 \xB0C"
+  molInfo4: "Boiling Point: 1465 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -4140,7 +4160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030882665}
   m_Layer: 0
-  m_Name: NaCl
+  m_Name: Sodium Chloride
   m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4383,10 +4403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C3H7NO2
-  molarMass: 89.094 g/mol
-  meltingPoint: "300 \xB0C"
-  boilingPoint: "250 \xB0C"
+  molInfo1: 'Formula: C3H7NO2'
+  molInfo2: 'Molar Mass: 89.094 g/mol'
+  molInfo3: "Melting Point: 300 \xB0C"
+  molInfo4: "Boiling Point: 250 \xB0C"
   moleculeSubType: 2
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -5323,10 +5343,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C8H10N4O2
-  molarMass: 194.194 g/mol
-  meltingPoint: "235 to 238 \xB0C"
-  boilingPoint: "178\xB0C"
+  molInfo1: "Formula: \tC8H10N4O2"
+  molInfo2: 'Molar Mass: 194.19 g/mol '
+  molInfo3: "Melting Point: 235 to 238 \xB0C"
+  molInfo4: "Boiling Point: 178 \xB0C"
   moleculeSubType: 1
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -5715,10 +5735,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: Fluorite
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Formula: CaF2'
+  molInfo2: 'Molar Mass: 78.07 g/mol'
+  molInfo3: "Melting Point: 1,418 \xB0C"
+  molInfo4: "Boiling Point: 2,533 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -5944,10 +5964,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   molName: {fileID: 1377403002}
   molpreviewImage: {fileID: 2032163645}
-  molarMass: {fileID: 2119688110}
-  chemFormula: {fileID: 2080880804}
-  meltingPoint: {fileID: 359124643}
-  boilingPoint: {fileID: 647263961}
+  subText1: {fileID: 0}
+  subText2: {fileID: 0}
+  subText3: {fileID: 0}
+  subText4: {fileID: 0}
 --- !u!114 &1399912319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6564,10 +6584,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: CHBrClF
-  molarMass: 147.37 g/mol
-  meltingPoint: "\u2212115 \xB0C"
-  boilingPoint: "36 \xB0C"
+  molInfo1: 'Formula: CBrClF2'
+  molInfo2: 'Molar Mass: 165.36 g/mol'
+  molInfo3: "Melting Point: \u2212159.5 \xB0C"
+  molInfo4: "Boiling Point: \u22123.7 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -6878,10 +6898,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C12H17N2O4P
-  molarMass: 284.252 g/mol
-  meltingPoint: "224 \xB0C"
-  boilingPoint: '?'
+  molInfo1: 'Formula: PropertieFormula: C12H17N2O4P'
+  molInfo2: 'Molar Mass: 284.252 g/mol'
+  molInfo3: "Melting Point: 220\u2013228 \xB0C"
+  molInfo4: "Boiling Point: 523.4 \xB0C"
   moleculeSubType: 1
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -7027,10 +7047,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: TiO2
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Formula: TiO2'
+  molInfo2: 'Molar Mass: 79.88 g/mol'
+  molInfo3: "Melting Point: 1,843 \xB0C"
+  molInfo4: "Boiling Point: 2,972 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -7483,10 +7503,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C3H7NO2
-  molarMass: 89.094 g/mol
-  meltingPoint: "300 \xB0C"
-  boilingPoint: "250 \xB0C"
+  molInfo1: 'Formula: C3H7NO2'
+  molInfo2: 'Molar Mass: 89.094 g/mol'
+  molInfo3: "Melting Point: 300 \xB0C"
+  molInfo4: "Boiling Point: 250 \xB0C"
   moleculeSubType: 2
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -7772,10 +7792,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C6H12
-  molarMass: 84.162 g/mol
-  meltingPoint: "6.47 \xB0C"
-  boilingPoint: "80.74 \xB0C"
+  molInfo1: 'Formula: C6H12'
+  molInfo2: 'Molar Mass: 84.16 g/mol'
+  molInfo3: "Melting Point: 6.47 \xB0C "
+  molInfo4: "Boiling Point: 80.74 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -8023,7 +8043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: -0.0010223389}
+  m_AnchoredPosition: {x: -0.60220337, y: -0.0015792847}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -8538,10 +8558,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C16H18N2O4S
-  molarMass: 334.4 g/mol
-  meltingPoint: "215.5 \xB0C"
-  boilingPoint: Unknown
+  molInfo1: 'Formula: C16H18N2O4S'
+  molInfo2: 'Molar Mass: 334.4 g/mol'
+  molInfo3: "Melting Point: 82\u201383 \xBAC"
+  molInfo4: 'Boiling Point: Unknown'
   moleculeSubType: 1
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -8759,10 +8779,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C6H12
-  molarMass: 84.162 g/mol
-  meltingPoint: "6.47 \xB0C"
-  boilingPoint: "80.74 \xB0C"
+  molInfo1: 'Formula: C6H12'
+  molInfo2: 'Molar Mass: 84.16 g/mol'
+  molInfo3: "Melting Point: 6.47 \xB0C "
+  molInfo4: "Boiling Point: 80.74 \xB0C"
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -8941,10 +8961,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: C13H18O2
-  molarMass: 206.285 g/mol
-  meltingPoint: "75 to 78 \xB0C"
-  boilingPoint: "157 \xB0C"
+  molInfo1: 'Formula: C13H18O2'
+  molInfo2: 'Molar Mass: 206.29 g/mol'
+  molInfo3: "Melting Point: 75-77.5 \xBAC"
+  molInfo4: "Boiling Point: 157 \xBAC"
   moleculeSubType: 1
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
@@ -9545,10 +9565,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  chemFormula: Haemoglobin
-  molarMass: 
-  meltingPoint: 
-  boilingPoint: 
+  molInfo1: 'Protein type: Globulin'
+  molInfo2: 'Function: Oxygen Transport'
+  molInfo3: 'Co-factor: Heme'
+  molInfo4: 
   moleculeSubType: 0
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}

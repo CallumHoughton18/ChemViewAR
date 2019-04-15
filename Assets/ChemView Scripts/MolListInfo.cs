@@ -7,10 +7,10 @@ public class MolListInfo : MonoBehaviour {
 
     public Text molName;
     public Image molpreviewImage;
-    public Text molarMass;
-    public Text chemFormula;
-    public Text meltingPoint;
-    public Text boilingPoint;
+    public Text subText1;
+    public Text subText2;
+    public Text subText3;
+    public Text subText4;
 
 	// Use this for initialization
 	void Start () {
@@ -26,10 +26,10 @@ public class MolListInfo : MonoBehaviour {
     {
         MoleculeController selectedMol = chemviewController.loadedChemModel.GetComponentInChildren<MoleculeController>();
         molName.text = selectedMol.moleculeName;
-        molarMass.text = "Molar Mass: " + selectedMol.molarMass;
-        chemFormula.text = "Chemical Formula: " + selectedMol.chemFormula;
-        meltingPoint.text = "Melting Point: " + selectedMol.meltingPoint;
-        boilingPoint.text = "Boiling Point: " + selectedMol.boilingPoint;
+        subText1.text = selectedMol.molInfo1;
+        subText2.text = selectedMol.molInfo2;
+        subText3.text = selectedMol.molInfo3;
+        subText4.text = selectedMol.molInfo4;
         molpreviewImage.sprite = selectedMol.molpreviewImage;
 
 
