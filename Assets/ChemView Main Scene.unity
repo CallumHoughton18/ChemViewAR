@@ -164,6 +164,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.125
       objectReference: {fileID: 0}
+    - target: {fileID: 1903952323822346, guid: 02ec7faa3636b854690a05713014238a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ec7faa3636b854690a05713014238a, type: 2}
   m_IsPrefabParent: 0
@@ -208,7 +212,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 98215c7aa2f6f494894e18902ea11bc9, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -1960,7 +1964,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 21a613152ec34ec44b5037c9391331a9, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -2291,6 +2295,12 @@ Prefab:
       propertyPath: molInfo4
       value: "Boiling Point: 56.05 \xB0C"
       objectReference: {fileID: 0}
+    - target: {fileID: 114546693485563592, guid: 3c780e07486284e43b21438c23ae48a2,
+        type: 2}
+      propertyPath: molImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a5da1689b7f6fa4f8ae4f8bae2a8af4,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 122856692839758284, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3c780e07486284e43b21438c23ae48a2, type: 2}
@@ -2532,7 +2542,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 296eb1a05fd1d2e4f8e3a41dc70b8e53, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -2877,7 +2887,7 @@ MonoBehaviour:
     is 1.4 angstroms.  Silicon buckyballs have been created around metal ions.
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 67f450f0bc8f04943af5542e7b425cd3, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -3101,7 +3111,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 5d75ea8e3412d524e8b88a523a3352bb, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -3542,7 +3552,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: ac6dfde9cd761e043933922ae6299a4d, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -4422,7 +4432,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 8a518b09bf1e1a74ebc2bcd5568b9222, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -5362,7 +5372,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: fbf430046ade173479771a452b81e51c, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -5964,10 +5974,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   molName: {fileID: 1377403002}
   molpreviewImage: {fileID: 2032163645}
-  subText1: {fileID: 0}
-  subText2: {fileID: 0}
-  subText3: {fileID: 0}
-  subText4: {fileID: 0}
+  subText1: {fileID: 2080880804}
+  subText2: {fileID: 2119688110}
+  subText3: {fileID: 359124643}
+  subText4: {fileID: 647263961}
 --- !u!114 &1399912319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6603,7 +6613,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: a8aee8a00ed73894a8f0c782a7b3613f, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -6917,7 +6927,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 2a6a5830ecd5e2645948bc0d4584c850, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -7522,7 +7532,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 435c52b4448bcdb468c6267d00fdee8f, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -8043,7 +8053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: -0.0015792847}
+  m_AnchoredPosition: {x: -0.60220337, y: 0.00035858154}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -8980,7 +8990,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 58cecf257ee989642b5fbfd93831f4fd, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
