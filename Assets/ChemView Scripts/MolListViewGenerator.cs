@@ -95,6 +95,7 @@ public class MolListViewGenerator : MonoBehaviour
         GameObject newSelectedMol = molsList.Where(mol => mol.name == molClicked).FirstOrDefault();
         chemViewController.loadedChemModel = newSelectedMol;
         molListInfoSheet.SetMolSelectInfoSheet(chemViewController);
+        ChemviewHelper.ShowAndroidToastMessage(molClicked + " set as spawnable molecule");
     }
 
     private void _ShowAndroidToastMessage(string message)

@@ -14,7 +14,6 @@ public class MolListInfo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -30,7 +29,7 @@ public class MolListInfo : MonoBehaviour {
         subText2.text = selectedMol.molInfo2;
         subText3.text = selectedMol.molInfo3;
         subText4.text = selectedMol.molInfo4;
-        molpreviewImage.sprite = selectedMol.molpreviewImage;
+        molpreviewImage.sprite = selectedMol.molImage;
 
 
     }

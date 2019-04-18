@@ -1,14 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ChemviewHelper {
-    public enum MoleculeSubType { Basic, Drugs, Enantiomers, All}
+public static class ChemviewHelper
+{
+    public enum MoleculeSubType { Basic, Biochemical, Enantiomers, Inorganic, Proteins, All}
     public enum CollisionDirection { Top, Bottom, None}
 
     public static T ParseEnum<T>(string value)
     {
-        return (T)MoleculeSubType.Parse(typeof(T), value, true);
+        return (T)Enum.Parse(typeof(T), value, true);
     }
 
     public static void ShowAndroidToastMessage(string message)

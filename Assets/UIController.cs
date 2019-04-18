@@ -128,6 +128,7 @@ public class UIController : MonoBehaviour
                 molSelect.transform.position = camera.transform.position + (camera.transform.forward * 1);
                 molSelect.transform.rotation = camera.transform.rotation;
                 molSelect.GetComponentInChildren<MolListViewGenerator>().GenListItems(molsList, ChemController);
+                molSelect.GetComponentInChildren<MolListViewGenerator>().molListInfoSheet.SetMolSelectInfoSheet(ChemController);
             }
 
             else if (!spawnSheet && molSelect != null)

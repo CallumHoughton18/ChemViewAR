@@ -548,7 +548,7 @@ MonoBehaviour:
   molInfo2: 'Molar Mass: 61.979 g/mol'
   molInfo3: "Melting Point: 1,132 \xB0C"
   molInfo4: "Boiling Point: 1,950 \xB0C"
-  moleculeSubType: 0
+  moleculeSubType: 3
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -563,11 +563,11 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: ca596794a9fd7404993df35da118a5a4, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.2
+  HighlightThicknessFactor: 0.12
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -772,7 +772,7 @@ MonoBehaviour:
   molInfo2: 'Molar Mass: 229.8 g/mol'
   molInfo3: 
   molInfo4: 
-  moleculeSubType: 0
+  moleculeSubType: 3
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -784,14 +784,18 @@ MonoBehaviour:
   rotateMolecule: 0
   userRotatingMolecule: 0
   moleculeName: Lithium Bismuthide
-  moleculeInfo: 
+  moleculeInfo: ithium Bismuthide belongs to a inorganic group of molecules called
+    bismuthides, which are compounds of bismuth with more electropositive elements.
+    They are intermetallic compounds, contaiing partially metallic and partially ionic
+    bonds. alkali-metal bismuth compounds occur in many complex compositions favorable
+    for high performance semi-conductors.
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: a182d2944c4b25740a79b86cb7aa5856, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.2
+  HighlightThicknessFactor: 0.6
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -953,7 +957,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4388317177086504, guid: a90134b5c46a01f41aa8e8ea11b7bdd4, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4388317177086504, guid: a90134b5c46a01f41aa8e8ea11b7bdd4, type: 2}
       propertyPath: m_LocalScale.x
@@ -1015,7 +1019,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 4f6b8ce82f1851f4aa0d2050ab762c9b, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -1188,7 +1192,7 @@ Transform:
   m_Children:
   - {fileID: 2095003916}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 15
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &209310123
 GameObject:
@@ -1216,30 +1220,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1825905491}
-  - {fileID: 1236014708}
-  - {fileID: 1745699048}
-  - {fileID: 1205726297}
-  - {fileID: 755695456}
   - {fileID: 434135591}
   - {fileID: 1538057394}
-  - {fileID: 1030882665}
-  - {fileID: 578359281}
+  - {fileID: 2003602434}
+  - {fileID: 1444529622}
   - {fileID: 1430685288}
-  - {fileID: 1452187714}
-  - {fileID: 924451977}
+  - {fileID: 1236014708}
+  - {fileID: 1745699048}
+  - {fileID: 578359281}
   - {fileID: 1343175716}
-  - {fileID: 2118090146}
   - {fileID: 934643190}
-  - {fileID: 201505735}
+  - {fileID: 2118090146}
+  - {fileID: 1452187714}
+  - {fileID: 1205726297}
+  - {fileID: 755695456}
+  - {fileID: 1030882665}
   - {fileID: 1268536548}
   - {fileID: 133093604}
   - {fileID: 1173114168}
   - {fileID: 958784193}
   - {fileID: 1378793512}
   - {fileID: 1905292836}
-  - {fileID: 2003602434}
-  - {fileID: 1444529622}
   - {fileID: 1238070323}
+  - {fileID: 924451977}
+  - {fileID: 201505735}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1686,7 +1690,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Melting Point: '
+  m_Text: 
 --- !u!222 &359124644
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1773,7 +1777,7 @@ MonoBehaviour:
   molInfo2: 'Molar Mass: 79.88 g/mol'
   molInfo3: "Melting Point: 1,843 \xB0C"
   molInfo4: "Boiling Point: 2,972 \xB0C"
-  moleculeSubType: 0
+  moleculeSubType: 3
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -1788,11 +1792,11 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 9ca80121209aa044f8e133a4f76b8758, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.2
+  HighlightThicknessFactor: 0.04
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -1869,7 +1873,7 @@ Transform:
   m_Children:
   - {fileID: 1596593798}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460693493
 GameObject:
@@ -1949,7 +1953,7 @@ MonoBehaviour:
   molInfo2: 'Organism(s): Zaire ebolavirus'
   molInfo3: 'Expression System: Homo sapiens'
   molInfo4: 
-  moleculeSubType: 0
+  moleculeSubType: 4
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -2546,7 +2550,7 @@ MonoBehaviour:
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.5
+  HighlightThicknessFactor: 0.3
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -2791,7 +2795,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boiling Point
+  m_Text: 
 --- !u!222 &647263962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2985,7 +2989,7 @@ MonoBehaviour:
   molInfo2: 'Molar Mass: 195.26 g/mol'
   molInfo3: "Melting Point: 721 \xB0C"
   molInfo4: "Boiiling Point: 1,507 \xB0C"
-  moleculeSubType: 0
+  moleculeSubType: 3
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -3000,11 +3004,11 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 157565f99fedb3148a85c0b26020d395, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.2
+  HighlightThicknessFactor: 0.04
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -3365,10 +3369,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
   molInfo1: 'Classification: CHAPERONE'
-  molInfo2: 'Expression System: Escherichia coli '
-  molInfo3: "Resolution: 2.3 \xC5"
+  molInfo2: "Resolution: 2.3 \xC5"
+  molInfo3: 'Expression System: Escherichia coli'
   molInfo4: 
-  moleculeSubType: 0
+  moleculeSubType: 4
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -3383,7 +3387,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 0a019da401f394e4fa83054c1f7c00e7, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -3418,7 +3422,7 @@ Transform:
   m_Children:
   - {fileID: 1805732469}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 4
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &772842041
 Prefab:
@@ -3537,7 +3541,7 @@ MonoBehaviour:
   molInfo2: 'Molar Mass: 58.443 g/mol'
   molInfo3: "Melting Point: 800.7 \xB0C"
   molInfo4: "Boiling Point: 1465 \xB0C"
-  moleculeSubType: 0
+  moleculeSubType: 3
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -3821,7 +3825,7 @@ Transform:
   m_Children:
   - {fileID: 460693494}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 11
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &934643189
 GameObject:
@@ -3850,7 +3854,7 @@ Transform:
   m_Children:
   - {fileID: 1942747551}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 14
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955390901
 GameObject:
@@ -4188,7 +4192,7 @@ Transform:
   m_Children:
   - {fileID: 853783440}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 7
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040508568
 GameObject:
@@ -4760,7 +4764,7 @@ Transform:
   m_Children:
   - {fileID: 1065580199}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 3
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1215342055
 GameObject:
@@ -4923,7 +4927,7 @@ Transform:
   m_Children:
   - {fileID: 2020568834}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238070322
 GameObject:
@@ -4952,7 +4956,7 @@ Transform:
   m_Children:
   - {fileID: 697666411}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 24
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268536547
 GameObject:
@@ -5376,7 +5380,7 @@ MonoBehaviour:
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.125
+  HighlightThicknessFactor: 0.15
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -5528,7 +5532,7 @@ Transform:
   m_Children:
   - {fileID: 1679656928}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345111303
 GameObject:
@@ -5749,7 +5753,7 @@ MonoBehaviour:
   molInfo2: 'Molar Mass: 78.07 g/mol'
   molInfo3: "Melting Point: 1,418 \xB0C"
   molInfo4: "Boiling Point: 2,533 \xB0C"
-  moleculeSubType: 0
+  moleculeSubType: 3
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -5764,11 +5768,11 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: e47a4fa29a53f0e419a6da59ce4c6e82, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.2
+  HighlightThicknessFactor: 0.14
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -6086,7 +6090,7 @@ Transform:
   m_Children:
   - {fileID: 647771238}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432231723 stripped
 GameObject:
@@ -6171,7 +6175,7 @@ Transform:
   m_Children:
   - {fileID: 1982544292}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 23
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452187713
 GameObject:
@@ -6200,7 +6204,7 @@ Transform:
   m_Children:
   - {fileID: 7504133}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478474224
 Prefab:
@@ -6379,7 +6383,7 @@ Transform:
   m_Children:
   - {fileID: 599798042}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1539381992
 Prefab:
@@ -6865,7 +6869,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4604242855300176, guid: a5d1ad010b602134187246cb1acca568, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4604242855300176, guid: a5d1ad010b602134187246cb1acca568, type: 2}
       propertyPath: m_LocalScale.x
@@ -6908,7 +6912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   molpreviewImage: {fileID: 0}
-  molInfo1: 'Formula: PropertieFormula: C12H17N2O4P'
+  molInfo1: 'Formula: C12H17N2O4P'
   molInfo2: 'Molar Mass: 284.252 g/mol'
   molInfo3: "Melting Point: 220\u2013228 \xB0C"
   molInfo4: "Boiling Point: 523.4 \xB0C"
@@ -7061,7 +7065,7 @@ MonoBehaviour:
   molInfo2: 'Molar Mass: 79.88 g/mol'
   molInfo3: "Melting Point: 1,843 \xB0C"
   molInfo4: "Boiling Point: 2,972 \xB0C"
-  moleculeSubType: 0
+  moleculeSubType: 3
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -7076,7 +7080,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: fc1ca28b0e3c9054b8470e46146f8ba6, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -7241,7 +7245,7 @@ Transform:
   m_Children:
   - {fileID: 1318194733}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1759795985
 GameObject:
@@ -7821,7 +7825,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 4b099221853723f488fe42c6d26f461b, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -8053,7 +8057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.60220337, y: 0.00035858154}
+  m_AnchoredPosition: {x: -0.60220337, y: -0.0019569397}
   m_SizeDelta: {x: 3.2001953, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1868279206
@@ -8587,11 +8591,11 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 70ad88539e45c1e4886b8c8476b28d86, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.125
+  HighlightThicknessFactor: 0.0875
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -8808,7 +8812,7 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: bf412b6874ff1194781ad23d36bc780d, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
@@ -8843,7 +8847,7 @@ Transform:
   m_Children:
   - {fileID: 1822210762}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 22
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2003610692
 Prefab:
@@ -9159,13 +9163,13 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2032163643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 317955881}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 11.4}
@@ -9579,7 +9583,7 @@ MonoBehaviour:
   molInfo2: 'Function: Oxygen Transport'
   molInfo3: 'Co-factor: Heme'
   molInfo4: 
-  moleculeSubType: 0
+  moleculeSubType: 4
   collisionDirection: 2
   planePosition: {x: 0, y: 0, z: 0}
   initialFingersDistance: 0
@@ -9594,11 +9598,11 @@ MonoBehaviour:
   moleculeInfo: 
   molInfoSheet: {fileID: 1665474879346868, guid: 769801f04642c1c468ad23f6bed0e93e,
     type: 2}
-  molImage: {fileID: 0}
+  molImage: {fileID: 21300000, guid: 8ace54cd6cc3b2c43928bc6904299444, type: 3}
   displayingInfoSheet: 0
   isScaling: 0
   MainController: {fileID: 627916104}
-  HighlightThicknessFactor: 0.09375
+  HighlightThicknessFactor: 0.13125
   moleculeBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -9629,7 +9633,7 @@ Transform:
   m_Children:
   - {fileID: 137602787}
   m_Father: {fileID: 209310124}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2119688108
 GameObject:
@@ -9701,7 +9705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Molar Mass: '
+  m_Text: 
 --- !u!222 &2119688111
 CanvasRenderer:
   m_ObjectHideFlags: 0
